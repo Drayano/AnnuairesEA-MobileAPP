@@ -3,7 +3,10 @@ import 'package:carousel_slider/carousel_slider.dart';
 
 class PlacesPictures extends StatefulWidget {
   final List imageList;
-  PlacesPictures({Key? key, required this.imageList}) : super(key: key);
+  const PlacesPictures({
+    Key? key,
+    required this.imageList,
+  }) : super(key: key);
   @override
   _PlacesPicturesState createState() => _PlacesPicturesState();
 }
@@ -19,9 +22,11 @@ class _PlacesPicturesState extends State<PlacesPictures> {
   ];
 
   onPageChanged(index) {
-    setState(() {
-      _current = index;
-    });
+    setState(
+      () {
+        _current = index;
+      },
+    );
   }
 
   @override
@@ -33,20 +38,22 @@ class _PlacesPicturesState extends State<PlacesPictures> {
       viewportFraction: 0.8,
       height: isPortrait ? (height / 100) * 48 : height * .7,
       items: widget.imageList != null
-          ? places.map((i) {
-              return Builder(
-                builder: (BuildContext context) {
-                  return Container(
-                    color: Colors.red,
-                    margin: EdgeInsets.symmetric(horizontal: 5.0),
-                    child: Image(
-                      image: AssetImage(i),
-                      fit: BoxFit.cover,
-                    ),
-                  );
-                },
-              );
-            }).toList()
+          ? places.map(
+              (i) {
+                return Builder(
+                  builder: (BuildContext context) {
+                    return Container(
+                      color: Colors.red,
+                      margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                      child: Image(
+                        image: AssetImage(i),
+                        fit: BoxFit.cover,
+                      ),
+                    );
+                  },
+                );
+              },
+            ).toList()
           : [],
       autoPlay: false,
       enableInfiniteScroll: false,

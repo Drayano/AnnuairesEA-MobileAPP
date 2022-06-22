@@ -7,25 +7,23 @@ class HotelModel {
   final String address;
   final double rating;
 
-  HotelModel(
-      {
-        required this.name,
-        required this.image,
-        required this.detail,
-        required this.price,
-        required this.shortDetail,
-        required this.address,
-        required this.rating
-      }
-    );
+  HotelModel({
+    required this.name,
+    required this.image,
+    required this.detail,
+    required this.price,
+    required this.shortDetail,
+    required this.address,
+    required this.rating,
+  });
 
   factory HotelModel.fromJson(Map<String, dynamic> json) => HotelModel(
-    name: json['name'],
-    image: json['image'],
-    detail: json['detail'],
-    price: json['price'],
-    shortDetail: json['shortDetail'],
-    address: json['address'],
-    rating: json['rating'],
-  );
+        name: json['name'],
+        image: json['image'],
+        detail: json['detail'],
+        price: json['price'],
+        shortDetail: json['shortDetail'],
+        address: json['address'],
+        rating: json['rating'],
+      );
 }

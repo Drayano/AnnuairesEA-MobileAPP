@@ -7,16 +7,20 @@ class HomeProvider with ChangeNotifier {
   List<Attraction> topRatedPlaces = [];
 
   getAttractionSuggestionList() async {
-    await getSuggestionsData().then((res) {
-      suggestionList = res;
-    });
+    await getSuggestionsData().then(
+      (res) {
+        suggestionList = res;
+      },
+    );
     notifyListeners();
   }
 
   getTopRatedPlacesList() async {
-    await getTopRatedData().then((res) {
-      topRatedPlaces = res;
-    });
+    await getTopRatedData().then(
+      (res) {
+        topRatedPlaces = res;
+      },
+    );
     notifyListeners();
   }
 }

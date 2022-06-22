@@ -6,8 +6,10 @@ class AttractionProvider with ChangeNotifier {
   List<AttractionCategory> attractionList = [];
 
   getAttractionCategoryList() {
-    getAttractionData().then((res) {
-      attractionList = res;
-    });
+    getAttractionData().then(
+      (res) {
+        attractionList = res;
+      },
+    );
   }
 }

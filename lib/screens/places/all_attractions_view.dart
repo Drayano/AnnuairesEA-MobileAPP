@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:aea_app/providers/attraction_provider.dart';
-import 'package:aea_app/screens/places/attraction-list.dart';
-import 'package:aea_app/widgets/attractions/attraction-card.dart';
+import 'package:aea_app/screens/places/attraction_list.dart';
+import 'package:aea_app/widgets/attractions/attraction_card.dart';
 
 class AllAttractionsView extends StatefulWidget {
-  AllAttractionsView({required Key key}) : super(key: key);
+  const AllAttractionsView({
+    required Key key,
+  }) : super(key: key);
 
   @override
   _AllAttractionsViewState createState() => _AllAttractionsViewState();
@@ -21,7 +23,11 @@ class _AllAttractionsViewState extends State<AllAttractionsView> {
     Navigator.push(
       context,
       MaterialPageRoute(
-          builder: (context) => AttractionListView(data: data, title: title)),
+        builder: (context) => AttractionListView(
+          data: data,
+          title: title,
+        ),
+      ),
     );
   }
 
@@ -33,7 +39,7 @@ class _AllAttractionsViewState extends State<AllAttractionsView> {
     return Scaffold(
       body: ListView.builder(
         itemCount: attProvider.attractionList.length,
-        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
         itemBuilder: (context, index) {
           if (attProvider.attractionList != null) {
             return attractionSection(
@@ -42,7 +48,7 @@ class _AllAttractionsViewState extends State<AllAttractionsView> {
           } else {
             return Container(
               height: height,
-              child: Center(
+              child: const Center(
                 child: CircularProgressIndicator(),
               ),
             );
@@ -66,39 +72,43 @@ class _AllAttractionsViewState extends State<AllAttractionsView> {
                 Expanded(
                   flex: 2,
                   child: Container(
-                    margin: EdgeInsets.only(top: 18, bottom: 18, left: 5),
+                    margin: const EdgeInsets.only(top: 18, bottom: 18, left: 5),
                     child: Text(
                       title,
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
                 Expanded(
-                    flex: 0,
-                    child: Container(
-                      child: Icon(Icons.arrow_forward),
-                    )),
+                  flex: 0,
+                  child: Container(
+                    child: const Icon(Icons.arrow_forward),
+                  ),
+                ),
               ],
             ),
           ),
           Container(
-              height: 170,
-              child: ListView.builder(
-                itemCount: data.length,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return Container(
-                    width: 190,
-                    margin: EdgeInsets.only(right: 8),
-                    child: AttractionCard(
-                        img: "assets/" + data[index].image,
-                        name: data[index].name,
-                        country: data[index].country,
-                        detail: data[index].detail),
-                  );
-                },
-              ))
+            height: 170,
+            child: ListView.builder(
+              itemCount: data.length,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return Container(
+                  width: 190,
+                  margin: const EdgeInsets.only(right: 8),
+                  child: AttractionCard(
+                      img: "assets/" + data[index].image,
+                      name: data[index].name,
+                      country: data[index].country,
+                      detail: data[index].detail),
+                );
+              },
+            ),
+          )
         ],
       ),
     );

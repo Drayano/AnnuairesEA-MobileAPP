@@ -4,11 +4,15 @@ import 'package:provider/single_child_widget.dart';
 import 'package:aea_app/providers/attraction_provider.dart';
 import 'package:aea_app/providers/home_provider.dart';
 import 'package:aea_app/providers/hotel_provider.dart';
-import 'package:aea_app/screens/tab-navigation-view.dart';
+import 'package:aea_app/screens/tab_navigation_view.dart';
 
-void main() => runApp(TravelApp());
+void main() => runApp(const TravelApp());
 
 class TravelApp extends StatelessWidget {
+  const TravelApp({
+    Key? key,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -17,11 +21,14 @@ class TravelApp extends StatelessWidget {
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-            primarySwatch: Colors.blue,
-            appBarTheme: AppBarTheme(color: Color.fromRGBO(41, 182, 246, 1)),
-            scaffoldBackgroundColor: Colors.white,
-            fontFamily: 'Lato'),
-        home: TabNavigationView(),
+          primarySwatch: Colors.blue,
+          appBarTheme: const AppBarTheme(
+            color: Color.fromRGBO(41, 182, 246, 1),
+          ),
+          scaffoldBackgroundColor: Colors.white,
+          fontFamily: 'Lato',
+        ),
+        home: const TabNavigationView(),
       ),
     );
   }
@@ -30,6 +37,7 @@ class TravelApp extends StatelessWidget {
 List<SingleChildWidget> providers = [
   ChangeNotifierProvider<HomeProvider>(create: (_) => HomeProvider()),
   ChangeNotifierProvider<AttractionProvider>(
-      create: (_) => AttractionProvider()),
+    create: (_) => AttractionProvider(),
+  ),
   ChangeNotifierProvider<HotelProvider>(create: (_) => HotelProvider()),
 ];

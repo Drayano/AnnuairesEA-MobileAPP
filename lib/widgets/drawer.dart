@@ -5,18 +5,18 @@ Widget drawer(BuildContext context) {
     child: ListView(
       padding: EdgeInsets.zero,
       children: <Widget>[
-        DrawerHeader(
-          child: Text('Drawer Header'),
+        const DrawerHeader(
           decoration: BoxDecoration(
             color: Colors.blue,
           ),
+          child: Text('Drawer Header'),
         ),
         ListTile(
-          title: Text('Item 1'),
+          title: const Text('Item 1'),
           onTap: () {},
         ),
         ListTile(
-          title: Text('Item 2'),
+          title: const Text('Item 2'),
           onTap: () {},
         ),
       ],

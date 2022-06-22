@@ -6,9 +6,11 @@ class HotelProvider with ChangeNotifier {
   List<HotelModel> hotelList = [];
 
   getHotelDataList() async {
-    await getHotelList().then((res) {
-      hotelList = res;
-    });
+    await getHotelList().then(
+      (res) {
+        hotelList = res;
+      },
+    );
     notifyListeners();
   }
 }
