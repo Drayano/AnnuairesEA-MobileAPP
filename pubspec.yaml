@@ -40,6 +40,8 @@ dependencies:
   flutter_feather_icons: ^1.0.3
   flutter_signin_button: ^1.0.0
   flutter_rating_bar: ^3.0.1+1
+  syncfusion_flutter_pdfviewer: ^18.4.49-beta
+  
 
 dev_dependencies:
   flutter_test:
@@ -73,6 +75,7 @@ flutter:
     - assets/data_resources/
     - assets/home/
     - assets/hotels/
+    - assets/pdf/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

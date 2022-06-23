@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'package:aea_app/global/styles.dart';
+
 import 'package:aea_app/providers/attraction_provider.dart';
 import 'package:aea_app/providers/home_provider.dart';
 import 'package:aea_app/providers/hotel_provider.dart';
+
 import 'package:aea_app/screens/home.dart';
 import 'package:aea_app/screens/places/all_attractions_view.dart';
-import 'package:aea_app/global/styles.dart';
-
-import 'hotels/near_by_hotels.dart';
+import 'package:aea_app/screens/hotels/near_by_hotels.dart';
+import 'package:aea_app/screens/annuaire_pdf/annuaire_view.dart';
 
 class TabNavigationView extends StatefulWidget {
   const TabNavigationView({
@@ -44,9 +47,10 @@ class _TabNavigationView extends State<TabNavigationView> {
   @override
   Widget build(BuildContext context) {
     List<Widget> _children = <Widget>[
-      HomePage(key: const PageStorageKey('home')),
-      AllAttractionsView(key: const PageStorageKey('attractions')),
-      HotelListView(key: const PageStorageKey('hotels'))
+      const HomePage(key: PageStorageKey('home')),
+      const AllAttractionsView(key: PageStorageKey('attractions')),
+      const HotelListView(key: PageStorageKey('hotels')),
+      const AnnuairePDFView(key: PageStorageKey("pdf"))
     ];
 
     return Scaffold(
@@ -85,6 +89,16 @@ class _TabNavigationView extends State<TabNavigationView> {
               ),
             ),
             label: "Hotels",
+          ),
+          BottomNavigationBarItem(
+            icon: SizedBox(
+              height: 24,
+              child: Icon(
+                Icons.menu_book_rounded,
+                size: 20.0,
+              ),
+            ),
+            label: "PDF",
           ),
         ],
         currentIndex: _selectedIndex,
