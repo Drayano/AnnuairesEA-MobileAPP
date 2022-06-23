@@ -35,8 +35,6 @@ class _PlacesPicturesState extends State<PlacesPictures> {
     var isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
 
     final slider = CarouselSlider(
-      viewportFraction: 0.8,
-      height: isPortrait ? (height / 100) * 48 : height * .7,
       items: widget.imageList != null
           ? places.map(
               (i) {
@@ -55,11 +53,14 @@ class _PlacesPicturesState extends State<PlacesPictures> {
               },
             ).toList()
           : [],
-      autoPlay: false,
-      enableInfiniteScroll: false,
-      aspectRatio: 2.0,
-      onPageChanged: onPageChanged,
-      enlargeCenterPage: true,
+      options: CarouselOptions(
+        viewportFraction: 0.8,
+        height: isPortrait ? (height / 100) * 48 : height * .7,
+        autoPlay: false,
+        enableInfiniteScroll: false,
+        aspectRatio: 2.0,
+        enlargeCenterPage: true,
+      ),
     );
 
     return Container(
