@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:aea_app/screens/annuaire_pdf/pdf_view.dart';
+import 'package:aea_app/screens/places/single_place_detail.dart';
 
-Widget secteurSection(data, double availableHeight) {
+Widget secteurSection(data, String title, bool pdfview, [double? availableHeight]) {
   return Column(
     children: <Widget>[
+      Text(title),
       SizedBox(
         height: availableHeight,
         child: GridView.builder(
@@ -22,6 +24,8 @@ Widget secteurSection(data, double availableHeight) {
                 "assets/${data[index].image}",
                 data[index].name,
                 data[index].pdfid,
+                data[index].detail,
+                pdfview,
               ),
             );
           },
@@ -32,18 +36,31 @@ Widget secteurSection(data, double availableHeight) {
 }
 
 Widget secteurCard(
-    BuildContext context, String img, String name, String pdfid) {
+    BuildContext context, String img, String name, String pdfid, String detail, bool pdfview) {
   navigateAttractionList() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => SecteurPDFView(
-          image: img,
-          name: name,
-          pdfid: pdfid,
+    if (pdfview) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => SecteurPDFView(
+            image: img,
+            name: name,
+            pdfid: pdfid,
+          ),
         ),
-      ),
-    );
+      );
+    } else if (!pdfview) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => SinglePlaceDetail(
+            image: img,
+            name: name,
+            detail: detail,
+          ),
+        ),
+      );
+    }
   }
 
   return Card(
