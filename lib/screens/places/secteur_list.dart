@@ -11,7 +11,7 @@ class SecteurListView extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _SecteurListViewState createState() => _SecteurListViewState();
+  State<SecteurListView> createState() => _SecteurListViewState();
 }
 
 class _SecteurListViewState extends State<SecteurListView> {
@@ -30,7 +30,7 @@ class _SecteurListViewState extends State<SecteurListView> {
         ),
         itemBuilder: (context, index) {
           return SecteurCard(
-            img: "assets/" + widget.data[index].image,
+            img: "assets/${widget.data[index].image}",
             name: widget.data[index].name,
             detail: widget.data[index].detail,
           );

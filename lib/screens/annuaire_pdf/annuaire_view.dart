@@ -11,16 +11,17 @@ class AnnuairePDFView extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _AnnuairePDFViewState createState() => _AnnuairePDFViewState();
+  State<AnnuairePDFView> createState() => _AnnuairePDFViewState();
 }
 
 class _AnnuairePDFViewState extends State<AnnuairePDFView> {
   @override
   Widget build(BuildContext context) {
     final homeProvider = Provider.of<HomeProvider>(context);
+    double height = MediaQuery.of(context).size.height - 56;
 
     return Scaffold(
-      body: secteurSection(homeProvider.secteurs),
+      body: secteurSection(homeProvider.secteurs, height),
     );
   }
 }

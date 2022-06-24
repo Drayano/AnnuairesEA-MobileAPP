@@ -18,7 +18,7 @@ class TabNavigationView extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _TabNavigationView createState() => _TabNavigationView();
+  State<TabNavigationView> createState() => _TabNavigationView();
 }
 
 class _TabNavigationView extends State<TabNavigationView> {
@@ -45,7 +45,7 @@ class _TabNavigationView extends State<TabNavigationView> {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> _children = <Widget>[
+    List<Widget> children = <Widget>[
       const HomePage(key: PageStorageKey('home')),
       const AllSecteursView(key: PageStorageKey('secteurs')),
       const HotelListView(key: PageStorageKey('hotels')),
@@ -55,7 +55,7 @@ class _TabNavigationView extends State<TabNavigationView> {
     return Scaffold(
       body: PageStorage(
         bucket: _bucket,
-        child: _children.elementAt(_selectedIndex),
+        child: children.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[

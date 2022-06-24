@@ -8,11 +8,11 @@ class PlacesPictures extends StatefulWidget {
     required this.imageList,
   }) : super(key: key);
   @override
-  _PlacesPicturesState createState() => _PlacesPicturesState();
+  State<PlacesPictures> createState() => _PlacesPicturesState();
 }
 
 class _PlacesPicturesState extends State<PlacesPictures> {
-  int _current = 0;
+  // int _current = 0;
   List places = [
     "img001.jpg",
     "img002.jpg",
@@ -24,7 +24,7 @@ class _PlacesPicturesState extends State<PlacesPictures> {
   onPageChanged(index) {
     setState(
       () {
-        _current = index;
+        // _current = index;
       },
     );
   }
@@ -35,24 +35,22 @@ class _PlacesPicturesState extends State<PlacesPictures> {
     var isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
 
     final slider = CarouselSlider(
-      items: widget.imageList != null
-          ? places.map(
-              (i) {
-                return Builder(
-                  builder: (BuildContext context) {
-                    return Container(
-                      color: Colors.red,
-                      margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                      child: Image(
-                        image: AssetImage(i),
-                        fit: BoxFit.cover,
-                      ),
-                    );
-                  },
-                );
-              },
-            ).toList()
-          : [],
+      items: places.map(
+        (i) {
+          return Builder(
+            builder: (BuildContext context) {
+              return Container(
+                color: Colors.red,
+                margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                child: Image(
+                  image: AssetImage(i),
+                  fit: BoxFit.cover,
+                ),
+              );
+            },
+          );
+        },
+      ).toList(),
       options: CarouselOptions(
         viewportFraction: 0.8,
         height: isPortrait ? (height / 100) * 48 : height * .7,
@@ -63,10 +61,8 @@ class _PlacesPicturesState extends State<PlacesPictures> {
       ),
     );
 
-    return Container(
-      child: Column(
-        children: <Widget>[slider],
-      ),
+    return Column(
+      children: <Widget>[slider],
     );
   }
 }

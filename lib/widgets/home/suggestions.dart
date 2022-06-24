@@ -3,61 +3,58 @@ import 'package:flutter/material.dart';
 import 'package:aea_app/screens/places/single_place_detail.dart';
 
 Widget secteurSection(data, String title) {
-  return Container(
-    child: Column(
-      children: <Widget>[
-        InkWell(
-          onTap: () {},
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            children: <Widget>[
-              Expanded(
-                flex: 2,
-                child: Container(
-                  margin: const EdgeInsets.only(top: 8, bottom: 18, left: 5),
-                  child: Text(
-                    title,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
+  return Column(
+    children: <Widget>[
+      InkWell(
+        onTap: () {},
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          children: <Widget>[
+            Expanded(
+              flex: 2,
+              child: Container(
+                margin: const EdgeInsets.only(top: 8, bottom: 18, left: 5),
+                child: Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
-              Expanded(
-                flex: 0,
-                child: Container(
-                  child: const Icon(Icons.arrow_forward),
-                ),
-              ),
-            ],
-          ),
+            ),
+            const Expanded(
+              flex: 0,
+              child: Icon(Icons.arrow_forward),
+            ),
+          ],
         ),
-        Container(
-          height: 160,
-          child: ListView.builder(
-            itemCount: data.length,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) {
-              return Container(
-                width: 160,
-                margin: const EdgeInsets.only(right: 4),
-                child: secteurCard(
-                  context,
-                  "assets/" + data[index].image,
-                  data[index].name,
-                  data[index].detail,
-                ),
-              );
-            },
-          ),
-        )
-      ],
-    ),
+      ),
+      SizedBox(
+        height: 160,
+        child: ListView.builder(
+          itemCount: data.length,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (context, index) {
+            return Container(
+              width: 160,
+              margin: const EdgeInsets.only(right: 4),
+              child: secteurCard(
+                context,
+                "assets/${data[index].image}",
+                data[index].name,
+                data[index].detail,
+              ),
+            );
+          },
+        ),
+      )
+    ],
   );
 }
 
-Widget secteurCard(BuildContext context, String img, String name, String detail) {
+Widget secteurCard(
+    BuildContext context, String img, String name, String detail) {
   navigateAttractionList() {
     Navigator.push(
       context,

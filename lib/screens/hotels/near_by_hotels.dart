@@ -11,7 +11,7 @@ class HotelListView extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _HotelListViewState createState() => _HotelListViewState();
+  State<HotelListView> createState() => _HotelListViewState();
 }
 
 class _HotelListViewState extends State<HotelListView> {
@@ -24,25 +24,23 @@ class _HotelListViewState extends State<HotelListView> {
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  margin: const EdgeInsets.only(top: 50, left: 20),
-                  child: const Text(
-                    "Find a place to stay...",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                margin: const EdgeInsets.only(top: 50, left: 20),
+                child: const Text(
+                  "Find a place to stay...",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                Container(
-                  height: 40,
-                ),
-              ],
-            ),
+              ),
+              Container(
+                height: 40,
+              ),
+            ],
           ),
           isPortrait
               ? Container(
@@ -51,15 +49,13 @@ class _HotelListViewState extends State<HotelListView> {
                     itemCount: htMdl.hotelList.length,
                     scrollDirection: Axis.vertical,
                     itemBuilder: (context, index) {
-                      return Container(
-                        child: HotelCardView(
-                          img: "assets/hotels/" + htMdl.hotelList[index].image,
-                          hotel: htMdl.hotelList[index].name,
-                          address: htMdl.hotelList[index].address,
-                          detail: htMdl.hotelList[index].shortDetail,
-                          price: htMdl.hotelList[index].price,
-                          rating: htMdl.hotelList[index].rating,
-                        ),
+                      return HotelCardView(
+                        img: "assets/hotels/${htMdl.hotelList[index].image}",
+                        hotel: htMdl.hotelList[index].name,
+                        address: htMdl.hotelList[index].address,
+                        detail: htMdl.hotelList[index].shortDetail,
+                        price: htMdl.hotelList[index].price,
+                        rating: htMdl.hotelList[index].rating,
                       );
                     },
                   ),
@@ -73,7 +69,7 @@ class _HotelListViewState extends State<HotelListView> {
                     children: htMdl.hotelList
                         .map(
                           (item) => HotelCardView(
-                            img: "assets/hotels/" + item.image,
+                            img: "assets/hotels/${item.image}",
                             hotel: item.name,
                             address: item.address,
                             detail: item.shortDetail,

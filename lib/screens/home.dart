@@ -60,13 +60,11 @@ class HomePage extends StatelessWidget {
             ),
             Container(
               padding: const EdgeInsets.all(8.0),
-              child:
-                  secteurSection(homeProvider.suggestionList, "Suggestions"),
+              child: secteurSection(homeProvider.suggestionList, "Suggestions"),
             ),
             Container(
               padding: const EdgeInsets.all(8.0),
-              child:
-                  secteurSection(homeProvider.topRatedPlaces, "Top Rated"),
+              child: secteurSection(homeProvider.topRatedPlaces, "Top Rated"),
             ),
           ],
         ),

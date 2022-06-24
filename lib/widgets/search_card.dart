@@ -13,18 +13,17 @@ Widget searchCard(onValueSaved, double width, onSearchPressed) {
       padding: const EdgeInsets.only(left: 15.0, bottom: 0.0, top: 5.0),
       child: Row(
         children: <Widget>[
-          Container(
+          SizedBox(
             width: width * .6,
             child: textField(onValueSaved, 'Search...'),
           ),
-          Container(
-            child: IconButton(
-                icon: const Icon(
-                  Icons.search,
-                  color: Colors.grey,
-                ),
-                onPressed: onSearchPressed),
-          )
+          IconButton(
+            icon: const Icon(
+              Icons.search,
+              color: Colors.grey,
+            ),
+            onPressed: onSearchPressed,
+          ),
         ],
       ),
     ),
@@ -58,21 +57,17 @@ Widget icons(onCancelPressed) {
           child: Column(
             children: <Widget>[
               Container(
-                child: Container(
-                  height: 34,
-                  width: 34,
-                  margin: const EdgeInsets.only(bottom: 3),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.deepOrange, width: 2.8),
-                      borderRadius: BorderRadius.circular(100)),
-                  child: Center(
-                    child: Container(
-                      child: const Icon(
-                        Icons.access_alarms,
-                        size: 24.0,
-                        color: Colors.deepOrange,
-                      ),
-                    ),
+                height: 34,
+                width: 34,
+                margin: const EdgeInsets.only(bottom: 3),
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.deepOrange, width: 2.8),
+                    borderRadius: BorderRadius.circular(100)),
+                child: const Center(
+                  child: Icon(
+                    Icons.access_alarms,
+                    size: 24.0,
+                    color: Colors.deepOrange,
                   ),
                 ),
               ),
@@ -93,12 +88,10 @@ Widget iconButton(icon, text, color, onPressed) {
     onTap: onPressed,
     child: Column(
       children: <Widget>[
-        Container(
-          child: Icon(
-            icon,
-            size: 38,
-            color: color,
-          ),
+        Icon(
+          icon,
+          size: 38,
+          color: color,
         ),
         Text(
           text,

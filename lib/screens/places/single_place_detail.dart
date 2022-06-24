@@ -13,7 +13,7 @@ class SinglePlaceDetail extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _SinglePlaceDetailState createState() => _SinglePlaceDetailState();
+  State<SinglePlaceDetail> createState() => _SinglePlaceDetailState();
 }
 
 class _SinglePlaceDetailState extends State<SinglePlaceDetail> {
@@ -71,42 +71,36 @@ class _SinglePlaceDetailState extends State<SinglePlaceDetail> {
                     children: <Widget>[
                       Expanded(
                         flex: 2,
-                        child: Container(
-                          child: Text(
-                            widget.name,
-                            style: const TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.bold,
-                              color: Color.fromRGBO(74, 74, 74, .9),
-                            ),
+                        child: Text(
+                          widget.name,
+                          style: const TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromRGBO(74, 74, 74, .9),
                           ),
                         ),
                       ),
                       Expanded(
                         flex: 0,
-                        child: Container(
-                          child: IconButton(
-                            icon: Icon(
-                              isFavourite
-                                  ? Icons.favorite
-                                  : Icons.favorite_border,
-                              color: Colors.red,
-                              size: 30,
-                            ),
-                            onPressed: _addToFavourite,
+                        child: IconButton(
+                          icon: Icon(
+                            isFavourite
+                                ? Icons.favorite
+                                : Icons.favorite_border,
+                            color: Colors.red,
+                            size: 30,
                           ),
+                          onPressed: _addToFavourite,
                         ),
                       ),
                     ],
                   ),
-                  Container(
-                    child: Text(
-                      widget.detail,
-                      style: const TextStyle(
-                        fontSize: 13,
-                        height: 1.6,
-                        color: Color.fromRGBO(51, 51, 51, 1),
-                      ),
+                  Text(
+                    widget.detail,
+                    style: const TextStyle(
+                      fontSize: 13,
+                      height: 1.6,
+                      color: Color.fromRGBO(51, 51, 51, 1),
                     ),
                   ),
                 ],

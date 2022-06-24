@@ -2,34 +2,32 @@ import 'package:flutter/material.dart';
 
 import 'package:aea_app/screens/annuaire_pdf/pdf_view.dart';
 
-Widget secteurSection(data) {
-  return Container(
-    child: Column(
-      children: <Widget>[
-        Container(
-          height: 560, //160,
-          child: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-            ),
-            itemCount: data.length,
-            // scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) {
-              return Container(
-                width: 160,
-                margin: const EdgeInsets.only(right: 4),
-                child: secteurCard(
-                  context,
-                  "assets/" + data[index].image,
-                  data[index].name,
-                  data[index].pdfid,
-                ),
-              );
-            },
+Widget secteurSection(data, double availableHeight) {
+  return Column(
+    children: <Widget>[
+      SizedBox(
+        height: availableHeight,
+        child: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
           ),
-        )
-      ],
-    ),
+          itemCount: data.length,
+          // scrollDirection: Axis.horizontal,
+          itemBuilder: (context, index) {
+            return Container(
+              width: 160,
+              margin: const EdgeInsets.only(right: 4),
+              child: secteurCard(
+                context,
+                "assets/${data[index].image}",
+                data[index].name,
+                data[index].pdfid,
+              ),
+            );
+          },
+        ),
+      )
+    ],
   );
 }
 

@@ -52,20 +52,16 @@ class HotelCardView extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Container(
-                        child: Text(
-                          hotel,
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
+                      Text(
+                        hotel,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Container(
-                        child: Text(
-                          address,
-                          style: const TextStyle(fontSize: 12),
-                        ),
+                      Text(
+                        address,
+                        style: const TextStyle(fontSize: 12),
                       ),
                     ],
                   ),
@@ -76,20 +72,16 @@ class HotelCardView extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: <Widget>[
-                        Container(
-                          child: Text(
-                            price,
-                            style: const TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
+                        Text(
+                          price,
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Container(
-                          child: const Text(
-                            "per night",
-                            style: TextStyle(fontSize: 12),
-                          ),
+                        const Text(
+                          "per night",
+                          style: TextStyle(fontSize: 12),
                         ),
                       ],
                     ),
