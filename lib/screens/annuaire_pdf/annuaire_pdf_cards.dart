@@ -18,8 +18,12 @@ Widget secteurSection(data) {
               return Container(
                 width: 160,
                 margin: const EdgeInsets.only(right: 4),
-                child: secteurCard(context, "assets/" + data[index].image,
-                    data[index].name, data[index].pdfid),
+                child: secteurCard(
+                  context,
+                  "assets/" + data[index].image,
+                  data[index].name,
+                  data[index].pdfid,
+                ),
               );
             },
           ),

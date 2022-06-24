@@ -4,12 +4,10 @@ import 'package:aea_app/widgets/secteurs/secteur_card.dart';
 
 class SecteurListView extends StatefulWidget {
   final List data;
-  final String title;
 
   const SecteurListView({
     Key? key,
     required this.data,
-    required this.title,
   }) : super(key: key);
 
   @override
@@ -23,9 +21,6 @@ class _SecteurListViewState extends State<SecteurListView> {
         MediaQuery.of(context).orientation == Orientation.portrait;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: GridView.builder(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
         itemCount: widget.data.length,

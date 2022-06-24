@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 
 import 'package:aea_app/global/styles.dart';
 
-import 'package:aea_app/providers/secteur_provider.dart';
 import 'package:aea_app/providers/home_provider.dart';
 import 'package:aea_app/providers/hotel_provider.dart';
 
@@ -31,9 +30,7 @@ class _TabNavigationView extends State<TabNavigationView> {
   void initState() {
     super.initState();
     final homeMdl = Provider.of<HomeProvider>(context, listen: false);
-    final sectrMdl = Provider.of<SecteurProvider>(context, listen: false);
     final htMdl = Provider.of<HotelProvider>(context, listen: false);
-    sectrMdl.getSecteurCategoryList();
     homeMdl.getSecteurSuggestionList();
     homeMdl.getTopRatedPlacesList();
     homeMdl.getSecteursList();

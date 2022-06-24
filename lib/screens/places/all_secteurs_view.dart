@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
-import 'package:aea_app/providers/secteur_provider.dart';
+import 'package:aea_app/providers/home_provider.dart';
 import 'package:aea_app/screens/places/secteur_list.dart';
-import 'package:aea_app/widgets/secteurs/secteur_card.dart';
+import 'package:aea_app/screens/places/single_place_detail.dart';
 
 class AllSecteursView extends StatefulWidget {
   const AllSecteursView({
@@ -21,13 +21,12 @@ class _AllSecteursViewState extends State<AllSecteursView> {
     super.initState();
   }
 
-  _navigateSecteurList(data, title) {
+  _navigateSecteurList(data) {
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => SecteurListView(
           data: data,
-          title: title,
         ),
       ),
     );
@@ -35,84 +34,105 @@ class _AllSecteursViewState extends State<AllSecteursView> {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    final attProvider = Provider.of<SecteurProvider>(context);
+    final homeProvider = Provider.of<HomeProvider>(context);
 
     return Scaffold(
       body: ListView.builder(
-        itemCount: attProvider.secteurList.length,
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
         itemBuilder: (context, index) {
-          if (attProvider.secteurList != null) {
-            return secteurSection(
-              attProvider.secteurList[index].secteurs,
-              attProvider.secteurList[index].category,
-            );
-          } else {
-            return Container(
-              height: height,
-              child: const Center(
-                child: CircularProgressIndicator(),
-              ),
-            );
-          }
+          return secteurSection(
+            homeProvider.secteurs,
+          );
         },
       ),
     );
   }
+}
 
-  Widget secteurSection(data, String title) {
-    return Container(
-      child: Column(
-        children: <Widget>[
-          InkWell(
-            onTap: () {
-              _navigateSecteurList(data, title);
+Widget secteurSection(data) {
+  return Container(
+    child: Column(
+      children: <Widget>[
+        Container(
+          height: 560, //160,
+          child: GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+            ),
+            itemCount: data.length,
+            // scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              return Container(
+                width: 160,
+                margin: const EdgeInsets.only(right: 4),
+                child: secteurCard(
+                  context,
+                  "assets/" + data[index].image,
+                  data[index].name,
+                  data[index].detail,
+                ),
+              );
             },
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              children: <Widget>[
-                Expanded(
-                  flex: 2,
-                  child: Container(
-                    margin: const EdgeInsets.only(top: 18, bottom: 18, left: 5),
-                    child: Text(
-                      title,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 0,
-                  child: Container(
-                    child: const Icon(Icons.arrow_forward),
-                  ),
-                ),
-              ],
-            ),
           ),
-          Container(
-            height: 170,
-            child: ListView.builder(
-              itemCount: data.length,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                return Container(
-                  width: 190,
-                  margin: const EdgeInsets.only(right: 8),
-                  child: SecteurCard(
-                      img: "assets/" + data[index].image,
-                      name: data[index].name,
-                      detail: data[index].detail),
-                );
-              },
-            ),
-          )
-        ],
+        )
+      ],
+    ),
+  );
+}
+
+Widget secteurCard(
+    BuildContext context, String img, String name, String detail) {
+  navigateAttractionList() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => SinglePlaceDetail(
+          image: img,
+          name: name,
+          detail: detail,
+        ),
       ),
     );
   }
+
+  return Card(
+    elevation: 3,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(8.0),
+    ),
+    child: Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8.0),
+        color: Colors.white,
+      ),
+      child: InkWell(
+        onTap: navigateAttractionList,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Container(
+              height: 110,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8.0),
+                image: DecorationImage(
+                  image: AssetImage(img),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 18, left: 5),
+              child: Text(
+                name,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  color: Color.fromRGBO(74, 74, 74, 1),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
 }
