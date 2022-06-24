@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
+
 import 'package:aea_app/providers/home_provider.dart';
 import 'package:aea_app/widgets/home/suggestions.dart';
 import 'package:aea_app/widgets/search_card.dart';
@@ -59,12 +61,12 @@ class HomePage extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(8.0),
               child:
-                  attractionSection(homeProvider.suggestionList, "Suggestions"),
+                  secteurSection(homeProvider.suggestionList, "Suggestions"),
             ),
             Container(
               padding: const EdgeInsets.all(8.0),
               child:
-                  attractionSection(homeProvider.topRatedPlaces, "Top Rated"),
+                  secteurSection(homeProvider.topRatedPlaces, "Top Rated"),
             ),
           ],
         ),

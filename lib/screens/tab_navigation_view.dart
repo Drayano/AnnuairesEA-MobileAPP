@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
 
 import 'package:aea_app/global/styles.dart';
 
-import 'package:aea_app/providers/attraction_provider.dart';
+import 'package:aea_app/providers/secteur_provider.dart';
 import 'package:aea_app/providers/home_provider.dart';
 import 'package:aea_app/providers/hotel_provider.dart';
 
 import 'package:aea_app/screens/home.dart';
-import 'package:aea_app/screens/places/all_attractions_view.dart';
+import 'package:aea_app/screens/places/all_secteurs_view.dart';
 import 'package:aea_app/screens/hotels/near_by_hotels.dart';
 import 'package:aea_app/screens/annuaire_pdf/annuaire_view.dart';
 
@@ -30,11 +31,12 @@ class _TabNavigationView extends State<TabNavigationView> {
   void initState() {
     super.initState();
     final homeMdl = Provider.of<HomeProvider>(context, listen: false);
-    final attrMdl = Provider.of<AttractionProvider>(context, listen: false);
+    final sectrMdl = Provider.of<SecteurProvider>(context, listen: false);
     final htMdl = Provider.of<HotelProvider>(context, listen: false);
-    attrMdl.getAttractionCategoryList();
-    homeMdl.getAttractionSuggestionList();
+    sectrMdl.getSecteurCategoryList();
+    homeMdl.getSecteurSuggestionList();
     homeMdl.getTopRatedPlacesList();
+    homeMdl.getSecteursList();
     htMdl.getHotelDataList();
   }
 
@@ -48,7 +50,7 @@ class _TabNavigationView extends State<TabNavigationView> {
   Widget build(BuildContext context) {
     List<Widget> _children = <Widget>[
       const HomePage(key: PageStorageKey('home')),
-      const AllAttractionsView(key: PageStorageKey('attractions')),
+      const AllSecteursView(key: PageStorageKey('secteurs')),
       const HotelListView(key: PageStorageKey('hotels')),
       const AnnuairePDFView(key: PageStorageKey("pdf"))
     ];
@@ -78,7 +80,7 @@ class _TabNavigationView extends State<TabNavigationView> {
                 size: 20.0,
               ),
             ),
-            label: "Attractions",
+            label: "Secteurs",
           ),
           BottomNavigationBarItem(
             icon: SizedBox(

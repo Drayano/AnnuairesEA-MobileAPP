@@ -1,29 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:aea_app/providers/attraction_provider.dart';
-import 'package:aea_app/screens/places/attraction_list.dart';
-import 'package:aea_app/widgets/attractions/attraction_card.dart';
 
-class AllAttractionsView extends StatefulWidget {
-  const AllAttractionsView({
+import 'package:provider/provider.dart';
+
+import 'package:aea_app/providers/secteur_provider.dart';
+import 'package:aea_app/screens/places/secteur_list.dart';
+import 'package:aea_app/widgets/secteurs/secteur_card.dart';
+
+class AllSecteursView extends StatefulWidget {
+  const AllSecteursView({
     required Key key,
   }) : super(key: key);
 
   @override
-  _AllAttractionsViewState createState() => _AllAttractionsViewState();
+  _AllSecteursViewState createState() => _AllSecteursViewState();
 }
 
-class _AllAttractionsViewState extends State<AllAttractionsView> {
+class _AllSecteursViewState extends State<AllSecteursView> {
   @override
   void initState() {
     super.initState();
   }
 
-  _navigateAttractionList(data, title) {
+  _navigateSecteurList(data, title) {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => AttractionListView(
+        builder: (context) => SecteurListView(
           data: data,
           title: title,
         ),
@@ -34,17 +36,18 @@ class _AllAttractionsViewState extends State<AllAttractionsView> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
-    final attProvider = Provider.of<AttractionProvider>(context);
+    final attProvider = Provider.of<SecteurProvider>(context);
 
     return Scaffold(
       body: ListView.builder(
-        itemCount: attProvider.attractionList.length,
+        itemCount: attProvider.secteurList.length,
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
         itemBuilder: (context, index) {
-          if (attProvider.attractionList != null) {
-            return attractionSection(
-                attProvider.attractionList[index].attractions,
-                attProvider.attractionList[index].category);
+          if (attProvider.secteurList != null) {
+            return secteurSection(
+              attProvider.secteurList[index].secteurs,
+              attProvider.secteurList[index].category,
+            );
           } else {
             return Container(
               height: height,
@@ -58,13 +61,13 @@ class _AllAttractionsViewState extends State<AllAttractionsView> {
     );
   }
 
-  Widget attractionSection(data, String title) {
+  Widget secteurSection(data, String title) {
     return Container(
       child: Column(
         children: <Widget>[
           InkWell(
             onTap: () {
-              _navigateAttractionList(data, title);
+              _navigateSecteurList(data, title);
             },
             child: Row(
               mainAxisSize: MainAxisSize.max,
@@ -100,10 +103,9 @@ class _AllAttractionsViewState extends State<AllAttractionsView> {
                 return Container(
                   width: 190,
                   margin: const EdgeInsets.only(right: 8),
-                  child: AttractionCard(
+                  child: SecteurCard(
                       img: "assets/" + data[index].image,
                       name: data[index].name,
-                      country: data[index].country,
                       detail: data[index].detail),
                 );
               },

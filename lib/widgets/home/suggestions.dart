@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+
 import 'package:aea_app/screens/places/single_place_detail.dart';
 
-Widget attractionSection(data, String title) {
+Widget secteurSection(data, String title) {
   return Container(
     child: Column(
       children: <Widget>[
@@ -41,11 +42,10 @@ Widget attractionSection(data, String title) {
               return Container(
                 width: 160,
                 margin: const EdgeInsets.only(right: 4),
-                child: attractionCard(
+                child: secteurCard(
                   context,
                   "assets/" + data[index].image,
                   data[index].name,
-                  data[index].country,
                   data[index].detail,
                 ),
               );
@@ -57,8 +57,7 @@ Widget attractionSection(data, String title) {
   );
 }
 
-Widget attractionCard(BuildContext context, String img, String name,
-    String country, String detail) {
+Widget secteurCard(BuildContext context, String img, String name, String detail) {
   navigateAttractionList() {
     Navigator.push(
       context,
@@ -67,7 +66,6 @@ Widget attractionCard(BuildContext context, String img, String name,
           image: img,
           name: name,
           detail: detail,
-          country: country,
         ),
       ),
     );
@@ -106,16 +104,6 @@ Widget attractionCard(BuildContext context, String img, String name,
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
                   color: Color.fromRGBO(74, 74, 74, 1),
-                ),
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.only(top: 4, left: 5),
-              child: Text(
-                country,
-                style: const TextStyle(
-                  fontSize: 12,
-                  color: Color.fromRGBO(133, 133, 133, 1),
                 ),
               ),
             ),

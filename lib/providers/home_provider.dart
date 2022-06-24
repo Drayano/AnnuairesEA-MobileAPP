@@ -1,12 +1,14 @@
 import 'package:flutter/foundation.dart';
-import 'package:aea_app/models/attractions.dart';
-import 'package:aea_app/services/attraction_loader.dart';
+
+import 'package:aea_app/models/secteurs.dart';
+import 'package:aea_app/services/secteur_loader.dart';
 
 class HomeProvider with ChangeNotifier {
-  List<Attraction> suggestionList = [];
-  List<Attraction> topRatedPlaces = [];
+  List<Secteur> suggestionList = [];
+  List<Secteur> topRatedPlaces = [];
+  List<Secteur> secteurs = [];
 
-  getAttractionSuggestionList() async {
+  getSecteurSuggestionList() async {
     await getSuggestionsData().then(
       (res) {
         suggestionList = res;
@@ -19,6 +21,15 @@ class HomeProvider with ChangeNotifier {
     await getTopRatedData().then(
       (res) {
         topRatedPlaces = res;
+      },
+    );
+    notifyListeners();
+  }
+
+  getSecteursList() async {
+    await getSecteursData().then(
+      (res) {
+        secteurs = res;
       },
     );
     notifyListeners();

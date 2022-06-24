@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
+
 import 'package:aea_app/providers/hotel_provider.dart';
 import 'package:aea_app/widgets/hotel/hotel_card_view.dart';
 

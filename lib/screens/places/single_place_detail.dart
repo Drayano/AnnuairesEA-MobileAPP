@@ -4,14 +4,12 @@ class SinglePlaceDetail extends StatefulWidget {
   final String image;
   final String name;
   final String detail;
-  final String country;
 
   const SinglePlaceDetail({
     Key? key,
     required this.image,
     required this.name,
     required this.detail,
-    required this.country,
   }) : super(key: key);
 
   @override
@@ -100,17 +98,6 @@ class _SinglePlaceDetailState extends State<SinglePlaceDetail> {
                         ),
                       ),
                     ],
-                  ),
-                  Container(
-                    padding: const EdgeInsets.only(top: 8, bottom: 12),
-                    child: Text(
-                      widget.country,
-                      style: const TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w600,
-                        color: Color.fromRGBO(112, 112, 112, 1),
-                      ),
-                    ),
                   ),
                   Container(
                     child: Text(

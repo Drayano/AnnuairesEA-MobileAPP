@@ -1,6 +1,8 @@
-import 'package:aea_app/models/hotel.dart';
 import 'dart:convert';
+
 import 'package:flutter/services.dart';
+
+import 'package:aea_app/models/hotel.dart';
 
 Future<List<HotelModel>> getHotelList() async {
   String data = await rootBundle.loadString('assets/data_resources/hotel.json');

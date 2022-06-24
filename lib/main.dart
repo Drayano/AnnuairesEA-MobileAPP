@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
-import 'package:aea_app/providers/attraction_provider.dart';
+
+import 'package:aea_app/providers/secteur_provider.dart';
 import 'package:aea_app/providers/home_provider.dart';
 import 'package:aea_app/providers/hotel_provider.dart';
+
 import 'package:aea_app/screens/tab_navigation_view.dart';
 
 void main() => runApp(const TravelApp());
@@ -36,8 +39,8 @@ class TravelApp extends StatelessWidget {
 
 List<SingleChildWidget> providers = [
   ChangeNotifierProvider<HomeProvider>(create: (_) => HomeProvider()),
-  ChangeNotifierProvider<AttractionProvider>(
-    create: (_) => AttractionProvider(),
+  ChangeNotifierProvider<SecteurProvider>(
+    create: (_) => SecteurProvider(),
   ),
   ChangeNotifierProvider<HotelProvider>(create: (_) => HotelProvider()),
 ];

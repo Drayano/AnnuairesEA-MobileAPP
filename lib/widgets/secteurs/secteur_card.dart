@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
+
 import 'package:aea_app/screens/places/single_place_detail.dart';
 
-class AttractionCard extends StatelessWidget {
+class SecteurCard extends StatelessWidget {
   final String img;
   final String name;
-  final String country;
   final String detail;
 
-  const AttractionCard({
+  const SecteurCard({
     Key? key,
     required this.img,
     required this.name,
-    required this.country,
     required this.detail,
   }) : super(key: key);
 
-  navigateAttractionList(BuildContext context) {
+  navigateSecteurList(BuildContext context) {
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -23,7 +22,6 @@ class AttractionCard extends StatelessWidget {
           image: img,
           name: name,
           detail: detail,
-          country: country,
         ),
       ),
     );
@@ -43,7 +41,7 @@ class AttractionCard extends StatelessWidget {
         ),
         child: InkWell(
           onTap: () {
-            navigateAttractionList(context);
+            navigateSecteurList(context);
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -66,16 +64,6 @@ class AttractionCard extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                     color: Color.fromRGBO(74, 74, 74, 1),
-                  ),
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.only(top: 4, left: 5),
-                child: Text(
-                  country,
-                  style: const TextStyle(
-                    fontSize: 12,
-                    color: Color.fromRGBO(133, 133, 133, 1),
                   ),
                 ),
               ),
