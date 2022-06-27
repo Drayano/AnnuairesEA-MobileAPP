@@ -8,7 +8,7 @@ import 'package:aea_app/providers/home_provider.dart';
 import 'package:aea_app/providers/hotel_provider.dart';
 
 import 'package:aea_app/screens/home.dart';
-import 'package:aea_app/screens/places/all_secteurs_view.dart';
+import 'package:aea_app/screens/secteurs/all_secteurs_view.dart';
 import 'package:aea_app/screens/hotels/near_by_hotels.dart';
 import 'package:aea_app/screens/annuaire_pdf/annuaire_view.dart';
 

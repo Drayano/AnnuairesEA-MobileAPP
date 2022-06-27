@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:aea_app/providers/home_provider.dart';
-import 'package:aea_app/screens/views/secteur_cards_view.dart';
+import 'package:aea_app/screens/secteurs/secteur_cards_view.dart';
 
 class AllSecteursView extends StatefulWidget {
   const AllSecteursView({

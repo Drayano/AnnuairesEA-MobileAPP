@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:aea_app/screens/places/single_place_detail.dart';
+import 'package:aea_app/screens/views/single_company_detail.dart';
 
 class SecteurCard extends StatelessWidget {
   final String img;
@@ -18,7 +18,7 @@ class SecteurCard extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => SinglePlaceDetail(
+        builder: (context) => SingleCompanyDetail(
           image: img,
           name: name,
           detail: detail,

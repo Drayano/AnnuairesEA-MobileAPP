@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:aea_app/screens/places/single_place_detail.dart';
+import 'package:aea_app/screens/views/single_company_detail.dart';
 
 Widget secteurSection(data, String title) {
   return Column(
@@ -59,7 +59,7 @@ Widget secteurCard(
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => SinglePlaceDetail(
+        builder: (context) => SingleCompanyDetail(
           image: img,
           name: name,
           detail: detail,

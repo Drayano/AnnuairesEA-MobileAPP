@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class SinglePlaceDetail extends StatefulWidget {
+class SingleCompanyDetail extends StatefulWidget {
   final String image;
   final String name;
   final String detail;
 
-  const SinglePlaceDetail({
+  const SingleCompanyDetail({
     Key? key,
     required this.image,
     required this.name,
@@ -13,10 +13,10 @@ class SinglePlaceDetail extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<SinglePlaceDetail> createState() => _SinglePlaceDetailState();
+  State<SingleCompanyDetail> createState() => _SingleCompanyDetailState();
 }
 
-class _SinglePlaceDetailState extends State<SinglePlaceDetail> {
+class _SingleCompanyDetailState extends State<SingleCompanyDetail> {
   bool isFavourite = false;
 
   _addToFavourite() {
