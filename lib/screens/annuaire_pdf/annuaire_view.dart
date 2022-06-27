@@ -18,18 +18,14 @@ class _AnnuairePDFViewState extends State<AnnuairePDFView> {
   @override
   Widget build(BuildContext context) {
     final homeProvider = Provider.of<HomeProvider>(context);
-    double height = MediaQuery.of(context).size.height - 56;
+    double height = MediaQuery.of(context).size.height - 100;
 
-    return Scaffold(
-      body: ListView.builder(
-        itemBuilder: (context, index) {
-          return secteurSection(
-            homeProvider.secteurs,
-            "PDF par secteurs",
-            true,
-            height,
-          );
-        },
+    return SafeArea(
+      child: secteurSection(
+        homeProvider.secteurs,
+        "PDF par secteurs",
+        true,
+        height,
       ),
     );
   }

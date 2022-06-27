@@ -18,18 +18,14 @@ class _AllSecteursViewState extends State<AllSecteursView> {
   @override
   Widget build(BuildContext context) {
     final homeProvider = Provider.of<HomeProvider>(context);
-    double height = MediaQuery.of(context).size.height - 56;
+    double height = MediaQuery.of(context).size.height - 100;
 
-    return Scaffold(
-      body: ListView.builder(
-        itemBuilder: (context, index) {
-          return secteurSection(
-            homeProvider.secteurs,
-            "Recherche par Secteurs",
-            false,
-            height,
-          );
-        },
+    return SafeArea(
+      child: secteurSection(
+        homeProvider.secteurs,
+        "Recherche par Secteurs",
+        false,
+        height,
       ),
     );
   }

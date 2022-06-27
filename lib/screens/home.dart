@@ -28,8 +28,6 @@ class HomePage extends StatelessWidget {
               width: width,
               height: isPortrait ? height / 2 : width / 2,
               decoration: BoxDecoration(
-                borderRadius:
-                    const BorderRadius.only(bottomRight: Radius.circular(60.0)),
                 image: DecorationImage(
                   image: const AssetImage('assets/img004.jpg'),
                   colorFilter: ColorFilter.mode(

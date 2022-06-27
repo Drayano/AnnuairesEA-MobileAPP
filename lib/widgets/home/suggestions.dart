@@ -71,11 +71,11 @@ Widget secteurCard(
   return Card(
     elevation: 3,
     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(10.0),
+      borderRadius: BorderRadius.circular(8.0),
     ),
     child: Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.0),
+        borderRadius: BorderRadius.circular(8.0),
         color: Colors.white,
       ),
       child: InkWell(
@@ -86,7 +86,6 @@ Widget secteurCard(
             Container(
               height: 90,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
                 image: DecorationImage(
                   image: AssetImage(img),
                   fit: BoxFit.cover,
@@ -94,7 +93,7 @@ Widget secteurCard(
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 8, left: 5),
+              margin: const EdgeInsets.only(top: 10, left: 5),
               child: Text(
                 name,
                 style: const TextStyle(

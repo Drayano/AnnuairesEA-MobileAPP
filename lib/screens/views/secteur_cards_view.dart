@@ -14,7 +14,6 @@ Widget secteurSection(data, String title, bool pdfview, [double? availableHeight
             crossAxisCount: 2,
           ),
           itemCount: data.length,
-          // scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             return Container(
               width: 160,
@@ -81,7 +80,6 @@ Widget secteurCard(
             Container(
               height: 110,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8.0),
                 image: DecorationImage(
                   image: AssetImage(img),
                   fit: BoxFit.cover,
@@ -89,7 +87,7 @@ Widget secteurCard(
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 18, left: 5),
+              margin: const EdgeInsets.only(top: 10, left: 5),
               child: Text(
                 name,
                 style: const TextStyle(

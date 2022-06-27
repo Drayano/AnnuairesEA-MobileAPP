@@ -23,6 +23,7 @@ class TravelApp extends StatelessWidget {
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
+          useMaterial3: true,
           primarySwatch: Colors.blue,
           appBarTheme: const AppBarTheme(
             color: Color.fromRGBO(41, 182, 246, 1),

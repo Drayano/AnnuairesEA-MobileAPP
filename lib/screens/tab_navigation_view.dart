@@ -106,7 +106,7 @@ class _TabNavigationView extends State<TabNavigationView> {
         selectedFontSize: 12,
         onTap: _onItemTapped,
         backgroundColor: Colors.white,
-        elevation: 18,
+        elevation: 0,
         type: BottomNavigationBarType.fixed,
         showUnselectedLabels: true,
       ),
