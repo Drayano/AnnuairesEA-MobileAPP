@@ -1,22 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class EntrepriseCardView extends StatelessWidget {
-  final String entreprise;
-  final String address;
-  final String img;
-  final String detail;
-  final String price;
-  final double rating;
+  final String businessName;
+  final String streetAddress;
+  final String banner;
 
   const EntrepriseCardView({
     Key? key,
-    required this.entreprise,
-    required this.address,
-    required this.img,
-    required this.detail,
-    required this.price,
-    required this.rating,
+    required this.businessName,
+    required this.streetAddress,
+    required this.banner,
   }) : super(key: key);
 
   @override
@@ -39,7 +32,7 @@ class EntrepriseCardView extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0),
               image: DecorationImage(
-                image: AssetImage(img),
+                image: AssetImage(banner),
                 fit: BoxFit.cover,
               ),
             ),
@@ -53,57 +46,22 @@ class EntrepriseCardView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        entreprise,
+                        businessName,
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Text(
-                        address,
+                        streetAddress,
                         style: const TextStyle(fontSize: 12),
                       ),
                     ],
                   ),
                 ),
-                Expanded(
-                  child: Container(
-                    margin: const EdgeInsets.only(right: 20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: <Widget>[
-                        Text(
-                          price,
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const Text(
-                          "per night",
-                          style: TextStyle(fontSize: 12),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
               ],
             ),
           ),
-          Container(
-            padding: const EdgeInsets.only(top: 8, left: 20, bottom: 12),
-            alignment: Alignment.centerLeft,
-            child: RatingBarIndicator(
-              rating: rating,
-              itemCount: 5,
-              itemSize: 30.0,
-              physics: const BouncingScrollPhysics(),
-              itemBuilder: (context, _) => const Icon(
-                Icons.star,
-                color: Colors.amber,
-              ),
-            ),
-          )
         ],
       ),
     );

@@ -17,7 +17,7 @@ class EntrepriseListView extends StatefulWidget {
 class _EntrepriseListViewState extends State<EntrepriseListView> {
   @override
   Widget build(BuildContext context) {
-    final htMdl = Provider.of<EntrepriseProvider>(context);
+    final entrMdl = Provider.of<EntrepriseProvider>(context);
     bool isPortrait =
         MediaQuery.of(context).orientation == Orientation.portrait;
 
@@ -46,16 +46,13 @@ class _EntrepriseListViewState extends State<EntrepriseListView> {
               ? Container(
                   margin: const EdgeInsets.only(top: 90),
                   child: ListView.builder(
-                    itemCount: htMdl.entrepriseList.length,
+                    itemCount: entrMdl.entrepriseList.length,
                     scrollDirection: Axis.vertical,
                     itemBuilder: (context, index) {
                       return EntrepriseCardView(
-                        img: "assets/entreprises/${htMdl.entrepriseList[index].image}",
-                        entreprise: htMdl.entrepriseList[index].name,
-                        address: htMdl.entrepriseList[index].address,
-                        detail: htMdl.entrepriseList[index].shortDetail,
-                        price: htMdl.entrepriseList[index].price,
-                        rating: htMdl.entrepriseList[index].rating,
+                        banner: "assets/entreprises/${entrMdl.entrepriseList[index].banner}",
+                        businessName: entrMdl.entrepriseList[index].businessName,
+                        streetAddress: entrMdl.entrepriseList[index].streetAddress,
                       );
                     },
                   ),
@@ -66,15 +63,12 @@ class _EntrepriseListViewState extends State<EntrepriseListView> {
                     crossAxisCount: 2,
                     padding: const EdgeInsets.all(4.0),
                     childAspectRatio: 1.5,
-                    children: htMdl.entrepriseList
+                    children: entrMdl.entrepriseList
                         .map(
                           (item) => EntrepriseCardView(
-                            img: "assets/entreprises/${item.image}",
-                            entreprise: item.name,
-                            address: item.address,
-                            detail: item.shortDetail,
-                            price: item.price,
-                            rating: item.rating,
+                            banner: "assets/entreprises/${item.banner}",
+                            businessName: item.businessName,
+                            streetAddress: item.streetAddress,
                           ),
                         )
                         .toList(),
