@@ -5,11 +5,11 @@ import 'package:provider/provider.dart';
 import 'package:aea_app/global/styles.dart';
 
 import 'package:aea_app/providers/home_provider.dart';
-import 'package:aea_app/providers/hotel_provider.dart';
+import 'package:aea_app/providers/entreprise_provider.dart';
 
 import 'package:aea_app/screens/home.dart';
 import 'package:aea_app/screens/secteurs/all_secteurs_view.dart';
-import 'package:aea_app/screens/hotels/near_by_hotels.dart';
+import 'package:aea_app/screens/entreprises/favorite_entreprises_view.dart';
 import 'package:aea_app/screens/annuaire_pdf/annuaire_view.dart';
 
 class TabNavigationView extends StatefulWidget {
@@ -30,11 +30,11 @@ class _TabNavigationView extends State<TabNavigationView> {
   void initState() {
     super.initState();
     final homeMdl = Provider.of<HomeProvider>(context, listen: false);
-    final htMdl = Provider.of<HotelProvider>(context, listen: false);
+    final htMdl = Provider.of<EntrepriseProvider>(context, listen: false);
     homeMdl.getSecteurSuggestionList();
     homeMdl.getTopRatedPlacesList();
     homeMdl.getSecteursList();
-    htMdl.getHotelDataList();
+    htMdl.getEntrepriseDataList();
   }
 
   void _onItemTapped(int index) {
@@ -48,8 +48,8 @@ class _TabNavigationView extends State<TabNavigationView> {
     List<Widget> children = <Widget>[
       const HomePage(key: PageStorageKey('home')),
       const AllSecteursView(key: PageStorageKey('secteurs')),
-      const HotelListView(key: PageStorageKey('hotels')),
-      const AnnuairePDFView(key: PageStorageKey("pdf"))
+      const EntrepriseListView(key: PageStorageKey('favoris')),
+      const AnnuairePDFView(key: PageStorageKey('pdf'))
     ];
 
     return Scaffold(
@@ -83,11 +83,11 @@ class _TabNavigationView extends State<TabNavigationView> {
             icon: SizedBox(
               height: 24,
               child: Icon(
-                Icons.hotel,
+                Icons.favorite,
                 size: 20.0,
               ),
             ),
-            label: "Hotels",
+            label: "Favoris",
           ),
           BottomNavigationBarItem(
             icon: SizedBox(

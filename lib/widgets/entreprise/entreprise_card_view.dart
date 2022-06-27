@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-class HotelCardView extends StatelessWidget {
-  final String hotel;
+class EntrepriseCardView extends StatelessWidget {
+  final String entreprise;
   final String address;
   final String img;
   final String detail;
   final String price;
   final double rating;
 
-  const HotelCardView({
+  const EntrepriseCardView({
     Key? key,
-    required this.hotel,
+    required this.entreprise,
     required this.address,
     required this.img,
     required this.detail,
@@ -53,7 +53,7 @@ class HotelCardView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        hotel,
+                        entreprise,
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,

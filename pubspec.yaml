@@ -73,7 +73,7 @@ flutter:
     - assets/
     - assets/data_resources/
     - assets/home/
-    - assets/hotels/
+    - assets/entreprises/
     - assets/pdf/
 
   # An image asset can refer to one or more resolution-specific "variants", see

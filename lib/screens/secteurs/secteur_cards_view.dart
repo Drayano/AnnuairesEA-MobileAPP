@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:aea_app/screens/annuaire_pdf/pdf_view.dart';
-import 'package:aea_app/screens/views/single_company_detail.dart';
+import 'package:aea_app/screens/views/single_entreprise_detail.dart';
 
 Widget secteurSection(data, String title, bool pdfview, [double? availableHeight]) {
   return Column(
@@ -52,7 +52,7 @@ Widget secteurCard(
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => SingleCompanyDetail(
+          builder: (context) => SingleEntrepriseDetail(
             image: img,
             name: name,
             detail: detail,
