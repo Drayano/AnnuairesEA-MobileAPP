@@ -29,12 +29,12 @@ class _TabNavigationView extends State<TabNavigationView> {
   @override
   void initState() {
     super.initState();
-    final homeMdl = Provider.of<HomeProvider>(context, listen: false);
-    final htMdl = Provider.of<EntrepriseProvider>(context, listen: false);
-    homeMdl.getSecteurSuggestionList();
-    homeMdl.getTopRatedPlacesList();
-    homeMdl.getSecteursList();
-    htMdl.getEntrepriseDataList();
+    final homeModel = Provider.of<HomeProvider>(context, listen: false);
+    final entrepriseModel = Provider.of<EntrepriseProvider>(context, listen: false);
+    homeModel.getSecteurSuggestionList();
+    homeModel.getTopRatedPlacesList();
+    homeModel.getSecteursList();
+    entrepriseModel.getEntrepriseDataList();
   }
 
   void _onItemTapped(int index) {

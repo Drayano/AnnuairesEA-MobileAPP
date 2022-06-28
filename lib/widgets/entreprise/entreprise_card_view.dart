@@ -33,7 +33,7 @@ class EntrepriseCardView extends StatelessWidget {
               borderRadius: BorderRadius.circular(10.0),
               image: DecorationImage(
                 image: AssetImage(banner),
-                fit: BoxFit.cover,
+                fit: BoxFit.fitWidth,
               ),
             ),
           ),

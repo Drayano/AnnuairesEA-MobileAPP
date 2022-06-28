@@ -20,7 +20,7 @@ Widget secteurSection(data, String title, bool pdfview, [double? availableHeight
               margin: const EdgeInsets.only(right: 4),
               child: secteurCard(
                 context,
-                "assets/${data[index].image}",
+                "assets/secteurs/${data[index].image}",
                 data[index].name,
                 data[index].pdfid,
                 data[index].detail,

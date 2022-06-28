@@ -41,7 +41,7 @@ Widget secteurSection(data, String title) {
               margin: const EdgeInsets.only(right: 4),
               child: secteurCard(
                 context,
-                "assets/${data[index].image}",
+                "assets/secteurs/${data[index].image}",
                 data[index].name,
                 data[index].detail,
               ),
