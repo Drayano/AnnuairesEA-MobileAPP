@@ -17,7 +17,7 @@ class EntrepriseListView extends StatefulWidget {
 class _EntrepriseListViewState extends State<EntrepriseListView> {
   @override
   Widget build(BuildContext context) {
-    final entrMdl = Provider.of<EntrepriseProvider>(context);
+    final entrepriseModel = Provider.of<EntrepriseProvider>(context);
     bool isPortrait =
         MediaQuery.of(context).orientation == Orientation.portrait;
 
@@ -37,33 +37,31 @@ class _EntrepriseListViewState extends State<EntrepriseListView> {
                   ),
                 ),
               ),
-              Container(
-                height: 40,
-              ),
             ],
           ),
           isPortrait
               ? Container(
-                  margin: const EdgeInsets.only(top: 90),
+                  margin: const EdgeInsets.only(top: 75),
                   child: ListView.builder(
-                    itemCount: entrMdl.entrepriseList.length,
+                    itemCount: entrepriseModel.entrepriseList.length,
                     scrollDirection: Axis.vertical,
                     itemBuilder: (context, index) {
                       return EntrepriseCardView(
-                        banner: "assets/entreprises/${entrMdl.entrepriseList[index].banner}",
-                        businessName: entrMdl.entrepriseList[index].businessName,
-                        streetAddress: entrMdl.entrepriseList[index].streetAddress,
+                        banner: "assets/entreprises/${entrepriseModel.entrepriseList[index].banner}",
+                        businessName: entrepriseModel.entrepriseList[index].businessName,
+                        streetAddress: entrepriseModel.entrepriseList[index].streetAddress,
                       );
                     },
                   ),
                 )
               : Container(
-                  margin: const EdgeInsets.only(top: 90),
+                  margin: const EdgeInsets.only(top: 120),
                   child: GridView.count(
                     crossAxisCount: 2,
+                    // scrollDirection: Axis.horizontal,
                     padding: const EdgeInsets.all(4.0),
-                    childAspectRatio: 1.5,
-                    children: entrMdl.entrepriseList
+                    childAspectRatio: 1.45,
+                    children: entrepriseModel.entrepriseList
                         .map(
                           (item) => EntrepriseCardView(
                             banner: "assets/entreprises/${item.banner}",

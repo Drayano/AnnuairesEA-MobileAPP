@@ -20,7 +20,7 @@ class EntrepriseCardView extends StatelessWidget {
         MediaQuery.of(context).orientation == Orientation.portrait;
 
     return Card(
-      margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+      margin: isPortrait ? const EdgeInsets.only(left: 20, right: 20, bottom: 20) : const EdgeInsets.only(left: 15, right: 25, bottom: 80),
       elevation: 3,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
@@ -28,9 +28,8 @@ class EntrepriseCardView extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Container(
-            height: isPortrait ? h / 6 : w / 6,
+            height: isPortrait ? h / 14 : w / 12,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0),
               image: DecorationImage(
                 image: AssetImage(banner),
                 fit: BoxFit.fitWidth,
@@ -38,7 +37,7 @@ class EntrepriseCardView extends StatelessWidget {
             ),
           ),
           Container(
-            padding: const EdgeInsets.only(top: 12, left: 20, bottom: 12),
+            padding: const EdgeInsets.only(top: 8, left: 20, bottom: 12),
             child: Row(
               children: <Widget>[
                 Expanded(
@@ -48,13 +47,13 @@ class EntrepriseCardView extends StatelessWidget {
                       Text(
                         businessName,
                         style: const TextStyle(
-                          fontSize: 18,
+                          fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Text(
                         streetAddress,
-                        style: const TextStyle(fontSize: 12),
+                        style: const TextStyle(fontSize: 10),
                       ),
                     ],
                   ),
