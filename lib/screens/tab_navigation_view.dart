@@ -9,7 +9,7 @@ import 'package:aea_app/providers/entreprise_provider.dart';
 
 import 'package:aea_app/screens/home.dart';
 import 'package:aea_app/screens/secteurs/all_secteurs_view.dart';
-import 'package:aea_app/screens/entreprises/favorite_entreprises_view.dart';
+import 'package:aea_app/screens/entreprises/favourite_entreprises_view.dart';
 import 'package:aea_app/screens/annuaire_pdf/annuaire_view.dart';
 
 class TabNavigationView extends StatefulWidget {
