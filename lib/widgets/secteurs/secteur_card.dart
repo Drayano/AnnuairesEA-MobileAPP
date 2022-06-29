@@ -1,31 +1,16 @@
 import 'package:flutter/material.dart';
 
-import 'package:aea_app/screens/views/single_entreprise_detail.dart';
-
 class SecteurCard extends StatelessWidget {
-  final String img;
+  final String image;
   final String name;
   final String detail;
 
   const SecteurCard({
     Key? key,
-    required this.img,
+    required this.image,
     required this.name,
     required this.detail,
   }) : super(key: key);
-
-  navigateSecteurList(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => SingleEntrepriseDetail(
-          image: img,
-          name: name,
-          detail: detail,
-        ),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,9 +25,6 @@ class SecteurCard extends StatelessWidget {
           color: Colors.white,
         ),
         child: InkWell(
-          onTap: () {
-            navigateSecteurList(context);
-          },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -51,7 +33,7 @@ class SecteurCard extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
                   image: DecorationImage(
-                    image: AssetImage(img),
+                    image: AssetImage(image),
                     fit: BoxFit.cover,
                   ),
                 ),

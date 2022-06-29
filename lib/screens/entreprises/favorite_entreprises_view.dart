@@ -47,9 +47,11 @@ class _EntrepriseListViewState extends State<EntrepriseListView> {
                     scrollDirection: Axis.vertical,
                     itemBuilder: (context, index) {
                       return EntrepriseCardView(
-                        banner: "assets/entreprises/${entrepriseModel.entrepriseList[index].banner}",
                         businessName: entrepriseModel.entrepriseList[index].businessName,
                         streetAddress: entrepriseModel.entrepriseList[index].streetAddress,
+                        description: entrepriseModel.entrepriseList[index].description,
+                        companyPresentation: entrepriseModel.entrepriseList[index].companyPresentation,
+                        banner: "assets/entreprises/${entrepriseModel.entrepriseList[index].banner}",
                       );
                     },
                   ),
@@ -64,9 +66,11 @@ class _EntrepriseListViewState extends State<EntrepriseListView> {
                     children: entrepriseModel.entrepriseList
                         .map(
                           (item) => EntrepriseCardView(
-                            banner: "assets/entreprises/${item.banner}",
                             businessName: item.businessName,
                             streetAddress: item.streetAddress,
+                            description: item.description,
+                            companyPresentation: item.companyPresentation,
+                            banner: "assets/entreprises/${item.banner}",
                           ),
                         )
                         .toList(),

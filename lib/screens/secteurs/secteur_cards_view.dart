@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:aea_app/screens/annuaire_pdf/pdf_view.dart';
-import 'package:aea_app/screens/views/single_entreprise_detail.dart';
 
 Widget secteurSection(data, String title, bool pdfview, [double? availableHeight]) {
   return Column(
@@ -16,7 +15,6 @@ Widget secteurSection(data, String title, bool pdfview, [double? availableHeight
           itemCount: data.length,
           itemBuilder: (context, index) {
             return Container(
-              width: 160,
               margin: const EdgeInsets.only(right: 4),
               child: secteurCard(
                 context,
@@ -34,9 +32,8 @@ Widget secteurSection(data, String title, bool pdfview, [double? availableHeight
   );
 }
 
-Widget secteurCard(
-    BuildContext context, String img, String name, String pdfid, String detail, bool pdfview) {
-  navigateAttractionList() {
+Widget secteurCard(BuildContext context, String img, String name, String pdfid, String detail, bool pdfview) {
+  navigateSecteurList() {
     if (pdfview) {
       Navigator.push(
         context,
@@ -45,17 +42,6 @@ Widget secteurCard(
             image: img,
             name: name,
             pdfid: pdfid,
-          ),
-        ),
-      );
-    } else if (!pdfview) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => SingleEntrepriseDetail(
-            image: img,
-            name: name,
-            detail: detail,
           ),
         ),
       );
@@ -73,7 +59,7 @@ Widget secteurCard(
         color: Colors.white,
       ),
       child: InkWell(
-        onTap: navigateAttractionList,
+        onTap: navigateSecteurList,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[

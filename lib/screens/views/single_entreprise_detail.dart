@@ -1,15 +1,91 @@
 import 'package:flutter/material.dart';
 
 class SingleEntrepriseDetail extends StatefulWidget {
-  final String image;
-  final String name;
-  final String detail;
+  final String businessName;
+  final String streetAddress;
+  final String? state;
+  final String? fixePhone;
+  final String? faxNumber;
+  final String? mobile;
+  final String? email;
+  final String? website;
+  final String? categories;
+  final String? logo;
+  final String? city;
+  final String description;
+  final String? contactName;
+  final String? businessTitle;
+  final String? customerType;
+  final String? keywords;
+  final String? generalInfo;
+  final String? advertisementStatut;
+  final String? latitude;
+  final String? longitude;
+  final String? createdBy;
+  final String? createdDate;
+  final String? statut;
+  final String companyPresentation;
+  final String? yearEstablished;
+  final String? servicePhoto1;
+  final String? servicePhoto2;
+  final String? servicePhoto3;
+  final String? servicePhoto4;
+  final String? servicePhoto5;
+  final String? servicePhoto6;
+  final String? documentationsCatalogs;
+  final String? companyReferences;
+  final String? videoEntreprise;
+  final String? companyHistory;
+  final String? companyActivities;
+  final String? facebook;
+  final String? youtube;
+  final String? maps;
+  final String banner;
+  final String? addDate;
 
   const SingleEntrepriseDetail({
     Key? key,
-    required this.image,
-    required this.name,
-    required this.detail,
+    required this.businessName,
+    required this.streetAddress,
+    this.state,
+    this.fixePhone,
+    this.faxNumber,
+    this.mobile,
+    this.email,
+    this.website,
+    this.categories,
+    this.logo,
+    this.city,
+    required this.description,
+    this.contactName,
+    this.businessTitle,
+    this.customerType,
+    this.keywords,
+    this.generalInfo,
+    this.advertisementStatut,
+    this.latitude,
+    this.longitude,
+    this.createdBy,
+    this.createdDate,
+    this.statut,
+    required this.companyPresentation,
+    this.yearEstablished,
+    this.servicePhoto1,
+    this.servicePhoto2,
+    this.servicePhoto3,
+    this.servicePhoto4,
+    this.servicePhoto5,
+    this.servicePhoto6,
+    this.documentationsCatalogs,
+    this.companyReferences,
+    this.videoEntreprise,
+    this.companyHistory,
+    this.companyActivities,
+    this.facebook,
+    this.youtube,
+    this.maps,
+    required this.banner,
+    this.addDate,
   }) : super(key: key);
 
   @override
@@ -45,7 +121,7 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
                   bottomRight: Radius.circular(60.0),
                 ),
                 image: DecorationImage(
-                  image: AssetImage(widget.image),
+                  image: AssetImage(widget.banner),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -72,7 +148,7 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
                       Expanded(
                         flex: 2,
                         child: Text(
-                          widget.name,
+                          widget.businessName,
                           style: const TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.bold,
@@ -96,7 +172,7 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
                     ],
                   ),
                   Text(
-                    widget.detail,
+                    widget.companyPresentation,
                     style: const TextStyle(
                       fontSize: 13,
                       height: 1.6,

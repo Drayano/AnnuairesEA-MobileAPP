@@ -41,9 +41,11 @@ Widget secteurSection(data, String title) {
               margin: const EdgeInsets.only(right: 4),
               child: secteurCard(
                 context,
-                "assets/secteurs/${data[index].image}",
-                data[index].name,
-                data[index].detail,
+                data[index].businessName,
+                data[index].streetAddress,
+                data[index].description,
+                data[index].companyPresentation,
+                "assets/entreprises/${data[index].banner}",
               ),
             );
           },
@@ -53,16 +55,17 @@ Widget secteurSection(data, String title) {
   );
 }
 
-Widget secteurCard(
-    BuildContext context, String img, String name, String detail) {
-  navigateAttractionList() {
+Widget secteurCard(BuildContext context, String businessName, String streetAddress, String description, String companyPresentation, String banner) {
+  navigateEntrepriseList() {
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => SingleEntrepriseDetail(
-          image: img,
-          name: name,
-          detail: detail,
+          businessName: businessName,
+          streetAddress: streetAddress,
+          description: description,
+          companyPresentation: companyPresentation,
+          banner: banner,
         ),
       ),
     );
@@ -79,7 +82,7 @@ Widget secteurCard(
         color: Colors.white,
       ),
       child: InkWell(
-        onTap: navigateAttractionList,
+        onTap: navigateEntrepriseList,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -87,7 +90,7 @@ Widget secteurCard(
               height: 90,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage(img),
+                  image: AssetImage(banner),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -95,7 +98,7 @@ Widget secteurCard(
             Container(
               margin: const EdgeInsets.only(top: 10, left: 5),
               child: Text(
-                name,
+                businessName,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16,

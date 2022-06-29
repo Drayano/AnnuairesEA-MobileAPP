@@ -3,112 +3,96 @@
     "pdfid": "-1",
 	"name": "Administration",
     "detail": "Lorem ipsum.",
-    "shortDetail": "Lorem",
     "image": "administration.jpg"
   },
   {
     "pdfid": "2",
 	"name": "Agroalimentaire",
     "detail": "Lorem ipsum.",
-    "shortDetail": "Lorem",
     "image": "agroalimentaire.jpg"
   },
   {
     "pdfid": "3",
 	"name": "Chimie & Petrochimie",
     "detail": "Lorem ipsum.",
-    "shortDetail": "Lorem",
     "image": "petrochimie.jpg"
   },
   {
     "pdfid": "4",
 	"name": "Commerce",
     "detail": "Lorem ipsum.",
-    "shortDetail": "Lorem",
     "image": "commerce.jpg"
   },
   {
     "pdfid": "5",
 	"name": "Construction",
     "detail": "Lorem ipsum.",
-    "shortDetail": "Lorem",
     "image": "construction.jpg"
   },
   {
     "pdfid": "7",
 	"name": "Formation & Enseignement",
     "detail": "Lorem ipsum.",
-    "shortDetail": "Lorem",
     "image": "enseignement.jpg"
   },
   {
     "pdfid": "8",
 	"name": "Fournitures & Equipements",
     "detail": "Lorem ipsum.",
-    "shortDetail": "Lorem",
     "image": "equipement.jpg"
   },
   {
     "pdfid": "9",
 	"name": "Import/Export",
     "detail": "Lorem ipsum.",
-    "shortDetail": "Lorem",
     "image": "import_export.jpg"
   },
   {
     "pdfid": "10",
 	"name": "Impression & Edition",
     "detail": "Lorem ipsum.",
-    "shortDetail": "Lorem",
     "image": "impression.jpg"
   },
   {
     "pdfid": "11",
 	"name": "Industrie & Production",
     "detail": "Lorem ipsum.",
-    "shortDetail": "Lorem",
     "image": "industrie.jpg"
   },
   {
     "pdfid": "12",
 	"name": "Santé",
     "detail": "Lorem ipsum.",
-    "shortDetail": "Lorem",
     "image": "sante.jpg"
   },
   {
     "pdfid": "13",
 	"name": "Service",
     "detail": "Lorem ipsum.",
-    "shortDetail": "Lorem",
     "image": "services.jpg"
   },
   {
     "pdfid": "14",
 	"name": "Tourisme",
     "detail": "Lorem ipsum.",
-    "shortDetail": "Lorem",
     "image": "tourisme.jpg"
   },
   {
     "pdfid": "15",
 	"name": "Transport",
     "detail": "Lorem ipsum.",
-    "shortDetail": "Lorem",
     "image": "transport.jpg"
   },
   {
     "pdfid": "-1",
 	"name": "Sport, Artisanat & Loisirs",
     "detail": "Lorem ipsum.",
-    "shortDetail": "Lorem",
     "image": "sports.jpg"
   },
   {
     "pdfid": "6",
 	"name": "Elevage, aviculture et horticulture",
     "detail": "Lorem ipsum.",
-    "shortDetail": "Lorem",
     "image": "elevage.jpg"
   }
 ]

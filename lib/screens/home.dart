@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
-import 'package:aea_app/providers/home_provider.dart';
+import 'package:aea_app/providers/entreprise_provider.dart';
 import 'package:aea_app/widgets/home/suggestions.dart';
 import 'package:aea_app/widgets/search_card.dart';
 
@@ -15,9 +15,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-    bool isPortrait =
-        MediaQuery.of(context).orientation == Orientation.portrait;
-    final homeProvider = Provider.of<HomeProvider>(context);
+    bool isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
+    final entrepriseProvider = Provider.of<EntrepriseProvider>(context);
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -58,11 +57,11 @@ class HomePage extends StatelessWidget {
             ),
             Container(
               padding: const EdgeInsets.all(8.0),
-              child: secteurSection(homeProvider.suggestionList, "Suggestions"),
+              child: secteurSection(entrepriseProvider.entrepriseList, "Suggestions"),
             ),
             Container(
               padding: const EdgeInsets.all(8.0),
-              child: secteurSection(homeProvider.topRatedPlaces, "Top Rated"),
+              child: secteurSection(entrepriseProvider.entrepriseList, "Top Rated"),
             ),
           ],
         ),
