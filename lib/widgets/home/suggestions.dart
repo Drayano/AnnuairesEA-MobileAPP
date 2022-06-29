@@ -44,7 +44,10 @@ Widget secteurSection(data, String title) {
                 data[index].businessName,
                 data[index].streetAddress,
                 data[index].description,
+                data[index].advertisementStatut,
+                data[index].statut,
                 data[index].companyPresentation,
+                "assets/entreprises/${data[index].servicePhoto1}",
                 "assets/entreprises/${data[index].banner}",
               ),
             );
@@ -55,18 +58,35 @@ Widget secteurSection(data, String title) {
   );
 }
 
-Widget secteurCard(BuildContext context, String businessName, String streetAddress, String description, String companyPresentation, String banner) {
+Widget secteurCard(
+  BuildContext context,
+  String businessName,
+  String streetAddress,
+  String description,
+  String advertisementStatut,
+  String statut,
+  String companyPresentation,
+  String servicePhoto1,
+  String banner,
+) {
   navigateEntrepriseList() {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => SingleEntrepriseDetail(
-          businessName: businessName,
-          streetAddress: streetAddress,
-          description: description,
-          companyPresentation: companyPresentation,
-          banner: banner,
-        ),
+        builder: (context) {
+          bool servicePhoto = (servicePhoto1 != null) && (servicePhoto1 != "assets/entreprises/");
+
+          return SingleEntrepriseDetail(
+            businessName: businessName,
+            streetAddress: streetAddress,
+            description: description,
+            advertisementStatut: advertisementStatut,
+            statut: statut,
+            companyPresentation: companyPresentation,
+            servicePhoto1: servicePhoto ? servicePhoto1 : banner,
+            banner: banner,
+          );
+        },
       ),
     );
   }

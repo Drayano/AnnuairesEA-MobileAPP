@@ -6,7 +6,15 @@ class EntrepriseCardView extends StatelessWidget {
   final String businessName;
   final String streetAddress;
   final String description;
+  final String advertisementStatut;
+  final String statut;
   final String companyPresentation;
+  final String? servicePhoto1;
+  final String? servicePhoto2;
+  final String? servicePhoto3;
+  final String? servicePhoto4;
+  final String? servicePhoto5;
+  final String? servicePhoto6;
   final String banner;
 
   const EntrepriseCardView({
@@ -14,7 +22,15 @@ class EntrepriseCardView extends StatelessWidget {
     required this.businessName,
     required this.streetAddress,
     required this.description,
+    required this.advertisementStatut,
+    required this.statut,
     required this.companyPresentation,
+    this.servicePhoto1,
+    this.servicePhoto2,
+    this.servicePhoto3,
+    this.servicePhoto4,
+    this.servicePhoto5,
+    this.servicePhoto6,
     required this.banner,
   }) : super(key: key);
 
@@ -39,7 +55,15 @@ class EntrepriseCardView extends StatelessWidget {
                 businessName: businessName,
                 streetAddress: streetAddress,
                 description: description,
+                advertisementStatut: advertisementStatut,
+                statut: statut,
                 companyPresentation: companyPresentation,
+                servicePhoto1: servicePhoto1,
+                servicePhoto2: servicePhoto2,
+                servicePhoto3: servicePhoto3,
+                servicePhoto4: servicePhoto4,
+                servicePhoto5: servicePhoto5,
+                servicePhoto6: servicePhoto6,
                 banner: banner,
               ),
             ),

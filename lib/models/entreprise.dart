@@ -1,88 +1,88 @@
 class EntrepriseModel {
   final String businessName;
   final String streetAddress;
-  final String state;
-  final String fixePhone;
-  final String faxNumber;
-  final String mobile;
-  final String email;
-  final String website;
-  final String categories;
-  final String logo;
-  final String city;
-  final String description;
-  final String contactName;
-  final String businessTitle;
-  final String customerType;
-  final String keywords;
-  final String generalInfo;
+  final String? state;
+  final String? fixePhone;
+  final String? faxNumber;
+  final String? mobile;
+  final String? email;
+  final String? website;
+  final String? categories;
+  final String? logo;
+  final String? city;
+  final String? description;
+  final String? contactName;
+  final String? businessTitle;
+  final String? customerType;
+  final String? keywords;
+  final String? generalInfo;
   final String advertisementStatut;
-  final String latitude;
-  final String longitude;
-  final String createdBy;
-  final String createdDate;
+  final String? latitude;
+  final String? longitude;
+  final String? createdBy;
+  final String? createdDate;
   final String statut;
-  final String companyPresentation;
-  final String yearEstablished;
-  final String servicePhoto1;
-  final String servicePhoto2;
-  final String servicePhoto3;
-  final String servicePhoto4;
-  final String servicePhoto5;
-  final String servicePhoto6;
-  final String documentationsCatalogs;
-  final String companyReferences;
-  final String videoEntreprise;
-  final String companyHistory;
-  final String companyActivities;
-  final String facebook;
-  final String youtube;
-  final String maps;
-  final String banner;
-  final String addDate;
+  final String? companyPresentation;
+  final String? yearEstablished;
+  final String? servicePhoto1;
+  final String? servicePhoto2;
+  final String? servicePhoto3;
+  final String? servicePhoto4;
+  final String? servicePhoto5;
+  final String? servicePhoto6;
+  final String? documentationsCatalogs;
+  final String? companyReferences;
+  final String? videoEntreprise;
+  final String? companyHistory;
+  final String? companyActivities;
+  final String? facebook;
+  final String? youtube;
+  final String? maps;
+  final String? banner;
+  final String? addDate;
 
   EntrepriseModel({
     required this.businessName,
     required this.streetAddress,
-    required this.state,
-    required this.fixePhone,
-    required this.faxNumber,
-    required this.mobile,
-    required this.email,
-    required this.website,
-    required this.categories,
-    required this.logo,
-    required this.city,
-    required this.description,
-    required this.contactName,
-    required this.businessTitle,
-    required this.customerType,
-    required this.keywords,
-    required this.generalInfo,
+    this.state,
+    this.fixePhone,
+    this.faxNumber,
+    this.mobile,
+    this.email,
+    this.website,
+    this.categories,
+    this.logo,
+    this.city,
+    this.description,
+    this.contactName,
+    this.businessTitle,
+    this.customerType,
+    this.keywords,
+    this.generalInfo,
     required this.advertisementStatut,
-    required this.latitude,
-    required this.longitude,
-    required this.createdBy,
-    required this.createdDate,
+    this.latitude,
+    this.longitude,
+    this.createdBy,
+    this.createdDate,
     required this.statut,
-    required this.companyPresentation,
-    required this.yearEstablished,
-    required this.servicePhoto1,
-    required this.servicePhoto2,
-    required this.servicePhoto3,
-    required this.servicePhoto4,
-    required this.servicePhoto5,
-    required this.servicePhoto6,
-    required this.documentationsCatalogs,
-    required this.companyReferences,
-    required this.videoEntreprise,
-    required this.companyHistory,
-    required this.companyActivities,
-    required this.facebook,
-    required this.youtube,
-    required this.maps,
-    required this.banner,
-    required this.addDate,
+    this.companyPresentation,
+    this.yearEstablished,
+    this.servicePhoto1,
+    this.servicePhoto2,
+    this.servicePhoto3,
+    this.servicePhoto4,
+    this.servicePhoto5,
+    this.servicePhoto6,
+    this.documentationsCatalogs,
+    this.companyReferences,
+    this.videoEntreprise,
+    this.companyHistory,
+    this.companyActivities,
+    this.facebook,
+    this.youtube,
+    this.maps,
+    this.banner,
+    this.addDate,
   });
 
   factory EntrepriseModel.fromJson(Map<String, dynamic> json) =>

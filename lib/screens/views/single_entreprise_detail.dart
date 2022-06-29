@@ -12,19 +12,19 @@ class SingleEntrepriseDetail extends StatefulWidget {
   final String? categories;
   final String? logo;
   final String? city;
-  final String description;
+  final String? description;
   final String? contactName;
   final String? businessTitle;
   final String? customerType;
   final String? keywords;
   final String? generalInfo;
-  final String? advertisementStatut;
+  final String advertisementStatut;
   final String? latitude;
   final String? longitude;
   final String? createdBy;
   final String? createdDate;
-  final String? statut;
-  final String companyPresentation;
+  final String statut;
+  final String? companyPresentation;
   final String? yearEstablished;
   final String? servicePhoto1;
   final String? servicePhoto2;
@@ -40,7 +40,7 @@ class SingleEntrepriseDetail extends StatefulWidget {
   final String? facebook;
   final String? youtube;
   final String? maps;
-  final String banner;
+  final String? banner;
   final String? addDate;
 
   const SingleEntrepriseDetail({
@@ -56,19 +56,19 @@ class SingleEntrepriseDetail extends StatefulWidget {
     this.categories,
     this.logo,
     this.city,
-    required this.description,
+    this.description,
     this.contactName,
     this.businessTitle,
     this.customerType,
     this.keywords,
     this.generalInfo,
-    this.advertisementStatut,
+    required this.advertisementStatut,
     this.latitude,
     this.longitude,
     this.createdBy,
     this.createdDate,
-    this.statut,
-    required this.companyPresentation,
+    required this.statut,
+    this.companyPresentation,
     this.yearEstablished,
     this.servicePhoto1,
     this.servicePhoto2,
@@ -84,7 +84,7 @@ class SingleEntrepriseDetail extends StatefulWidget {
     this.facebook,
     this.youtube,
     this.maps,
-    required this.banner,
+    this.banner,
     this.addDate,
   }) : super(key: key);
 
@@ -108,6 +108,10 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
+    bool companyPresentation = widget.companyPresentation != null;
+    bool servicePhoto = widget.servicePhoto1 != null;
+    bool banner = widget.banner != null;
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -121,7 +125,7 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
                   bottomRight: Radius.circular(60.0),
                 ),
                 image: DecorationImage(
-                  image: AssetImage(widget.banner),
+                  image: servicePhoto ? AssetImage(widget.servicePhoto1!) : banner ? AssetImage(widget.banner!) : const AssetImage(""),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -172,7 +176,7 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
                     ],
                   ),
                   Text(
-                    widget.companyPresentation,
+                    companyPresentation ? widget.companyPresentation! : "",
                     style: const TextStyle(
                       fontSize: 13,
                       height: 1.6,
