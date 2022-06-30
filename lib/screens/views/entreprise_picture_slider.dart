@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
-class PlacesPictures extends StatefulWidget {
+class EntreprisePhotos extends StatefulWidget {
   final List imageList;
-  const PlacesPictures({
+  const EntreprisePhotos({
     Key? key,
     required this.imageList,
   }) : super(key: key);
   @override
-  State<PlacesPictures> createState() => _PlacesPicturesState();
+  State<EntreprisePhotos> createState() => _EntreprisePhotosState();
 }
 
-class _PlacesPicturesState extends State<PlacesPictures> {
+class _EntreprisePhotosState extends State<EntreprisePhotos> {
   // int _current = 0;
-  List places = [
+  List entreprisePhotos = [
     "img001.jpg",
     "img002.jpg",
     "img003.jpg",
@@ -35,7 +35,7 @@ class _PlacesPicturesState extends State<PlacesPictures> {
     var isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
 
     final slider = CarouselSlider(
-      items: places.map(
+      items: entreprisePhotos.map(
         (i) {
           return Builder(
             builder: (BuildContext context) {
