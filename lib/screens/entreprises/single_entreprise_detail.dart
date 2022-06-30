@@ -30,45 +30,36 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
-    
-    final entrepriseModel = Provider.of<EntrepriseProvider>(context);
+    final double width = MediaQuery.of(context).size.width;
+    final double height = MediaQuery.of(context).size.height;
 
-    int entrepriseId = int.parse(widget.id) - 1;
+    final EntrepriseProvider entrepriseModel = Provider.of<EntrepriseProvider>(context);
+    final int entrepriseId = int.parse(widget.id) - 1;
 
-    bool companyPresentation = entrepriseModel.entrepriseList[entrepriseId].companyPresentation != null;
-    bool servicePhoto = entrepriseModel.entrepriseList[entrepriseId].servicePhoto1 != null;
-    bool banner = entrepriseModel.entrepriseList[entrepriseId].banner != null;
+    final bool companyPresentation = entrepriseModel.entrepriseList[entrepriseId].companyPresentation != null;
 
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
             Container(
+              alignment: Alignment.topLeft,
+              padding: const EdgeInsets.only(top: 20),
+              child: IconButton(
+                icon: const Icon(
+                  Icons.arrow_back,
+                  size: 30,
+                ),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ),
+            SizedBox(
               width: width,
               height: height / 2,
-              alignment: Alignment.topLeft,
-              decoration: BoxDecoration(
-                borderRadius: const BorderRadius.only(
-                  bottomRight: Radius.circular(60.0),
-                ),
-                image: DecorationImage(
-                  image: servicePhoto ? AssetImage("assets/entreprises/${entrepriseModel.entrepriseList[entrepriseId].servicePhoto1!}") : banner ? AssetImage("assets/entreprises/${entrepriseModel.entrepriseList[entrepriseId].banner!}") : const AssetImage(""),
-                  fit: BoxFit.cover,
-                ),
-              ),
-              child: Container(
-                padding: const EdgeInsets.only(top: 20),
-                child: IconButton(
-                  icon: const Icon(
-                    Icons.arrow_back,
-                    size: 30,
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                ),
+              child: EntreprisePhotos(
+                id: (entrepriseId + 1).toString(),
               ),
             ),
             Container(
@@ -105,7 +96,9 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
                     ],
                   ),
                   Text(
-                    companyPresentation ? entrepriseModel.entrepriseList[entrepriseId].companyPresentation! : "",
+                    companyPresentation
+                        ? entrepriseModel.entrepriseList[entrepriseId].companyPresentation!
+                        : "",
                     style: const TextStyle(
                       fontSize: 13,
                       height: 1.6,

@@ -17,9 +17,9 @@ class EntrepriseListView extends StatefulWidget {
 class _EntrepriseListViewState extends State<EntrepriseListView> {
   @override
   Widget build(BuildContext context) {
-    bool isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
+    final bool isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
 
-    final entrepriseModel = Provider.of<EntrepriseProvider>(context);
+    final EntrepriseProvider entrepriseModel = Provider.of<EntrepriseProvider>(context);
 
     return Scaffold(
       body: Stack(
