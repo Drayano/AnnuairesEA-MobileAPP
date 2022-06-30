@@ -1,4 +1,5 @@
 class EntrepriseModel {
+  final String id;
   final String businessName;
   final String streetAddress;
   final String? state;
@@ -42,6 +43,7 @@ class EntrepriseModel {
   final String? addDate;
 
   EntrepriseModel({
+    required this.id,
     required this.businessName,
     required this.streetAddress,
     this.state,
@@ -87,6 +89,7 @@ class EntrepriseModel {
 
   factory EntrepriseModel.fromJson(Map<String, dynamic> json) =>
       EntrepriseModel(
+        id: json['id'],
         businessName: json['business_name'],
         streetAddress: json['street_address'],
         state: json['state'],

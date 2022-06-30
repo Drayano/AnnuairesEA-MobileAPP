@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:aea_app/screens/views/single_entreprise_detail.dart';
+import 'package:aea_app/screens/entreprises/single_entreprise_detail.dart';
 
 Widget secteurSection(data, String title) {
   return Column(
@@ -41,6 +41,7 @@ Widget secteurSection(data, String title) {
               margin: const EdgeInsets.only(right: 4),
               child: secteurCard(
                 context,
+                data[index].id,
                 data[index].businessName,
                 data[index].streetAddress,
                 data[index].description,
@@ -60,6 +61,7 @@ Widget secteurSection(data, String title) {
 
 Widget secteurCard(
   BuildContext context,
+  String id,
   String businessName,
   String streetAddress,
   String description,
@@ -77,6 +79,7 @@ Widget secteurCard(
           bool servicePhoto = (servicePhoto1 != null) && (servicePhoto1 != "assets/entreprises/");
 
           return SingleEntrepriseDetail(
+            id: id,
             businessName: businessName,
             streetAddress: streetAddress,
             description: description,

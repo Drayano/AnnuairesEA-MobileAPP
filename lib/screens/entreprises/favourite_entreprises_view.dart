@@ -51,6 +51,7 @@ class _EntrepriseListViewState extends State<EntrepriseListView> {
                       bool servicePhoto = (entrepriseModel.entrepriseList[index].servicePhoto1 != null) && (entrepriseModel.entrepriseList[index].servicePhoto1 != "");
 
                       return EntrepriseCardView(
+                        id: entrepriseModel.entrepriseList[index].id,
                         businessName:
                             entrepriseModel.entrepriseList[index].businessName,
                         streetAddress:
@@ -87,6 +88,7 @@ class _EntrepriseListViewState extends State<EntrepriseListView> {
                         bool servicePhoto = (item.servicePhoto1 != null) && (item.servicePhoto1 != "");
 
                         return EntrepriseCardView(
+                          id: item.id,
                           businessName: item.businessName,
                           streetAddress: item.streetAddress,
                           description: description ? item.description! : "",

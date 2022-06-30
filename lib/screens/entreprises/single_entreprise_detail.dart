@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SingleEntrepriseDetail extends StatefulWidget {
+  final String id;
   final String businessName;
   final String streetAddress;
   final String? state;
@@ -45,6 +46,7 @@ class SingleEntrepriseDetail extends StatefulWidget {
 
   const SingleEntrepriseDetail({
     Key? key,
+    required this.id,
     required this.businessName,
     required this.streetAddress,
     this.state,

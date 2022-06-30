@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:aea_app/screens/views/single_entreprise_detail.dart';
+import 'package:aea_app/screens/entreprises/single_entreprise_detail.dart';
 
 class EntrepriseCardView extends StatelessWidget {
+  final String id;
   final String businessName;
   final String streetAddress;
   final String description;
@@ -19,6 +20,7 @@ class EntrepriseCardView extends StatelessWidget {
 
   const EntrepriseCardView({
     Key? key,
+    required this.id,
     required this.businessName,
     required this.streetAddress,
     required this.description,
@@ -52,6 +54,7 @@ class EntrepriseCardView extends StatelessWidget {
             context,
             MaterialPageRoute(
               builder: (context) => SingleEntrepriseDetail(
+                id: id,
                 businessName: businessName,
                 streetAddress: streetAddress,
                 description: description,
