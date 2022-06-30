@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+
 import 'package:carousel_slider/carousel_slider.dart';
 
 class EntreprisePhotos extends StatefulWidget {
   final List imageList;
+
   const EntreprisePhotos({
     Key? key,
     required this.imageList,
   }) : super(key: key);
+  
   @override
   State<EntreprisePhotos> createState() => _EntreprisePhotosState();
 }

@@ -1,93 +1,16 @@
 import 'package:flutter/material.dart';
 
+import 'package:provider/provider.dart';
+
+import 'package:aea_app/providers/entreprise_provider.dart';
+import 'package:aea_app/screens/views/entreprise_picture_slider.dart';
+
 class SingleEntrepriseDetail extends StatefulWidget {
   final String id;
-  final String businessName;
-  final String streetAddress;
-  final String? state;
-  final String? fixePhone;
-  final String? faxNumber;
-  final String? mobile;
-  final String? email;
-  final String? website;
-  final String? categories;
-  final String? logo;
-  final String? city;
-  final String? description;
-  final String? contactName;
-  final String? businessTitle;
-  final String? customerType;
-  final String? keywords;
-  final String? generalInfo;
-  final String advertisementStatut;
-  final String? latitude;
-  final String? longitude;
-  final String? createdBy;
-  final String? createdDate;
-  final String statut;
-  final String? companyPresentation;
-  final String? yearEstablished;
-  final String? servicePhoto1;
-  final String? servicePhoto2;
-  final String? servicePhoto3;
-  final String? servicePhoto4;
-  final String? servicePhoto5;
-  final String? servicePhoto6;
-  final String? documentationsCatalogs;
-  final String? companyReferences;
-  final String? videoEntreprise;
-  final String? companyHistory;
-  final String? companyActivities;
-  final String? facebook;
-  final String? youtube;
-  final String? maps;
-  final String? banner;
-  final String? addDate;
 
   const SingleEntrepriseDetail({
     Key? key,
     required this.id,
-    required this.businessName,
-    required this.streetAddress,
-    this.state,
-    this.fixePhone,
-    this.faxNumber,
-    this.mobile,
-    this.email,
-    this.website,
-    this.categories,
-    this.logo,
-    this.city,
-    this.description,
-    this.contactName,
-    this.businessTitle,
-    this.customerType,
-    this.keywords,
-    this.generalInfo,
-    required this.advertisementStatut,
-    this.latitude,
-    this.longitude,
-    this.createdBy,
-    this.createdDate,
-    required this.statut,
-    this.companyPresentation,
-    this.yearEstablished,
-    this.servicePhoto1,
-    this.servicePhoto2,
-    this.servicePhoto3,
-    this.servicePhoto4,
-    this.servicePhoto5,
-    this.servicePhoto6,
-    this.documentationsCatalogs,
-    this.companyReferences,
-    this.videoEntreprise,
-    this.companyHistory,
-    this.companyActivities,
-    this.facebook,
-    this.youtube,
-    this.maps,
-    this.banner,
-    this.addDate,
   }) : super(key: key);
 
   @override
@@ -109,10 +32,14 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+    
+    final entrepriseModel = Provider.of<EntrepriseProvider>(context);
 
-    bool companyPresentation = widget.companyPresentation != null;
-    bool servicePhoto = widget.servicePhoto1 != null;
-    bool banner = widget.banner != null;
+    int entrepriseId = int.parse(widget.id) - 1;
+
+    bool companyPresentation = entrepriseModel.entrepriseList[entrepriseId].companyPresentation != null;
+    bool servicePhoto = entrepriseModel.entrepriseList[entrepriseId].servicePhoto1 != null;
+    bool banner = entrepriseModel.entrepriseList[entrepriseId].banner != null;
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -127,7 +54,7 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
                   bottomRight: Radius.circular(60.0),
                 ),
                 image: DecorationImage(
-                  image: servicePhoto ? AssetImage(widget.servicePhoto1!) : banner ? AssetImage(widget.banner!) : const AssetImage(""),
+                  image: servicePhoto ? AssetImage("assets/entreprises/${entrepriseModel.entrepriseList[entrepriseId].servicePhoto1!}") : banner ? AssetImage("assets/entreprises/${entrepriseModel.entrepriseList[entrepriseId].banner!}") : const AssetImage(""),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -154,7 +81,7 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
                       Expanded(
                         flex: 2,
                         child: Text(
-                          widget.businessName,
+                          entrepriseModel.entrepriseList[entrepriseId].businessName,
                           style: const TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.bold,
@@ -178,7 +105,7 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
                     ],
                   ),
                   Text(
-                    companyPresentation ? widget.companyPresentation! : "",
+                    companyPresentation ? entrepriseModel.entrepriseList[entrepriseId].companyPresentation! : "",
                     style: const TextStyle(
                       fontSize: 13,
                       height: 1.6,

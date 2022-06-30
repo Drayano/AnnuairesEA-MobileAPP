@@ -17,9 +17,9 @@ class EntrepriseListView extends StatefulWidget {
 class _EntrepriseListViewState extends State<EntrepriseListView> {
   @override
   Widget build(BuildContext context) {
+    bool isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
+
     final entrepriseModel = Provider.of<EntrepriseProvider>(context);
-    bool isPortrait =
-        MediaQuery.of(context).orientation == Orientation.portrait;
 
     return Scaffold(
       body: Stack(
@@ -46,28 +46,12 @@ class _EntrepriseListViewState extends State<EntrepriseListView> {
                     itemCount: entrepriseModel.entrepriseList.length,
                     scrollDirection: Axis.vertical,
                     itemBuilder: (context, index) {
-                      bool description = entrepriseModel.entrepriseList[index].description != null;
-                      bool companyPresentation = entrepriseModel.entrepriseList[index].companyPresentation != null;
-                      bool servicePhoto = (entrepriseModel.entrepriseList[index].servicePhoto1 != null) && (entrepriseModel.entrepriseList[index].servicePhoto1 != "");
-
                       return EntrepriseCardView(
                         id: entrepriseModel.entrepriseList[index].id,
                         businessName:
                             entrepriseModel.entrepriseList[index].businessName,
                         streetAddress:
                             entrepriseModel.entrepriseList[index].streetAddress,
-                        description: description
-                            ? entrepriseModel.entrepriseList[index].description!
-                            : "",
-                        advertisementStatut: entrepriseModel.entrepriseList[index].advertisementStatut,
-                        statut: entrepriseModel.entrepriseList[index].statut,
-                        companyPresentation: companyPresentation
-                            ? entrepriseModel
-                                .entrepriseList[index].companyPresentation!
-                            : "",
-                        servicePhoto1: servicePhoto
-                            ? "assets/entreprises/${entrepriseModel.entrepriseList[index].servicePhoto1}"
-                            : "assets/entreprises/${entrepriseModel.entrepriseList[index].banner}",
                         banner:
                             "assets/entreprises/${entrepriseModel.entrepriseList[index].banner}",
                       );
@@ -83,23 +67,10 @@ class _EntrepriseListViewState extends State<EntrepriseListView> {
                     childAspectRatio: 1.45,
                     children: entrepriseModel.entrepriseList.map(
                       (item) {
-                        bool description = item.description != null;
-                        bool companyPresentation = item.companyPresentation != null;
-                        bool servicePhoto = (item.servicePhoto1 != null) && (item.servicePhoto1 != "");
-
                         return EntrepriseCardView(
                           id: item.id,
                           businessName: item.businessName,
                           streetAddress: item.streetAddress,
-                          description: description ? item.description! : "",
-                          advertisementStatut: item.advertisementStatut,
-                          statut: item.statut,
-                          companyPresentation: companyPresentation
-                              ? item.companyPresentation!
-                              : "",
-                          servicePhoto1: servicePhoto
-                              ? "assets/entreprises/${item.servicePhoto1}"
-                              : "assets/entreprises/${item.banner}",
                           banner: "assets/entreprises/${item.banner}",
                         );
                       },

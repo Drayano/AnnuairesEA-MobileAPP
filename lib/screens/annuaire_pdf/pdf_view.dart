@@ -3,14 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 class SecteurPDFView extends StatefulWidget {
-  final String image;
-  final String name;
   final String pdfid;
 
   const SecteurPDFView({
     Key? key,
-    required this.image,
-    required this.name,
     required this.pdfid,
   }) : super(key: key);
 

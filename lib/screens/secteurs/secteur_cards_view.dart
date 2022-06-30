@@ -39,8 +39,6 @@ Widget secteurCard(BuildContext context, String img, String name, String pdfid, 
         context,
         MaterialPageRoute(
           builder: (context) => SecteurPDFView(
-            image: img,
-            name: name,
             pdfid: pdfid,
           ),
         ),
