@@ -42,24 +42,13 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            Container(
-              alignment: Alignment.topLeft,
-              padding: const EdgeInsets.only(top: 20),
-              child: IconButton(
-                icon: const Icon(
-                  Icons.arrow_back,
-                  size: 30,
+            SafeArea(
+              child: SizedBox(
+                width: width,
+                height: height / 2.25,
+                child: EntreprisePhotos(
+                  id: (entrepriseId + 1).toString(),
                 ),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ),
-            SizedBox(
-              width: width,
-              height: height / 2.25,
-              child: EntreprisePhotos(
-                id: (entrepriseId + 1).toString(),
               ),
             ),
             Container(

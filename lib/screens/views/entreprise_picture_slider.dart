@@ -62,6 +62,9 @@ class _EntreprisePhotosState extends State<EntreprisePhotos> {
       i++;
     }
 
+    // Don't scroll if there's only 1 carousel image
+    bool infiniteScrollBehaviour = entreprisePhotos.length == 1;
+
     final CarouselSlider slider = CarouselSlider(
       items: entreprisePhotos.map(
         (i) {
@@ -71,9 +74,6 @@ class _EntreprisePhotosState extends State<EntreprisePhotos> {
                 width: width,
                 height: height / 2,
                 decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                    bottomRight: Radius.circular(60.0),
-                  ),
                   image: DecorationImage(
                     image: AssetImage(i),
                     fit: BoxFit.cover,
@@ -85,10 +85,10 @@ class _EntreprisePhotosState extends State<EntreprisePhotos> {
         },
       ).toList(),
       options: CarouselOptions(
-        viewportFraction: 0.8,
+        viewportFraction: 1,
         height: isPortrait ? height / 2.25 : height * 0.7,
         autoPlay: true,
-        enableInfiniteScroll: true,
+        enableInfiniteScroll: !infiniteScrollBehaviour,//true,
         aspectRatio: 2.0,
         enlargeCenterPage: true,
       ),
