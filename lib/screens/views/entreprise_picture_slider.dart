@@ -38,16 +38,31 @@ class _EntreprisePhotosState extends State<EntreprisePhotos> {
     final EntrepriseProvider entrepriseModel = Provider.of<EntrepriseProvider>(context);
     final int entrepriseId = int.parse(widget.id) - 1;
 
-    List entreprisePhotos = [
-      "assets/entreprises/${entrepriseModel.entrepriseList[entrepriseId].servicePhoto1}",
-      "assets/entreprises/${entrepriseModel.entrepriseList[entrepriseId].servicePhoto2}",
-      "assets/entreprises/${entrepriseModel.entrepriseList[entrepriseId].servicePhoto3}",
-      "assets/entreprises/${entrepriseModel.entrepriseList[entrepriseId].servicePhoto4}",
-      "assets/entreprises/${entrepriseModel.entrepriseList[entrepriseId].servicePhoto5}",
-      "assets/entreprises/${entrepriseModel.entrepriseList[entrepriseId].servicePhoto6}"
+    List serviceCycle = [
+      entrepriseModel.entrepriseList[entrepriseId].servicePhoto1,
+      entrepriseModel.entrepriseList[entrepriseId].servicePhoto2,
+      entrepriseModel.entrepriseList[entrepriseId].servicePhoto3,
+      entrepriseModel.entrepriseList[entrepriseId].servicePhoto4,
+      entrepriseModel.entrepriseList[entrepriseId].servicePhoto5,
+      entrepriseModel.entrepriseList[entrepriseId].servicePhoto6
     ];
 
-    final slider = CarouselSlider(
+    List entreprisePhotos = [];
+
+    int i = 0;
+    while (entreprisePhotos.length < 6) {
+      if ((serviceCycle[i] != null) && (serviceCycle[i] != "")) {
+        entreprisePhotos.add("assets/entreprises/${serviceCycle[i]}");
+      }
+
+      else {
+        break;
+      }
+
+      i++;
+    }
+
+    final CarouselSlider slider = CarouselSlider(
       items: entreprisePhotos.map(
         (i) {
           return Builder(
@@ -55,7 +70,6 @@ class _EntreprisePhotosState extends State<EntreprisePhotos> {
               return Container(
                 width: width,
                 height: height / 2,
-                // alignment: Alignment.topLeft,
                 decoration: BoxDecoration(
                   borderRadius: const BorderRadius.only(
                     bottomRight: Radius.circular(60.0),
@@ -72,9 +86,9 @@ class _EntreprisePhotosState extends State<EntreprisePhotos> {
       ).toList(),
       options: CarouselOptions(
         viewportFraction: 0.8,
-        height: isPortrait ? (height / 100) * 50 : height * .7,
-        autoPlay: false,
-        enableInfiniteScroll: false,
+        height: isPortrait ? height / 2.25 : height * 0.7,
+        autoPlay: true,
+        enableInfiniteScroll: true,
         aspectRatio: 2.0,
         enlargeCenterPage: true,
       ),

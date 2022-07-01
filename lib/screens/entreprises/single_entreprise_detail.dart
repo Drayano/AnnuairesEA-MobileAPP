@@ -57,13 +57,13 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
             ),
             SizedBox(
               width: width,
-              height: height / 2,
+              height: height / 2.25,
               child: EntreprisePhotos(
                 id: (entrepriseId + 1).toString(),
               ),
             ),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
