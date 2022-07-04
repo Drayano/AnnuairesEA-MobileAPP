@@ -27,6 +27,8 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
     final EntrepriseProvider entrepriseModel = Provider.of<EntrepriseProvider>(context);
     final int entrepriseId = int.parse(widget.id) - 1;
     const bool isVIP = true; //entrepriseModel.entrepriseList[entrepriseId].customerType;
+    final bool logo = entrepriseModel.entrepriseList[entrepriseId].logo != null;
+    final bool businessNameSize = entrepriseModel.entrepriseList[entrepriseId].businessName.length < 18;
 
     final bool companyPresentation =
         entrepriseModel.entrepriseList[entrepriseId].companyPresentation != null;
@@ -52,14 +54,37 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
                   Row(
                     children: <Widget>[
                       Expanded(
-                        flex: 2,
-                        child: Text(
-                          entrepriseModel.entrepriseList[entrepriseId].businessName,
-                          style: const TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromRGBO(74, 74, 74, .9),
+                        flex: 1,
+                        child: Container(
+                          margin: const EdgeInsets.only(right: 0, bottom: 10),
+                          child: Image(
+                            image: AssetImage(
+                              "assets/entreprises/${entrepriseModel.entrepriseList[entrepriseId].logo}",
+                            ),
                           ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 2,
+                        child: Column(
+                          children: <Widget>[
+                            Text(
+                              "${entrepriseModel.entrepriseList[entrepriseId].businessName},",
+                              style: TextStyle(
+                                fontSize: businessNameSize ? 20 : 14,
+                                fontWeight: FontWeight.bold,
+                                color: const Color.fromRGBO(74, 74, 74, .9),
+                              ),
+                            ),
+                            Text(
+                              entrepriseModel.entrepriseList[entrepriseId].state.toString(),
+                              style: const TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromRGBO(74, 74, 74, .9),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                       const Expanded(
@@ -92,22 +117,11 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
                       fontWeight: FontWeight.bold,
                       color: Colors.pink,
                     ),
-
                     style: const TextStyle(
                       fontSize: 13,
                       height: 1.6,
                     ),
                   ),
-                  // Text(
-                  //   companyPresentation
-                  //       ? entrepriseModel.entrepriseList[entrepriseId].companyPresentation!
-                  //       : "",
-                  //   style: const TextStyle(
-                  //     fontSize: 13,
-                  //     height: 1.6,
-                  //     color: Color.fromRGBO(51, 51, 51, 1),
-                  //   ),
-                  // ),
                 ],
               ),
             )
