@@ -5,7 +5,16 @@ import 'package:aea_app/screens/annuaire_pdf/pdf_view.dart';
 Widget secteurSection(data, String title, bool pdfview, [double? availableHeight]) {
   return Column(
     children: <Widget>[
-      Text(title),
+      Container(
+        margin: const EdgeInsets.only(top: 5, bottom: 8),
+        child: Text(
+          title,
+          style: const TextStyle(
+            fontSize: 23,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
       SizedBox(
         height: availableHeight,
         child: GridView.builder(
@@ -32,7 +41,14 @@ Widget secteurSection(data, String title, bool pdfview, [double? availableHeight
   );
 }
 
-Widget secteurCard(BuildContext context, String img, String name, String pdfid, String detail, bool pdfview) {
+Widget secteurCard(
+  BuildContext context,
+  String img,
+  String name,
+  String pdfid,
+  String detail,
+  bool pdfview,
+) {
   navigateSecteurList() {
     if (pdfview) {
       Navigator.push(

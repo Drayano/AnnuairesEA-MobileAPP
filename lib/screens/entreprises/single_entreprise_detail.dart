@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
+import 'package:readmore/readmore.dart';
 
 import 'package:aea_app/providers/entreprise_provider.dart';
 import 'package:aea_app/screens/views/entreprise_picture_slider.dart';
@@ -27,7 +28,8 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
     final int entrepriseId = int.parse(widget.id) - 1;
     const bool isVIP = true; //entrepriseModel.entrepriseList[entrepriseId].customerType;
 
-    final bool companyPresentation = entrepriseModel.entrepriseList[entrepriseId].companyPresentation != null;
+    final bool companyPresentation =
+        entrepriseModel.entrepriseList[entrepriseId].companyPresentation != null;
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -72,16 +74,40 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
                       ),
                     ],
                   ),
-                  Text(
+                  ReadMoreText(
                     companyPresentation
                         ? entrepriseModel.entrepriseList[entrepriseId].companyPresentation!
                         : "",
+                    trimLines: 3,
+                    trimMode: TrimMode.Line,
+                    trimCollapsedText: '\nVoir plus',
+                    trimExpandedText: '\nVoir moins',
+                    moreStyle: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.pink,
+                    ),
+                    lessStyle: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.pink,
+                    ),
+
                     style: const TextStyle(
                       fontSize: 13,
                       height: 1.6,
-                      color: Color.fromRGBO(51, 51, 51, 1),
                     ),
                   ),
+                  // Text(
+                  //   companyPresentation
+                  //       ? entrepriseModel.entrepriseList[entrepriseId].companyPresentation!
+                  //       : "",
+                  //   style: const TextStyle(
+                  //     fontSize: 13,
+                  //     height: 1.6,
+                  //     color: Color.fromRGBO(51, 51, 51, 1),
+                  //   ),
+                  // ),
                 ],
               ),
             )

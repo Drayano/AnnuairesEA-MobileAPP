@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
                   Container(
                     margin: const EdgeInsets.only(top: 80.0),
                     child: const Text(
-                      "Where do you want to go ?",
+                      "Effectuer une recherche",
                       style: TextStyle(
                         fontSize: 26,
                         fontWeight: FontWeight.w500,

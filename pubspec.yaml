@@ -39,6 +39,7 @@ dependencies:
   image_picker: ^0.8.5+3
   flutter_feather_icons: ^2.0.0+1
   syncfusion_flutter_pdfviewer: ^20.1.61-beta
+  readmore: ^2.1.0
   
 
 dev_dependencies:
