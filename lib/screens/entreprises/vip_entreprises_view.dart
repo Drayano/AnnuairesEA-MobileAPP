@@ -30,7 +30,7 @@ class _EntrepriseListViewState extends State<EntrepriseListView> {
               Container(
                 margin: const EdgeInsets.only(top: 50, left: 20),
                 child: const Text(
-                  "Vos favoris :",
+                  "Entreprises VIP :",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,

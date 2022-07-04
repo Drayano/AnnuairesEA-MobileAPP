@@ -6,12 +6,10 @@ import 'package:aea_app/providers/entreprise_provider.dart';
 
 class EntreprisePhotos extends StatefulWidget {
   final String id;
-  // final List imageList;
 
   const EntreprisePhotos({
     Key? key,
     required this.id,
-    // required this.imageList,
   }) : super(key: key);
 
   @override
@@ -63,7 +61,7 @@ class _EntreprisePhotosState extends State<EntreprisePhotos> {
     }
 
     // Don't scroll if there's only 1 carousel image
-    bool infiniteScrollBehaviour = entreprisePhotos.length == 1;
+    bool infiniteScrollBehaviour = entreprisePhotos.length > 1;
 
     final CarouselSlider slider = CarouselSlider(
       items: entreprisePhotos.map(
@@ -88,7 +86,7 @@ class _EntreprisePhotosState extends State<EntreprisePhotos> {
         viewportFraction: 1,
         height: isPortrait ? height / 2.25 : height * 0.7,
         autoPlay: true,
-        enableInfiniteScroll: !infiniteScrollBehaviour,//true,
+        enableInfiniteScroll: infiniteScrollBehaviour,
         aspectRatio: 2.0,
         enlargeCenterPage: true,
       ),

@@ -9,7 +9,7 @@ import 'package:aea_app/providers/entreprise_provider.dart';
 
 import 'package:aea_app/screens/home.dart';
 import 'package:aea_app/screens/secteurs/all_secteurs_view.dart';
-import 'package:aea_app/screens/entreprises/favourite_entreprises_view.dart';
+import 'package:aea_app/screens/entreprises/vip_entreprises_view.dart';
 import 'package:aea_app/screens/annuaire_pdf/annuaire_view.dart';
 
 class TabNavigationView extends StatefulWidget {
@@ -48,7 +48,7 @@ class _TabNavigationView extends State<TabNavigationView> {
     List<Widget> children = <Widget>[
       const HomePage(key: PageStorageKey('home')),
       const AllSecteursView(key: PageStorageKey('secteurs')),
-      const EntrepriseListView(key: PageStorageKey('favoris')),
+      const EntrepriseListView(key: PageStorageKey('vip')),
       const AnnuairePDFView(key: PageStorageKey('pdf'))
     ];
 
@@ -83,11 +83,11 @@ class _TabNavigationView extends State<TabNavigationView> {
             icon: SizedBox(
               height: 24,
               child: Icon(
-                Icons.favorite,
+                Icons.star,
                 size: 20.0,
               ),
             ),
-            label: "Favoris",
+            label: "VIP",
           ),
           BottomNavigationBarItem(
             icon: SizedBox(

@@ -57,12 +57,13 @@ class HomePage extends StatelessWidget {
             ),
             Container(
               padding: const EdgeInsets.all(8.0),
-              child: secteurSection(entrepriseProvider.entrepriseList, "Suggestions"),
+              child: entrepriseCarousel(context, entrepriseProvider.entrepriseList, "VIP"),
+              
             ),
-            Container(
-              padding: const EdgeInsets.all(8.0),
-              child: secteurSection(entrepriseProvider.entrepriseList, "Top Rated"),
-            ),
+            // Container(
+            //   padding: const EdgeInsets.all(8.0),
+            //   child: secteurSection(entrepriseProvider.entrepriseList, "Suggestions"),
+            // ),
           ],
         ),
       ),

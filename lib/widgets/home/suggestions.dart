@@ -1,12 +1,20 @@
+import 'package:aea_app/screens/entreprises/vip_entreprises_view.dart';
 import 'package:flutter/material.dart';
 
 import 'package:aea_app/screens/entreprises/single_entreprise_detail.dart';
 
-Widget secteurSection(data, String title) {
+Widget entrepriseCarousel(BuildContext context, data, String title) {
   return Column(
     children: <Widget>[
       InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const EntrepriseListView()
+            ),
+          );
+        },
         child: Row(
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[

@@ -18,16 +18,6 @@ class SingleEntrepriseDetail extends StatefulWidget {
 }
 
 class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
-  bool isFavourite = false;
-
-  _addToFavourite() {
-    setState(
-      () {
-        isFavourite = !isFavourite;
-      },
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
@@ -35,6 +25,7 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
 
     final EntrepriseProvider entrepriseModel = Provider.of<EntrepriseProvider>(context);
     final int entrepriseId = int.parse(widget.id) - 1;
+    const bool isVIP = true; //entrepriseModel.entrepriseList[entrepriseId].customerType;
 
     final bool companyPresentation = entrepriseModel.entrepriseList[entrepriseId].companyPresentation != null;
 
@@ -69,18 +60,15 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
                           ),
                         ),
                       ),
-                      Expanded(
+                      const Expanded(
                         flex: 0,
-                        child: IconButton(
-                          icon: Icon(
-                            isFavourite
-                                ? Icons.favorite
-                                : Icons.favorite_border,
-                            color: Colors.red,
-                            size: 30,
-                          ),
-                          onPressed: _addToFavourite,
-                        ),
+                        child: isVIP
+                            ? Icon(
+                                Icons.star,
+                                color: Colors.amber,
+                                size: 30,
+                              )
+                            : SizedBox.shrink(), // Empty widget
                       ),
                     ],
                   ),
