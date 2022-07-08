@@ -6,6 +6,7 @@ import 'package:readmore/readmore.dart';
 import 'package:aea_app/providers/entreprise_provider.dart';
 import 'package:aea_app/screens/views/entreprise_picture_slider.dart';
 import 'package:aea_app/screens/entreprises/entreprise_contact_detail.dart';
+import 'package:aea_app/screens/views/entreprise_youtube_player.dart';
 
 class SingleEntrepriseDetail extends StatefulWidget {
   final String id;
@@ -34,6 +35,10 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
     final bool logo = (entrepriseModel.entrepriseList[entrepriseId].logo != null) &&
         (entrepriseModel.entrepriseList[entrepriseId].logo != "");
     const bool isVIP = true; //entrepriseModel.entrepriseList[entrepriseId].customerType;
+
+    final bool videoEntreprise =
+        (entrepriseModel.entrepriseList[entrepriseId].videoEntreprise != null) &&
+            (entrepriseModel.entrepriseList[entrepriseId].videoEntreprise != "");
 
     final bool companyPresentation =
         entrepriseModel.entrepriseList[entrepriseId].companyPresentation != null;
@@ -106,6 +111,22 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
                       ),
                     ],
                   ),
+                  const SizedBox(height: 10),
+                  videoEntreprise
+                      ? YoutubePlayerEmbed(
+                          videoEntreprise:
+                              entrepriseModel.entrepriseList[entrepriseId].videoEntreprise!,
+                        )
+                      : const SizedBox.shrink(),
+                  const SizedBox(height: 10),
+                  const Text(
+                    "Présentation de l'entreprise :",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromRGBO(74, 74, 74, .9),
+                    ),
+                  ),
                   ReadMoreText(
                     companyPresentation
                         ? entrepriseModel.entrepriseList[entrepriseId].companyPresentation!
@@ -129,13 +150,12 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
                       height: 1.6,
                     ),
                   ),
-                  Text(
+                  const Text(
                     "Contact :",
-                    // "${entrepriseModel.entrepriseList[entrepriseId].businessName},",
                     style: TextStyle(
-                      fontSize: businessNameSize ? 20 : 14,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: const Color.fromRGBO(74, 74, 74, .9),
+                      color: Color.fromRGBO(74, 74, 74, .9),
                     ),
                   ),
                   ContactInfo(id: widget.id)
