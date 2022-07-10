@@ -6,9 +6,12 @@ import 'package:aea_app/providers/entreprise_provider.dart';
 import 'package:aea_app/widgets/home/suggestions.dart';
 import 'package:aea_app/widgets/search_card.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({
-    required Key key,
+class SecteurHomeView extends StatelessWidget {
+  final String secteurImage;
+
+  const SecteurHomeView({
+    Key? key,
+    required this.secteurImage,
   }) : super(key: key);
 
   @override
@@ -30,7 +33,7 @@ class HomePage extends StatelessWidget {
               height: isPortrait ? height / 2 : width / 2,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: const AssetImage("assets/oran_background.jpg"),
+                  image: AssetImage(secteurImage),
                   colorFilter: ColorFilter.mode(
                     Colors.black.withOpacity(0.7),
                     BlendMode.dstATop,

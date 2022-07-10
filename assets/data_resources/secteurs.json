@@ -3,96 +3,112 @@
     "pdfid": "-1",
 	"name": "Administration",
     "detail": "Lorem ipsum.",
-    "image": "administration.jpg"
+    "image": "administration.jpg",
+	"image_thumb": "administration_thumb.jpg"
   },
   {
     "pdfid": "2",
 	"name": "Agroalimentaire",
     "detail": "Lorem ipsum.",
-    "image": "agroalimentaire.jpg"
+    "image": "agroalimentaire.jpg",
+	"image_thumb": "agroalimentaire_thumb.jpg"
   },
   {
     "pdfid": "3",
 	"name": "Chimie & Petrochimie",
     "detail": "Lorem ipsum.",
-    "image": "petrochimie.jpg"
+    "image": "petrochimie.jpg",
+	"image_thumb": "petrochimie_thumb.jpg"
   },
   {
     "pdfid": "4",
 	"name": "Commerce",
     "detail": "Lorem ipsum.",
-    "image": "commerce.jpg"
+    "image": "commerce.jpg",
+	"image_thumb": "commerce_thumb.jpg"
   },
   {
     "pdfid": "5",
 	"name": "Construction",
     "detail": "Lorem ipsum.",
-    "image": "construction.jpg"
+    "image": "construction.jpg",
+	"image_thumb": "construction_thumb.jpg"
   },
   {
     "pdfid": "7",
 	"name": "Formation & Enseignement",
     "detail": "Lorem ipsum.",
-    "image": "enseignement.jpg"
+    "image": "enseignement.jpg",
+	"image_thumb": "enseignement_thumb.jpg"
   },
   {
     "pdfid": "8",
 	"name": "Fournitures & Equipements",
     "detail": "Lorem ipsum.",
-    "image": "equipement.jpg"
+    "image": "equipement.jpg",
+	"image_thumb": "equipement_thumb.jpg"
   },
   {
     "pdfid": "9",
 	"name": "Import/Export",
     "detail": "Lorem ipsum.",
-    "image": "import_export.jpg"
+    "image": "import_export.jpg",
+	"image_thumb": "import_export_thumb.jpg"
   },
   {
     "pdfid": "10",
 	"name": "Impression & Edition",
     "detail": "Lorem ipsum.",
-    "image": "impression.jpg"
+    "image": "impression.jpg",
+	"image_thumb": "impression_thumb.jpg"
   },
   {
     "pdfid": "11",
 	"name": "Industrie & Production",
     "detail": "Lorem ipsum.",
-    "image": "industrie.jpg"
+    "image": "industrie.jpg",
+	"image_thumb": "industrie_thumb.jpg"
   },
   {
     "pdfid": "12",
 	"name": "Santé",
     "detail": "Lorem ipsum.",
-    "image": "sante.jpg"
+    "image": "sante.jpg",
+	"image_thumb": "sante_thumb.jpg"
   },
   {
     "pdfid": "13",
 	"name": "Service",
     "detail": "Lorem ipsum.",
-    "image": "services.jpg"
+    "image": "services.jpg",
+	"image_thumb": "services_thumb.jpg"
   },
   {
     "pdfid": "14",
 	"name": "Tourisme",
     "detail": "Lorem ipsum.",
-    "image": "tourisme.jpg"
+    "image": "tourisme.jpg",
+	"image_thumb": "tourisme_thumb.jpg"
   },
   {
     "pdfid": "15",
 	"name": "Transport",
     "detail": "Lorem ipsum.",
-    "image": "transport.jpg"
+    "image": "transport.jpg",
+	"image_thumb": "transport_thumb.jpg"
   },
   {
     "pdfid": "-1",
 	"name": "Sport, Artisanat & Loisirs",
     "detail": "Lorem ipsum.",
-    "image": "sports.jpg"
+    "image": "sports.jpg",
+	"image_thumb": "sports_thumb.jpg"
   },
   {
     "pdfid": "6",
 	"name": "Elevage, aviculture et horticulture",
     "detail": "Lorem ipsum.",
-    "image": "elevage.jpg"
+    "image": "elevage.jpg",
+	"image_thumb": "elevage_thumb.jpg"
   }
 ]

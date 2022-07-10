@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:aea_app/global/styles.dart';
 import 'package:aea_app/screens/annuaire_pdf/pdf_view.dart';
+import 'package:aea_app/screens/secteurs/secteur_home_view.dart';
 
 Widget secteurSection(data, String title, bool pdfview, [double? availableHeight]) {
   return Column(
@@ -29,6 +30,7 @@ Widget secteurSection(data, String title, bool pdfview, [double? availableHeight
               child: secteurCard(
                 context,
                 "assets/secteurs/${data[index].image}",
+                "assets/secteurs/${data[index].imageThumb}",
                 data[index].name,
                 data[index].pdfid,
                 data[index].detail,
@@ -44,7 +46,8 @@ Widget secteurSection(data, String title, bool pdfview, [double? availableHeight
 
 Widget secteurCard(
   BuildContext context,
-  String img,
+  String secteurImage,
+  String secteurImageThumb,
   String name,
   String pdfid,
   String detail,
@@ -57,6 +60,17 @@ Widget secteurCard(
         MaterialPageRoute(
           builder: (context) => SecteurPDFView(
             pdfid: pdfid,
+          ),
+        ),
+      );
+    }
+
+    else {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => SecteurHomeView(
+            secteurImage: secteurImage,
           ),
         ),
       );
@@ -82,7 +96,7 @@ Widget secteurCard(
               height: 110,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage(img),
+                  image: AssetImage(secteurImageThumb),
                   fit: BoxFit.cover,
                 ),
               ),

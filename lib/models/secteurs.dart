@@ -3,12 +3,14 @@ class Secteur {
   String name;
   String detail;
   String image;
+  String imageThumb;
 
   Secteur({
     required this.pdfid,
     required this.name,
     required this.detail,
     required this.image,
+    required this.imageThumb
   });
 
   factory Secteur.fromJson(Map<String, dynamic> json) => Secteur(
@@ -16,5 +18,6 @@ class Secteur {
         name: json['name'],
         detail: json['detail'],
         image: json['image'],
+        imageThumb: json['image_thumb']
       );
 }
