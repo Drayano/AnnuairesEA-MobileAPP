@@ -1,7 +1,8 @@
-import 'package:aea_app/screens/entreprises/vip_entreprises_view.dart';
 import 'package:flutter/material.dart';
 
+import 'package:aea_app/global/styles.dart';
 import 'package:aea_app/screens/entreprises/single_entreprise_detail.dart';
+import 'package:aea_app/screens/entreprises/vip_entreprises_view.dart';
 
 Widget entrepriseCarousel(BuildContext context, data, String title) {
   return Column(
@@ -86,14 +87,14 @@ Widget secteurCard(
     child: Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.0),
-        color: Colors.white,
+        color: backgroundColor,
       ),
       child: InkWell(
         onTap: navigateEntrepriseList,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            logo != "assets/entreprises/"
+            (logo != "assets/entreprises/") && (logo != "")
                 ? Container(
                     height: 90,
                     decoration: BoxDecoration(
@@ -113,7 +114,7 @@ Widget secteurCard(
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
-                  color: Color.fromRGBO(74, 74, 74, 1),
+                  color: aeaGreen,
                 ),
               ),
             ),

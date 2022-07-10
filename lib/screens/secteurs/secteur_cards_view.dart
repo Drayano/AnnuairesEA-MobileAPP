@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:aea_app/global/styles.dart';
 import 'package:aea_app/screens/annuaire_pdf/pdf_view.dart';
 
 Widget secteurSection(data, String title, bool pdfview, [double? availableHeight]) {
@@ -70,7 +71,7 @@ Widget secteurCard(
     child: Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.0),
-        color: Colors.white,
+        color: backgroundColor,
       ),
       child: InkWell(
         onTap: navigateSecteurList,
@@ -93,7 +94,7 @@ Widget secteurCard(
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
-                  color: Color.fromRGBO(74, 74, 74, 1),
+                  color: aeaGreen,
                 ),
               ),
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:aea_app/global/styles.dart';
 import 'package:aea_app/screens/entreprises/single_entreprise_detail.dart';
 
 class EntrepriseCardView extends StatelessWidget {
@@ -24,7 +25,9 @@ class EntrepriseCardView extends StatelessWidget {
     bool isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
 
     return Card(
-      margin: isPortrait ? const EdgeInsets.only(left: 20, right: 20, bottom: 20) : const EdgeInsets.only(left: 15, right: 25, bottom: 80),
+      margin: isPortrait
+          ? const EdgeInsets.only(left: 20, right: 20, bottom: 20)
+          : const EdgeInsets.only(left: 15, right: 25, bottom: 80),
       elevation: 3,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
@@ -64,6 +67,7 @@ class EntrepriseCardView extends StatelessWidget {
                           style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
+                            color: aeaGreen,
                           ),
                         ),
                         Text(

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:readmore/readmore.dart';
 
+import 'package:aea_app/global/styles.dart';
 import 'package:aea_app/providers/entreprise_provider.dart';
 import 'package:aea_app/screens/views/entreprise_picture_slider.dart';
 import 'package:aea_app/screens/entreprises/entreprise_contact_detail.dart';
@@ -85,7 +86,7 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
                               style: TextStyle(
                                 fontSize: businessNameSize ? 20 : 14,
                                 fontWeight: FontWeight.bold,
-                                color: const Color.fromRGBO(74, 74, 74, .9),
+                                color: aeaGreen,
                               ),
                             ),
                             Text(
@@ -93,7 +94,7 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
                               style: const TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.bold,
-                                color: Color.fromRGBO(74, 74, 74, .9),
+                                color: aeaGreen,
                               ),
                             ),
                           ],
@@ -124,7 +125,7 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: Color.fromRGBO(74, 74, 74, .9),
+                      color: aeaGreen,
                     ),
                   ),
                   ReadMoreText(
@@ -137,25 +138,24 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
                     trimExpandedText: '\nVoir moins',
                     moreStyle: const TextStyle(
                       fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.pink,
+                      color: aeaRed,
                     ),
                     lessStyle: const TextStyle(
                       fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.pink,
+                      color: aeaRed,
                     ),
                     style: const TextStyle(
                       fontSize: 13,
                       height: 1.6,
                     ),
                   ),
+                  const SizedBox(height: 20),
                   const Text(
                     "Contact :",
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: Color.fromRGBO(74, 74, 74, .9),
+                      color: aeaGreen,
                     ),
                   ),
                   ContactInfo(id: widget.id)

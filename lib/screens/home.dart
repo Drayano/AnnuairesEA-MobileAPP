@@ -15,7 +15,9 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+
     bool isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
+
     final entrepriseProvider = Provider.of<EntrepriseProvider>(context);
 
     return Scaffold(
@@ -28,7 +30,8 @@ class HomePage extends StatelessWidget {
               height: isPortrait ? height / 2 : width / 2,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: const AssetImage('assets/img004.jpg'),
+                  // image: const AssetImage('assets/img004.jpg'),
+                  image: const AssetImage("assets/oran_background.jpg"),
                   colorFilter: ColorFilter.mode(
                     Colors.black.withOpacity(0.7),
                     BlendMode.dstATop,
@@ -58,12 +61,7 @@ class HomePage extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(8.0),
               child: entrepriseCarousel(context, entrepriseProvider.entrepriseList, "VIP"),
-              
             ),
-            // Container(
-            //   padding: const EdgeInsets.all(8.0),
-            //   child: secteurSection(entrepriseProvider.entrepriseList, "Suggestions"),
-            // ),
           ],
         ),
       ),

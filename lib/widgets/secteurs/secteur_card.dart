@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:aea_app/global/styles.dart';
+
 class SecteurCard extends StatelessWidget {
   final String image;
   final String name;
@@ -45,7 +47,7 @@ class SecteurCard extends StatelessWidget {
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
-                    color: Color.fromRGBO(74, 74, 74, 1),
+                    color: aeaGreen,
                   ),
                 ),
               ),
