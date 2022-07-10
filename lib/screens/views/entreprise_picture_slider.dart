@@ -17,16 +17,6 @@ class EntreprisePhotos extends StatefulWidget {
 }
 
 class _EntreprisePhotosState extends State<EntreprisePhotos> {
-  int _current = 0;
-
-  onPageChanged(index) {
-    setState(
-      () {
-        _current = index;
-      },
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
@@ -83,7 +73,7 @@ class _EntreprisePhotosState extends State<EntreprisePhotos> {
         },
       ).toList(),
       options: CarouselOptions(
-        viewportFraction: 1,
+        viewportFraction: 0.8,
         height: isPortrait ? height / 2.25 : height * 0.7,
         autoPlay: true,
         enableInfiniteScroll: infiniteScrollBehaviour,

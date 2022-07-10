@@ -10,9 +10,7 @@ Widget entrepriseCarousel(BuildContext context, data, String title) {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(
-              builder: (context) => const EntrepriseListView()
-            ),
+            MaterialPageRoute(builder: (context) => const EntrepriseListView()),
           );
         },
         child: Row(
@@ -51,8 +49,7 @@ Widget entrepriseCarousel(BuildContext context, data, String title) {
                 context,
                 data[index].id,
                 data[index].businessName,
-                data[index].streetAddress,
-                "assets/entreprises/${data[index].banner}",
+                "assets/entreprises/${data[index].logo}",
               ),
             );
           },
@@ -66,8 +63,7 @@ Widget secteurCard(
   BuildContext context,
   String id,
   String businessName,
-  String streetAddress,
-  String banner,
+  String logo,
 ) {
   navigateEntrepriseList() {
     Navigator.push(
@@ -97,15 +93,19 @@ Widget secteurCard(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Container(
-              height: 90,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(banner),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
+            logo != "assets/entreprises/"
+                ? Container(
+                    height: 90,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(logo),
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  )
+                : const SizedBox(
+                    height: 90,
+                  ),
             Container(
               margin: const EdgeInsets.only(top: 10, left: 5),
               child: Text(
