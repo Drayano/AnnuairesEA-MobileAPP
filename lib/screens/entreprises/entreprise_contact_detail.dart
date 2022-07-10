@@ -38,23 +38,27 @@ class _ContactInfoState extends State<ContactInfo> {
     final bool maps = (entrepriseModel.entrepriseList[entrepriseId].maps != null) &&
         (entrepriseModel.entrepriseList[entrepriseId].maps != "");
 
-    return Container(
-      child: Column(
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              Expanded(
-                flex: 1,
-                child: fixePhone ? const Text("Fixe :") : const SizedBox.shrink(),
-              ),
-              Expanded(
-                flex: 2,
+    return Column(
+      children: <Widget>[
+        Row(
+          children: <Widget>[
+            Expanded(
+              flex: 1,
+              child: fixePhone ? const Text("Fixe :") : const SizedBox.shrink(),
+            ),
+            Expanded(
+              flex: 2,
+              child: InkWell(
+                onTap: () {},
                 child: fixePhone
                     ? Text(entrepriseModel.entrepriseList[entrepriseId].fixePhone!)
-                    : const SizedBox.shrink(),
+                    : const SizedBox.shrink(), // Empty widget
               ),
-              Expanded(
-                flex: 0,
+            ),
+            Expanded(
+              flex: 0,
+              child: InkWell(
+                onTap: () {},
                 child: fixePhone
                     ? const Icon(
                         Icons.phone,
@@ -63,23 +67,29 @@ class _ContactInfoState extends State<ContactInfo> {
                       )
                     : const SizedBox.shrink(), // Empty widget
               ),
-            ],
-          ),
-          const SizedBox(height: 10),
-          Row(
-            children: <Widget>[
-              Expanded(
-                flex: 1,
-                child: faxNumber ? const Text("Fax :") : const SizedBox.shrink(),
-              ),
-              Expanded(
-                flex: 2,
+            ),
+          ],
+        ),
+        const SizedBox(height: 10),
+        Row(
+          children: <Widget>[
+            Expanded(
+              flex: 1,
+              child: faxNumber ? const Text("Fax :") : const SizedBox.shrink(),
+            ),
+            Expanded(
+              flex: 2,
+              child: InkWell(
+                onTap: () {},
                 child: faxNumber
                     ? Text(entrepriseModel.entrepriseList[entrepriseId].faxNumber!)
-                    : const SizedBox.shrink(),
+                    : const SizedBox.shrink(), // Empty widget
               ),
-              Expanded(
-                flex: 0,
+            ),
+            Expanded(
+              flex: 0,
+              child: InkWell(
+                onTap: () {},
                 child: faxNumber
                     ? const Icon(
                         Icons.fax,
@@ -88,23 +98,29 @@ class _ContactInfoState extends State<ContactInfo> {
                       )
                     : const SizedBox.shrink(), // Empty widget
               ),
-            ],
-          ),
-          const SizedBox(height: 10),
-          Row(
-            children: <Widget>[
-              Expanded(
-                flex: 1,
-                child: mobile ? const Text("Mobile :") : const SizedBox.shrink(),
-              ),
-              Expanded(
-                flex: 2,
+            ),
+          ],
+        ),
+        const SizedBox(height: 10),
+        Row(
+          children: <Widget>[
+            Expanded(
+              flex: 1,
+              child: mobile ? const Text("Mobile :") : const SizedBox.shrink(),
+            ),
+            Expanded(
+              flex: 2,
+              child: InkWell(
+                onTap: () {},
                 child: mobile
                     ? Text(entrepriseModel.entrepriseList[entrepriseId].mobile!)
-                    : const SizedBox.shrink(),
+                    : const SizedBox.shrink(), // Empty widget
               ),
-              Expanded(
-                flex: 0,
+            ),
+            Expanded(
+              flex: 0,
+              child: InkWell(
+                onTap: () {},
                 child: mobile
                     ? const Icon(
                         Icons.phone_android,
@@ -113,23 +129,29 @@ class _ContactInfoState extends State<ContactInfo> {
                       )
                     : const SizedBox.shrink(), // Empty widget
               ),
-            ],
-          ),
-          const SizedBox(height: 10),
-          Row(
-            children: <Widget>[
-              Expanded(
-                flex: 1,
-                child: email ? const Text("Email :") : const SizedBox.shrink(),
-              ),
-              Expanded(
-                flex: 2,
+            ),
+          ],
+        ),
+        const SizedBox(height: 10),
+        Row(
+          children: <Widget>[
+            Expanded(
+              flex: 1,
+              child: email ? const Text("Email :") : const SizedBox.shrink(),
+            ),
+            Expanded(
+              flex: 2,
+              child: InkWell(
+                onTap: () {},
                 child: email
                     ? Text(entrepriseModel.entrepriseList[entrepriseId].email!)
-                    : const SizedBox.shrink(),
+                    : const SizedBox.shrink(), // Empty widget
               ),
-              Expanded(
-                flex: 0,
+            ),
+            Expanded(
+              flex: 0,
+              child: InkWell(
+                onTap: () {},
                 child: email
                     ? const Icon(
                         Icons.email,
@@ -138,23 +160,29 @@ class _ContactInfoState extends State<ContactInfo> {
                       )
                     : const SizedBox.shrink(), // Empty widget
               ),
-            ],
-          ),
-          const SizedBox(height: 10),
-          Row(
-            children: <Widget>[
-              Expanded(
-                flex: 1,
-                child: website ? const Text("Site Web :") : const SizedBox.shrink(),
-              ),
-              Expanded(
-                flex: 2,
+            ),
+          ],
+        ),
+        const SizedBox(height: 10),
+        Row(
+          children: <Widget>[
+            Expanded(
+              flex: 1,
+              child: website ? const Text("Site Web :") : const SizedBox.shrink(),
+            ),
+            Expanded(
+              flex: 2,
+              child: InkWell(
+                onTap: () {},
                 child: website
                     ? Text(entrepriseModel.entrepriseList[entrepriseId].website!)
-                    : const SizedBox.shrink(),
+                    : const SizedBox.shrink(), // Empty widget
               ),
-              Expanded(
-                flex: 0,
+            ),
+            Expanded(
+              flex: 0,
+              child: InkWell(
+                onTap: () {},
                 child: website
                     ? const Icon(
                         Icons.language,
@@ -163,23 +191,29 @@ class _ContactInfoState extends State<ContactInfo> {
                       )
                     : const SizedBox.shrink(), // Empty widget
               ),
-            ],
-          ),
-          const SizedBox(height: 10),
-          Row(
-            children: <Widget>[
-              Expanded(
-                flex: 1,
-                child: facebook ? const Text("Facebook :") : const SizedBox.shrink(),
-              ),
-              Expanded(
-                flex: 2,
+            ),
+          ],
+        ),
+        const SizedBox(height: 10),
+        Row(
+          children: <Widget>[
+            Expanded(
+              flex: 1,
+              child: facebook ? const Text("Facebook :") : const SizedBox.shrink(),
+            ),
+            Expanded(
+              flex: 2,
+              child: InkWell(
+                onTap: () {},
                 child: facebook
                     ? Text(entrepriseModel.entrepriseList[entrepriseId].facebook!)
-                    : const SizedBox.shrink(),
+                    : const SizedBox.shrink(), // Empty widget
               ),
-              Expanded(
-                flex: 0,
+            ),
+            Expanded(
+              flex: 0,
+              child: InkWell(
+                onTap: () {},
                 child: facebook
                     ? const Icon(
                         Icons.facebook,
@@ -188,23 +222,29 @@ class _ContactInfoState extends State<ContactInfo> {
                       )
                     : const SizedBox.shrink(), // Empty widget
               ),
-            ],
-          ),
-          const SizedBox(height: 10),
-          Row(
-            children: <Widget>[
-              Expanded(
-                flex: 1,
-                child: youtube ? const Text("Youtube :") : const SizedBox.shrink(),
-              ),
-              Expanded(
-                flex: 2,
+            ),
+          ],
+        ),
+        const SizedBox(height: 10),
+        Row(
+          children: <Widget>[
+            Expanded(
+              flex: 1,
+              child: youtube ? const Text("Youtube :") : const SizedBox.shrink(),
+            ),
+            Expanded(
+              flex: 2,
+              child: InkWell(
+                onTap: () {},
                 child: youtube
                     ? Text(entrepriseModel.entrepriseList[entrepriseId].youtube!)
-                    : const SizedBox.shrink(),
+                    : const SizedBox.shrink(), // Empty widget
               ),
-              Expanded(
-                flex: 0,
+            ),
+            Expanded(
+              flex: 0,
+              child: InkWell(
+                onTap: () {},
                 child: youtube
                     ? const Icon(
                         Icons.ondemand_video_rounded,
@@ -213,23 +253,29 @@ class _ContactInfoState extends State<ContactInfo> {
                       )
                     : const SizedBox.shrink(), // Empty widget
               ),
-            ],
-          ),
-          const SizedBox(height: 10),
-          Row(
-            children: <Widget>[
-              Expanded(
-                flex: 1,
-                child: maps ? const Text("Google Maps :") : const SizedBox.shrink(),
-              ),
-              Expanded(
-                flex: 2,
+            ),
+          ],
+        ),
+        const SizedBox(height: 10),
+        Row(
+          children: <Widget>[
+            Expanded(
+              flex: 1,
+              child: maps ? const Text("Google Maps :") : const SizedBox.shrink(),
+            ),
+            Expanded(
+              flex: 2,
+              child: InkWell(
+                onTap: () {},
                 child: maps
                     ? Text(entrepriseModel.entrepriseList[entrepriseId].maps!)
-                    : const SizedBox.shrink(),
+                    : const SizedBox.shrink(), // Empty widget
               ),
-              Expanded(
-                flex: 0,
+            ),
+            Expanded(
+              flex: 0,
+              child: InkWell(
+                onTap: () {},
                 child: maps
                     ? const Icon(
                         Icons.navigation_rounded,
@@ -238,10 +284,10 @@ class _ContactInfoState extends State<ContactInfo> {
                       )
                     : const SizedBox.shrink(), // Empty widget
               ),
-            ],
-          ),
-        ],
-      ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
