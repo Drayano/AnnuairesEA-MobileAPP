@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 import 'package:aea_app/providers/entreprise_provider.dart';
 
 class ContactInfo extends StatefulWidget {
@@ -49,7 +51,14 @@ class _ContactInfoState extends State<ContactInfo> {
             Expanded(
               flex: 2,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  final Uri url = Uri(
+                    scheme: "tel",
+                    path: entrepriseModel.entrepriseList[entrepriseId].fixePhone,
+                  );
+
+                  launchUrl(url);
+                },
                 child: fixePhone
                     ? Text(entrepriseModel.entrepriseList[entrepriseId].fixePhone!)
                     : const SizedBox.shrink(), // Empty widget
@@ -58,7 +67,14 @@ class _ContactInfoState extends State<ContactInfo> {
             Expanded(
               flex: 0,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  final Uri url = Uri(
+                    scheme: "tel",
+                    path: entrepriseModel.entrepriseList[entrepriseId].fixePhone,
+                  );
+
+                  launchUrl(url);
+                },
                 child: fixePhone
                     ? const Icon(
                         Icons.phone,
@@ -80,7 +96,14 @@ class _ContactInfoState extends State<ContactInfo> {
             Expanded(
               flex: 2,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  final Uri url = Uri(
+                    scheme: "tel",
+                    path: entrepriseModel.entrepriseList[entrepriseId].faxNumber,
+                  );
+
+                  launchUrl(url);
+                },
                 child: faxNumber
                     ? Text(entrepriseModel.entrepriseList[entrepriseId].faxNumber!)
                     : const SizedBox.shrink(), // Empty widget
@@ -89,7 +112,14 @@ class _ContactInfoState extends State<ContactInfo> {
             Expanded(
               flex: 0,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  final Uri url = Uri(
+                    scheme: "tel",
+                    path: entrepriseModel.entrepriseList[entrepriseId].faxNumber,
+                  );
+
+                  launchUrl(url);
+                },
                 child: faxNumber
                     ? const Icon(
                         Icons.fax,
@@ -111,7 +141,14 @@ class _ContactInfoState extends State<ContactInfo> {
             Expanded(
               flex: 2,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  final Uri url = Uri(
+                    scheme: "tel",
+                    path: entrepriseModel.entrepriseList[entrepriseId].mobile,
+                  );
+
+                  launchUrl(url);
+                },
                 child: mobile
                     ? Text(entrepriseModel.entrepriseList[entrepriseId].mobile!)
                     : const SizedBox.shrink(), // Empty widget
@@ -120,7 +157,14 @@ class _ContactInfoState extends State<ContactInfo> {
             Expanded(
               flex: 0,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  final Uri url = Uri(
+                    scheme: "tel",
+                    path: entrepriseModel.entrepriseList[entrepriseId].mobile,
+                  );
+
+                  launchUrl(url);
+                },
                 child: mobile
                     ? const Icon(
                         Icons.phone_android,
@@ -142,7 +186,14 @@ class _ContactInfoState extends State<ContactInfo> {
             Expanded(
               flex: 2,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  final Uri url = Uri(
+                    scheme: "mailto",
+                    path: entrepriseModel.entrepriseList[entrepriseId].email,
+                  );
+
+                  launchUrl(url);
+                },
                 child: email
                     ? Text(entrepriseModel.entrepriseList[entrepriseId].email!)
                     : const SizedBox.shrink(), // Empty widget
@@ -151,7 +202,14 @@ class _ContactInfoState extends State<ContactInfo> {
             Expanded(
               flex: 0,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  final Uri url = Uri(
+                    scheme: "mailto",
+                    path: entrepriseModel.entrepriseList[entrepriseId].email,
+                  );
+
+                  launchUrl(url);
+                },
                 child: email
                     ? const Icon(
                         Icons.email,
@@ -173,7 +231,15 @@ class _ContactInfoState extends State<ContactInfo> {
             Expanded(
               flex: 2,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  final Uri url =
+                      Uri.parse(entrepriseModel.entrepriseList[entrepriseId].website!);
+
+                  launchUrl(
+                    url,
+                    mode: LaunchMode.inAppWebView,
+                  );
+                },
                 child: website
                     ? Text(entrepriseModel.entrepriseList[entrepriseId].website!)
                     : const SizedBox.shrink(), // Empty widget
@@ -182,7 +248,15 @@ class _ContactInfoState extends State<ContactInfo> {
             Expanded(
               flex: 0,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  final Uri url =
+                      Uri.parse(entrepriseModel.entrepriseList[entrepriseId].website!);
+
+                  launchUrl(
+                    url,
+                    mode: LaunchMode.inAppWebView,
+                  );
+                },
                 child: website
                     ? const Icon(
                         Icons.language,
@@ -204,16 +278,32 @@ class _ContactInfoState extends State<ContactInfo> {
             Expanded(
               flex: 2,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  final Uri url =
+                      Uri.parse(entrepriseModel.entrepriseList[entrepriseId].facebook!);
+
+                  launchUrl(
+                    url,
+                    mode: LaunchMode.inAppWebView,
+                  );
+                },
                 child: facebook
-                    ? Text(entrepriseModel.entrepriseList[entrepriseId].facebook!)
+                    ? const Text("Page Facebook")
                     : const SizedBox.shrink(), // Empty widget
               ),
             ),
             Expanded(
               flex: 0,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  final Uri url =
+                      Uri.parse(entrepriseModel.entrepriseList[entrepriseId].facebook!);
+
+                  launchUrl(
+                    url,
+                    mode: LaunchMode.inAppWebView,
+                  );
+                },
                 child: facebook
                     ? const Icon(
                         Icons.facebook,
@@ -235,16 +325,32 @@ class _ContactInfoState extends State<ContactInfo> {
             Expanded(
               flex: 2,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  final Uri url =
+                      Uri.parse(entrepriseModel.entrepriseList[entrepriseId].youtube!);
+
+                  launchUrl(
+                    url,
+                    mode: LaunchMode.externalNonBrowserApplication,
+                  );
+                },
                 child: youtube
-                    ? Text(entrepriseModel.entrepriseList[entrepriseId].youtube!)
+                    ? const Text("Chaine Youtube")
                     : const SizedBox.shrink(), // Empty widget
               ),
             ),
             Expanded(
               flex: 0,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  final Uri url =
+                      Uri.parse(entrepriseModel.entrepriseList[entrepriseId].youtube!);
+
+                  launchUrl(
+                    url,
+                    mode: LaunchMode.externalNonBrowserApplication,
+                  );
+                },
                 child: youtube
                     ? const Icon(
                         Icons.ondemand_video_rounded,
@@ -266,16 +372,32 @@ class _ContactInfoState extends State<ContactInfo> {
             Expanded(
               flex: 2,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  final Uri url =
+                      Uri.parse(entrepriseModel.entrepriseList[entrepriseId].maps!);
+
+                  launchUrl(
+                    url,
+                    mode: LaunchMode.externalNonBrowserApplication,
+                  );
+                },
                 child: maps
-                    ? Text(entrepriseModel.entrepriseList[entrepriseId].maps!)
+                    ? const Text("Itinéraire Google Maps")
                     : const SizedBox.shrink(), // Empty widget
               ),
             ),
             Expanded(
               flex: 0,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  final Uri url =
+                      Uri.parse(entrepriseModel.entrepriseList[entrepriseId].maps!);
+
+                  launchUrl(
+                    url,
+                    mode: LaunchMode.externalNonBrowserApplication,
+                  );
+                },
                 child: maps
                     ? const Icon(
                         Icons.navigation_rounded,
