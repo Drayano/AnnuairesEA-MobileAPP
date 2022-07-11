@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
@@ -5,18 +7,34 @@ import 'package:provider/provider.dart';
 import 'package:aea_app/providers/entreprise_provider.dart';
 import 'package:aea_app/widgets/home/suggestions.dart';
 import 'package:aea_app/widgets/search_card.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:http/http.dart' as http;
 
 class HomePage extends StatelessWidget {
   const HomePage({
     required Key key,
   }) : super(key: key);
 
+  Function showToast() {
+    return () {
+      Fluttertoast.showToast(
+          msg: "Cette fonctionnalité n'est pas encore disponible :)",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.BOTTOM,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.green.shade200,
+          textColor: Colors.white,
+          fontSize: 16.0);
+    };
+  }
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
-    bool isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
+    bool isPortrait =
+        MediaQuery.of(context).orientation == Orientation.portrait;
 
     final entrepriseProvider = Provider.of<EntrepriseProvider>(context);
 
@@ -52,14 +70,15 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    child: searchCard((value) {}, width, () {}),
+                    child: searchCard((value) {}, width, showToast()),
                   ),
                 ],
               ),
             ),
             Container(
               padding: const EdgeInsets.all(8.0),
-              child: entrepriseCarousel(context, entrepriseProvider.entrepriseList, "VIP"),
+              child: entrepriseCarousel(
+                  context, entrepriseProvider.entrepriseList, "VIP"),
             ),
           ],
         ),
