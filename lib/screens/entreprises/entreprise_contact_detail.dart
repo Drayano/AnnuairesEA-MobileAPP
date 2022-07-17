@@ -86,7 +86,7 @@ class _ContactInfoState extends State<ContactInfo> {
             ),
           ],
         ),
-        const SizedBox(height: 10),
+        fixePhone ? const SizedBox(height: 10) : const SizedBox.shrink(),
         Row(
           children: <Widget>[
             Expanded(
@@ -131,7 +131,7 @@ class _ContactInfoState extends State<ContactInfo> {
             ),
           ],
         ),
-        const SizedBox(height: 10),
+        faxNumber ? const SizedBox(height: 10) : const SizedBox.shrink(),
         Row(
           children: <Widget>[
             Expanded(
@@ -176,7 +176,7 @@ class _ContactInfoState extends State<ContactInfo> {
             ),
           ],
         ),
-        const SizedBox(height: 10),
+        mobile ? const SizedBox(height: 10) : const SizedBox.shrink(),
         Row(
           children: <Widget>[
             Expanded(
@@ -221,7 +221,7 @@ class _ContactInfoState extends State<ContactInfo> {
             ),
           ],
         ),
-        const SizedBox(height: 10),
+        email ? const SizedBox(height: 10) : const SizedBox.shrink(),
         Row(
           children: <Widget>[
             Expanded(
@@ -268,7 +268,7 @@ class _ContactInfoState extends State<ContactInfo> {
             ),
           ],
         ),
-        const SizedBox(height: 10),
+        website ? const SizedBox(height: 10) : const SizedBox.shrink(),
         Row(
           children: <Widget>[
             Expanded(
@@ -315,7 +315,7 @@ class _ContactInfoState extends State<ContactInfo> {
             ),
           ],
         ),
-        const SizedBox(height: 10),
+        facebook ? const SizedBox(height: 10) : const SizedBox.shrink(),
         Row(
           children: <Widget>[
             Expanded(
@@ -362,7 +362,7 @@ class _ContactInfoState extends State<ContactInfo> {
             ),
           ],
         ),
-        const SizedBox(height: 10),
+        youtube ? const SizedBox(height: 10) : const SizedBox.shrink(),
         Row(
           children: <Widget>[
             Expanded(
