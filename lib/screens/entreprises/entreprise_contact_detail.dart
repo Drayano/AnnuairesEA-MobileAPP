@@ -6,7 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:aea_app/providers/entreprise_provider.dart';
 
 class ContactInfo extends StatefulWidget {
-  final String id;
+  final int id;
 
   const ContactInfo({
     Key? key,
@@ -21,7 +21,7 @@ class _ContactInfoState extends State<ContactInfo> {
   @override
   Widget build(BuildContext context) {
     final EntrepriseProvider entrepriseModel = Provider.of<EntrepriseProvider>(context);
-    final int entrepriseId = int.parse(widget.id) - 1;
+    final int entrepriseId = widget.id;
 
     final bool fixePhone = (entrepriseModel.entrepriseList[entrepriseId].fixePhone != null) &&
         (entrepriseModel.entrepriseList[entrepriseId].fixePhone != "");

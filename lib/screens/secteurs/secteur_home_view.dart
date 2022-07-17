@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:aea_app/providers/entreprise_provider.dart';
-import 'package:aea_app/widgets/home/suggestions.dart';
 import 'package:aea_app/widgets/search_card.dart';
+import 'package:aea_app/widgets/home/suggestions.dart';
 
 class SecteurHomeView extends StatelessWidget {
   final String secteurImage;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:aea_app/global/routes.dart';
 import 'package:aea_app/global/styles.dart';
 import 'package:aea_app/screens/entreprises/single_entreprise_detail.dart';
 import 'package:aea_app/screens/entreprises/vip_entreprises_view.dart';
@@ -48,9 +49,9 @@ Widget entrepriseCarousel(BuildContext context, data, String title) {
               margin: const EdgeInsets.only(right: 4),
               child: secteurCard(
                 context,
-                data[index].id,
+                index,
                 data[index].businessName,
-                "assets/entreprises/${data[index].logo}",
+                "$logoRoute${data[index].logo}",
               ),
             );
           },
@@ -62,7 +63,7 @@ Widget entrepriseCarousel(BuildContext context, data, String title) {
 
 Widget secteurCard(
   BuildContext context,
-  String id,
+  int id,
   String businessName,
   String logo,
 ) {
@@ -94,12 +95,12 @@ Widget secteurCard(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            (logo != "assets/entreprises/") && (logo != "")
+            (logo != "") && (logo != logoRoute)
                 ? Container(
                     height: 90,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage(logo),
+                        image: NetworkImage(logo),
                         fit: BoxFit.contain,
                       ),
                     ),

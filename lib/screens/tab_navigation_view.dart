@@ -3,14 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:aea_app/global/styles.dart';
-
-import 'package:aea_app/providers/home_provider.dart';
 import 'package:aea_app/providers/entreprise_provider.dart';
-
+import 'package:aea_app/providers/home_provider.dart';
 import 'package:aea_app/screens/home.dart';
-import 'package:aea_app/screens/secteurs/all_secteurs_view.dart';
-import 'package:aea_app/screens/entreprises/vip_entreprises_view.dart';
 import 'package:aea_app/screens/annuaire_pdf/annuaire_view.dart';
+import 'package:aea_app/screens/entreprises/vip_entreprises_view.dart';
+import 'package:aea_app/screens/secteurs/all_secteurs_view.dart';
 
 class TabNavigationView extends StatefulWidget {
   const TabNavigationView({

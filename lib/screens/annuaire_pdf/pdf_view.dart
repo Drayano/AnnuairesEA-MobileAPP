@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
+import 'package:aea_app/global/routes.dart';
+
 class SecteurPDFView extends StatefulWidget {
   final String pdfid;
 
@@ -19,7 +21,7 @@ class _SecteurPDFViewState extends State<SecteurPDFView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: SfPdfViewer.asset("assets/pdf/${widget.pdfid}.pdf"),
+        body: SfPdfViewer.asset("$assetsPdfDir${widget.pdfid}.pdf"),
       ),
     );
   }

@@ -4,7 +4,7 @@ import 'package:aea_app/global/styles.dart';
 import 'package:aea_app/screens/entreprises/single_entreprise_detail.dart';
 
 class EntrepriseCardView extends StatelessWidget {
-  final String id;
+  final int id;
   final String businessName;
   final String streetAddress;
   final String banner;
@@ -49,7 +49,8 @@ class EntrepriseCardView extends StatelessWidget {
               height: isPortrait ? h / 14 : w / 12,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage(banner),
+                  // image: AssetImage(banner),
+                  image: NetworkImage(banner),
                   fit: BoxFit.fitWidth,
                 ),
               ),

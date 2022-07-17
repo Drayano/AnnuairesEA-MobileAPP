@@ -1,14 +1,12 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 
+import 'package:aea_app/global/routes.dart';
 import 'package:aea_app/providers/entreprise_provider.dart';
-import 'package:aea_app/widgets/home/suggestions.dart';
 import 'package:aea_app/widgets/search_card.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:http/http.dart' as http;
+import 'package:aea_app/widgets/home/suggestions.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({
@@ -48,7 +46,7 @@ class HomePage extends StatelessWidget {
               height: isPortrait ? height / 2 : width / 2,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: const AssetImage("assets/oran_background.jpg"),
+                  image: const AssetImage("${assetsRootDir}oran_background.jpg"),
                   colorFilter: ColorFilter.mode(
                     Colors.black.withOpacity(0.7),
                     BlendMode.dstATop,

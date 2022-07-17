@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
+import 'package:aea_app/global/routes.dart';
 import 'package:aea_app/providers/entreprise_provider.dart';
 import 'package:aea_app/widgets/entreprise/entreprise_card_view.dart';
 
@@ -47,13 +48,13 @@ class _EntrepriseListViewState extends State<EntrepriseListView> {
                     scrollDirection: Axis.vertical,
                     itemBuilder: (context, index) {
                       return EntrepriseCardView(
-                        id: entrepriseModel.entrepriseList[index].id,
+                        id: index,
                         businessName:
                             entrepriseModel.entrepriseList[index].businessName,
                         streetAddress:
                             entrepriseModel.entrepriseList[index].streetAddress,
                         banner:
-                            "assets/entreprises/${entrepriseModel.entrepriseList[index].banner}",
+                            "$bannerRoute${entrepriseModel.entrepriseList[index].banner}",
                       );
                     },
                   ),
@@ -62,7 +63,6 @@ class _EntrepriseListViewState extends State<EntrepriseListView> {
                   margin: const EdgeInsets.only(top: 120),
                   child: GridView.count(
                     crossAxisCount: 2,
-                    // scrollDirection: Axis.horizontal,
                     padding: const EdgeInsets.all(4.0),
                     childAspectRatio: 1.45,
                     children: entrepriseModel.entrepriseList.map(
@@ -71,7 +71,7 @@ class _EntrepriseListViewState extends State<EntrepriseListView> {
                           id: item.id,
                           businessName: item.businessName,
                           streetAddress: item.streetAddress,
-                          banner: "assets/entreprises/${item.banner}",
+                          banner: "$bannerRoute${item.banner}",
                         );
                       },
                     ).toList(),

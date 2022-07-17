@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
+
 import 'package:carousel_slider/carousel_slider.dart';
 
+import 'package:aea_app/global/routes.dart';
 import 'package:aea_app/providers/entreprise_provider.dart';
 
 class EntreprisePhotos extends StatefulWidget {
@@ -40,7 +43,7 @@ class _EntreprisePhotosState extends State<EntreprisePhotos> {
     int i = 0;
     while (entreprisePhotos.length < 6) {
       if ((serviceCycle[i] != null) && (serviceCycle[i] != "")) {
-        entreprisePhotos.add("assets/entreprises/${serviceCycle[i]}");
+        entreprisePhotos.add("$servicePhotoRoute${serviceCycle[i]}");
       }
 
       else {
@@ -63,7 +66,7 @@ class _EntreprisePhotosState extends State<EntreprisePhotos> {
                 height: height / 2,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(i),
+                    image: NetworkImage(i),
                     fit: BoxFit.cover,
                   ),
                 ),

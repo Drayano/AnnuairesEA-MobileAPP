@@ -1,15 +1,27 @@
 import 'dart:convert';
 
-import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
 
+import 'package:aea_app/global/routes.dart';
 import 'package:aea_app/models/entreprise.dart';
 
 Future<List<EntrepriseModel>> getEntrepriseList() async {
-  String data = await rootBundle.loadString('assets/data_resources/entreprise.json');
-  Iterable js = json.decode(data);
-  List<EntrepriseModel> entreprises = js.map<EntrepriseModel>((model) {
-    return EntrepriseModel.fromJson(model);
-  }).toList();
+  // Try to load Data from the Server
+  final data = await http.get(Uri.parse(vip000Route));
+  Iterable js;
 
-  return entreprises;
+  // If the server returns an OK response, decode it
+  if (data.statusCode == 200) {
+    js = json.decode(data.body);
+
+    List<EntrepriseModel> entreprises = js.map<EntrepriseModel>((model) {
+      return EntrepriseModel.fromJson(model);
+    }).toList();
+
+    return entreprises;
+  }
+
+  else {
+    throw Exception('Failed to contact the server');
+  }
 }

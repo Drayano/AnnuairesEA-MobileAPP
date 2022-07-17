@@ -1,5 +1,5 @@
 class EntrepriseModel {
-  final String id;
+  final int id;
   final String businessName;
   final String streetAddress;
   final String? state;

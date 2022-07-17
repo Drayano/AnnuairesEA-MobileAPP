@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:readmore/readmore.dart';
 
+import 'package:aea_app/global/routes.dart';
 import 'package:aea_app/global/styles.dart';
 import 'package:aea_app/providers/entreprise_provider.dart';
 import 'package:aea_app/screens/views/entreprise_picture_slider.dart';
@@ -10,7 +11,7 @@ import 'package:aea_app/screens/entreprises/entreprise_contact_detail.dart';
 import 'package:aea_app/screens/views/entreprise_youtube_player.dart';
 
 class SingleEntrepriseDetail extends StatefulWidget {
-  final String id;
+  final int id;
 
   const SingleEntrepriseDetail({
     Key? key,
@@ -28,7 +29,7 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
     final double height = MediaQuery.of(context).size.height;
 
     final EntrepriseProvider entrepriseModel = Provider.of<EntrepriseProvider>(context);
-    final int entrepriseId = int.parse(widget.id) - 1;
+    final int entrepriseId = widget.id;
 
     final bool businessNameSize =
         entrepriseModel.entrepriseList[entrepriseId].businessName.length < 18;
@@ -42,21 +43,31 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
             (entrepriseModel.entrepriseList[entrepriseId].videoEntreprise != "");
 
     final bool companyPresentation =
-        entrepriseModel.entrepriseList[entrepriseId].companyPresentation != null;
+        (entrepriseModel.entrepriseList[entrepriseId].companyPresentation != null) &&
+            (entrepriseModel.entrepriseList[entrepriseId].companyPresentation != "");
+
+    final bool servicePhoto1 = (entrepriseModel.entrepriseList[entrepriseId].servicePhoto1 !=
+            null) &&
+        (entrepriseModel.entrepriseList[entrepriseId].servicePhoto1 != servicePhotoRoute) &&
+        (entrepriseModel.entrepriseList[entrepriseId].servicePhoto1 != "");
 
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            SafeArea(
-              child: SizedBox(
-                width: width,
-                height: height / 2.25,
-                child: EntreprisePhotos(
-                  id: (entrepriseId + 1).toString(),
-                ),
-              ),
-            ),
+            servicePhoto1
+                ? SafeArea(
+                    child: SizedBox(
+                      width: width,
+                      height: height / 2.25,
+                      child: EntreprisePhotos(
+                        id: (entrepriseId + 1).toString(),
+                      ),
+                    ),
+                  )
+                : const SafeArea(
+                    child: SizedBox.shrink(),
+                  ),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               child: Column(
@@ -70,8 +81,8 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
                               child: Container(
                                 margin: const EdgeInsets.only(right: 0, bottom: 10),
                                 child: Image(
-                                  image: AssetImage(
-                                    "assets/entreprises/${entrepriseModel.entrepriseList[entrepriseId].logo}",
+                                  image: NetworkImage(
+                                    "$logoRoute${entrepriseModel.entrepriseList[entrepriseId].logo}",
                                   ),
                                 ),
                               ),
@@ -120,9 +131,9 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
                         )
                       : const SizedBox.shrink(),
                   const SizedBox(height: 10),
-                  const Text(
-                    "Présentation de l'entreprise :",
-                    style: TextStyle(
+                  Text(
+                    companyPresentation ? "Présentation de l'entreprise :" : "",
+                    style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                       color: aeaGreen,
