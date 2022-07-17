@@ -51,6 +51,8 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
         (entrepriseModel.entrepriseList[entrepriseId].servicePhoto1 != servicePhotoRoute) &&
         (entrepriseModel.entrepriseList[entrepriseId].servicePhoto1 != "");
 
+    final bool state = entrepriseModel.entrepriseList[entrepriseId].state != null;
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -101,7 +103,7 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
                               ),
                             ),
                             Text(
-                              entrepriseModel.entrepriseList[entrepriseId].state.toString(),
+                              state ? entrepriseModel.entrepriseList[entrepriseId].state! : "",
                               style: const TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.bold,

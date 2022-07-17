@@ -9,4 +9,3 @@ const String vip000Route = "https://aea-backend.000webhostapp.com/vip";
 // Local Assets Routes
 const String assetsRootDir = "assets/";
 const String assetsPdfDir = "assets/pdf/";
-const String localEntrepriseData = "assets/data_resources/entreprise.json";

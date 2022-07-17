@@ -49,7 +49,6 @@ class EntrepriseCardView extends StatelessWidget {
               height: isPortrait ? h / 14 : w / 12,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  // image: AssetImage(banner),
                   image: NetworkImage(banner),
                   fit: BoxFit.fitWidth,
                 ),
