@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
@@ -7,24 +8,35 @@ import 'package:aea_app/global/routes.dart';
 import 'package:aea_app/providers/entreprise_provider.dart';
 import 'package:aea_app/widgets/search_card.dart';
 import 'package:aea_app/widgets/home/suggestions.dart';
+import 'package:aea_app/screens/entreprises/entreprises_list_view.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({
+  HomePage({
     required Key key,
   }) : super(key: key);
 
-  Function showToast() {
+  Function showToast(BuildContext context, String search) {
     return () {
+      print("Valeur recherche :"+search);
       Fluttertoast.showToast(
-          msg: "Cette fonctionnalité n'est pas encore disponible :)",
+          msg: "Cette fonctionnalité est en cours de développement :))",
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.BOTTOM,
           timeInSecForIosWeb: 1,
           backgroundColor: Colors.green.shade200,
           textColor: Colors.white,
           fontSize: 16.0);
+
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => EntrepriseListView(search: search)),
+      );
     };
   }
+
+  TextEditingController textEditingController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +58,8 @@ class HomePage extends StatelessWidget {
               height: isPortrait ? height / 2 : width / 2,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: const AssetImage("${assetsRootDir}oran_background.jpg"),
+                  image:
+                      const AssetImage("${assetsRootDir}oran_background.jpg"),
                   colorFilter: ColorFilter.mode(
                     Colors.black.withOpacity(0.7),
                     BlendMode.dstATop,
@@ -68,7 +81,11 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    child: searchCard((value) {}, width, showToast()),
+                    child: searchCard(
+                        (value) {},
+                        width,
+                        showToast(context, textEditingController.text),
+                        textEditingController),
                   ),
                 ],
               ),

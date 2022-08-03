@@ -44,7 +44,7 @@ class _TabNavigationView extends State<TabNavigationView> {
   @override
   Widget build(BuildContext context) {
     List<Widget> children = <Widget>[
-      const HomePage(key: PageStorageKey('home')),
+       HomePage(key: PageStorageKey('home')),
       const AllSecteursView(key: PageStorageKey('secteurs')),
       const EntrepriseListView(key: PageStorageKey('vip')),
       const AnnuairePDFView(key: PageStorageKey('pdf'))

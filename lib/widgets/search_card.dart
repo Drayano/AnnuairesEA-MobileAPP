@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget searchCard(onValueSaved, double width, onSearchPressed) {
+Widget searchCard(onValueSaved, double width, onSearchPressed, TextEditingController textEditingController) {
   return Card(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(50.0),
@@ -15,7 +15,7 @@ Widget searchCard(onValueSaved, double width, onSearchPressed) {
         children: <Widget>[
           SizedBox(
             width: width * .6,
-            child: textField(onValueSaved, 'Search...'),
+            child: textField(onValueSaved, 'Search...',textEditingController),
           ),
           IconButton(
             icon: const Icon(
@@ -30,8 +30,9 @@ Widget searchCard(onValueSaved, double width, onSearchPressed) {
   );
 }
 
-Widget textField(onValueSaved, String hintText) {
+Widget textField(onValueSaved, String hintText, TextEditingController textEditingController) {
   return TextFormField(
+    controller: textEditingController,
     keyboardType: TextInputType.text,
     onSaved: onValueSaved,
     decoration: InputDecoration(

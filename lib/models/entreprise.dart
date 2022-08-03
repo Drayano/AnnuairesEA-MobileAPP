@@ -1,3 +1,61 @@
+import 'dart:convert';
+
+EntrepriseModel entrepriseModelFromJson(String str) =>
+    EntrepriseModel.fromJson(json.decode(str));
+
+BusinessModel businessModelFromJson(String str) => BusinessModel.fromJson(json.decode(str));
+
+String businessModelToJson(BusinessModel data) => json.encode(data.toJson());
+
+class BusinessModel {
+  BusinessModel({
+    required this.currentPage,
+    required this.data,
+    required this.firstPageUrl,
+    required this.from,
+    required this.nextPageUrl,
+    required this.path,
+    required this.perPage,
+    required this.prevPageUrl,
+    required this.to,
+  });
+
+  int currentPage;
+  List<EntrepriseModel> data;
+  String firstPageUrl;
+  int from;
+  String? nextPageUrl;
+  String path;
+  int perPage;
+  dynamic? prevPageUrl;
+  int to;
+
+  factory BusinessModel.fromJson(Map<String, dynamic> json) => BusinessModel(
+        currentPage: json["current_page"],
+        data: List<EntrepriseModel>.from(
+            json["data"].map((x) => EntrepriseModel.fromJson(x))),
+        firstPageUrl: json["first_page_url"],
+        from: json["from"],
+        nextPageUrl: json["next_page_url"],
+        path: json["path"],
+        perPage: json["per_page"],
+        prevPageUrl: json["prev_page_url"],
+        to: json["to"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "current_page": currentPage,
+        "data": List<dynamic>.from(data.map((x) => x.toJson())),
+        "first_page_url": firstPageUrl,
+        "from": from,
+        "next_page_url": nextPageUrl,
+        "path": path,
+        "per_page": perPage,
+        "prev_page_url": prevPageUrl,
+        "to": to,
+      };
+}
+
 class EntrepriseModel {
   final int id;
   final String businessName;
@@ -132,4 +190,99 @@ class EntrepriseModel {
         banner: json['banner'],
         addDate: json['add_date'],
       );
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "business_name": businessName,
+        "street_address": streetAddress,
+        "state": state,
+        "fixe_phone": fixePhone,
+        "fax_number": faxNumber,
+        "mobile": mobile,
+        "email": email,
+        "website": website,
+        "categories": categories,
+        "logo": logo,
+        "city": city,
+        "description": description == null ? null : description,
+        "contact_name": contactName,
+        "business_title": businessTitle,
+        "custmer_type": customerType,
+        "key_words": keywords,
+        "general_info": generalInfo,
+        "advertisement_statut": advertisementStatut,
+        "latitude": latitude,
+        "longitude": longitude,
+        "created_by": createdBy,
+        "created_date": createdDate,
+        "statut": statut,
+        "company_presentation": companyPresentation,
+        "year_established": yearEstablished,
+        "service_photo_1": servicePhoto1,
+        "service_photo_2": servicePhoto2,
+        "service_photo_3": servicePhoto3,
+        "service_photo_4": servicePhoto4,
+        "service_photo_5": servicePhoto5,
+        "service_photo_6": servicePhoto6,
+        "documentations_catalogs": documentationsCatalogs,
+        "company_references": companyReferences,
+        "video_entreprise": videoEntreprise,
+        "company_history": companyHistory,
+        "company_activities": companyActivities,
+        "facebook": facebook,
+        "youtube": youtube,
+        "maps": maps,
+        "banner": banner,
+        "add_date": addDate,
+      };
 }
+
+// enum CompanyReferences { EMPTY, COMPANY_REFERENCES }
+
+// final companyReferencesValues = EnumValues(
+//     {"": CompanyReferences.COMPANY_REFERENCES, " ": CompanyReferences.EMPTY});
+
+// enum ContactName { EMPTY, CHAILA_CHEKAIK_HAKIM }
+
+// final contactNameValues = EnumValues({
+//   "CHAILA CHEKAIK Hakim": ContactName.CHAILA_CHEKAIK_HAKIM,
+//   "": ContactName.EMPTY
+// });
+
+// enum CustmerType { VIP }
+
+// final custmerTypeValues = EnumValues({"vip": CustmerType.VIP});
+
+// enum Facebook {
+//   WWW_FACEBOOK_COM_CHIALI_GROUPE,
+//   EMPTY,
+//   WWW_FACEBOOK_COM_CABLERIEALGERIENNE
+// }
+
+// final facebookValues = EnumValues({
+//   "": Facebook.EMPTY,
+//   "www.facebook.com/cableriealgerienne":
+//       Facebook.WWW_FACEBOOK_COM_CABLERIEALGERIENNE,
+//   "www.facebook.com/chiali.groupe": Facebook.WWW_FACEBOOK_COM_CHIALI_GROUPE
+// });
+
+// enum GeneralInfo { EMPTY, SOCIET_IMPORT_EXPORT }
+
+// final generalInfoValues = EnumValues({
+//   "": GeneralInfo.EMPTY,
+//   "societé import export": GeneralInfo.SOCIET_IMPORT_EXPORT
+// });
+
+// class EnumValues<T> {
+//   Map<String, T> map;
+//   Map<T, String> reverseMap;
+
+//   EnumValues(this.map);
+
+//   Map<T, String> get reverse {
+//     if (reverseMap == null) {
+//       reverseMap = map.map((k, v) => new MapEntry(v, k));
+//     }
+//     return reverseMap;
+//   }
+// }

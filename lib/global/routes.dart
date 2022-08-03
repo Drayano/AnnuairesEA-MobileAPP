@@ -5,6 +5,7 @@ const String servicePhotoRoute = "https://www.annuairesdz.com/assets/images/phot
 
 // 000Webhost Routes
 const String vip000Route = "https://aea-backend.000webhostapp.com/vip";
+const String search000Route = "https://aea-backend.000webhostapp.com/search";
 
 // Local Assets Routes
 const String assetsRootDir = "assets/";

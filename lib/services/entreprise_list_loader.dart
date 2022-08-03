@@ -19,9 +19,27 @@ Future<List<EntrepriseModel>> getEntrepriseList() async {
     }).toList();
 
     return entreprises;
+  } else {
+    throw Exception('Failed to contact the server');
   }
+}
 
-  else {
+Future<List<EntrepriseModel>> getSearchedEntrepriseList(
+    String search, String city, int secteur) async {
+  // Try to load Data from the Server
+  final data = await http.post(Uri.parse(search000Route), body: {'search': search});
+  Iterable js;
+
+  // If the server returns an OK response, decode it
+  if (data.statusCode == 200) {
+    js = json.decode(data.body);
+
+    List<EntrepriseModel> entreprises = js.map<EntrepriseModel>((model) {
+      return EntrepriseModel.fromJson(model);
+    }).toList();
+
+    return entreprises;
+  } else {
     throw Exception('Failed to contact the server');
   }
 }

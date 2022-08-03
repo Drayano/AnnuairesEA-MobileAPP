@@ -9,10 +9,12 @@ import 'package:aea_app/widgets/home/suggestions.dart';
 class SecteurHomeView extends StatelessWidget {
   final String secteurImage;
 
-  const SecteurHomeView({
+  SecteurHomeView({
     Key? key,
     required this.secteurImage,
   }) : super(key: key);
+
+  final TextEditingController textEditingController = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +57,7 @@ class SecteurHomeView extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    child: searchCard((value) {}, width, () {}),
+                    child: searchCard((value) {}, width, () {},textEditingController),
                   ),
                 ],
               ),
