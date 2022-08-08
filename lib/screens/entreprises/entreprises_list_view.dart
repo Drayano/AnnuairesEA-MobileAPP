@@ -12,27 +12,35 @@ import 'dart:convert';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class EntrepriseListView extends StatefulWidget {
-  EntrepriseListView({Key? key, required this.search}) : super(key: key);
+  String search;
 
-  String search = "Vide";
+  EntrepriseListView({Key? key, required this.search,}) : super(key: key);
 
   @override
-  State<EntrepriseListView> createState() => _EntrepriseListViewState();
+  // State<EntrepriseListView> createState() => _EntrepriseListViewState();
+  _EntrepriseListViewState createState() => _EntrepriseListViewState();
 }
 
 class _EntrepriseListViewState extends State<EntrepriseListView> {
+  _EntrepriseListViewState();
+
   int currentPage = 1;
   late int totalPages;
   late int to;
   late int perPage;
   late String? nextPage;
-
+  // String search = "oxygen";
+  
   List<EntrepriseModel> businesses = [];
 
   final RefreshController refreshController =
       RefreshController(initialRefresh: true);
 
-  Future<bool> getSearchedEntreprises({bool isRefreshed = false}) async {
+  
+
+  @override
+  Widget build(BuildContext context) {
+    Future<bool> getSearchedEntreprises({bool isRefreshed = false}) async {
     if (isRefreshed) {
       currentPage = 1;
     } else {
@@ -42,9 +50,11 @@ class _EntrepriseListViewState extends State<EntrepriseListView> {
       }
     }
 
-    final Uri uri = Uri.parse(
-        "https://aea-backend.000webhostapp.com/search?page=$currentPage");
-    final response = await http.post(uri);
+    print("\n\n\n TEST");
+    print(widget.search);
+    final Uri uri = Uri.parse("https://aea-backend.000webhostapp.com/search?page=$currentPage");
+    // final Uri uri = Uri.parse("https://aea-backend.000webhostapp.com/search");
+    final response = await http.post(uri, headers: <String, String>{'Content-Type': 'application/json; charset=UTF-8'}, body: '{"search": "${widget.search}"}');
 
     if (response.statusCode == 200) {
       print("Code 200 OK");
@@ -72,8 +82,7 @@ class _EntrepriseListViewState extends State<EntrepriseListView> {
     }
   }
 
-  @override
-  Widget build(BuildContext context) {
+
     final bool isPortrait =
         MediaQuery.of(context).orientation == Orientation.portrait;
 

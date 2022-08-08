@@ -1,6 +1,17 @@
 import 'package:flutter/material.dart';
 
-Widget searchCard(onValueSaved, double width, onSearchPressed, TextEditingController textEditingController) {
+import 'package:aea_app/screens/entreprises/entreprises_list_view.dart';
+
+searchRoute(BuildContext context, String searchText) {
+  return {
+  Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => EntrepriseListView(search: searchText)),
+        )};
+}
+
+Widget searchCard(context, onValueSaved, double width, TextEditingController textEditingController) {
   return Card(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(50.0),
@@ -15,14 +26,16 @@ Widget searchCard(onValueSaved, double width, onSearchPressed, TextEditingContro
         children: <Widget>[
           SizedBox(
             width: width * .6,
-            child: textField(onValueSaved, 'Search...',textEditingController),
+            child: textField(onValueSaved, 'Search...', textEditingController),
           ),
           IconButton(
             icon: const Icon(
               Icons.search,
               color: Colors.grey,
             ),
-            onPressed: onSearchPressed,
+            // onPressed: onSearchPressed,
+            // onPressed: () => print(textEditingController.text),
+            onPressed: () => searchRoute(context, textEditingController.text),
           ),
         ],
       ),

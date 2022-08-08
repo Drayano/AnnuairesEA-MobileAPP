@@ -14,7 +14,7 @@ class SecteurHomeView extends StatelessWidget {
     required this.secteurImage,
   }) : super(key: key);
 
-  final TextEditingController textEditingController = new TextEditingController();
+  final TextEditingController textEditingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +57,8 @@ class SecteurHomeView extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    child: searchCard((value) {}, width, () {},textEditingController),
+                    // child: searchCard((value) {}, width, () {},textEditingController),
+                    // child: searchCard(context, (value) {}, width, textEditingController),
                   ),
                 ],
               ),
