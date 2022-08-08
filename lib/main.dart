@@ -9,12 +9,11 @@ import 'package:aea_app/global/styles.dart';
 import 'package:aea_app/providers/entreprise_provider.dart';
 import 'package:aea_app/providers/home_provider.dart';
 import 'package:aea_app/screens/tab_navigation_view.dart';
-import 'package:http/http.dart' as http; 
 
 void main() {
   HttpOverrides.global = MyHttpOverrides();
   
-   runApp(const TravelApp());
+   runApp(const AEAApp());
 }
 
 class MyHttpOverrides extends HttpOverrides {
@@ -26,8 +25,8 @@ class MyHttpOverrides extends HttpOverrides {
   }
 }
 
-class TravelApp extends StatelessWidget {
-  const TravelApp({
+class AEAApp extends StatelessWidget {
+  const AEAApp({
     Key? key,
   }) : super(key: key);
 

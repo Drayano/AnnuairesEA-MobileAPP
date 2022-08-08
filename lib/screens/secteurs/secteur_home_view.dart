@@ -57,8 +57,7 @@ class SecteurHomeView extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    // child: searchCard((value) {}, width, () {},textEditingController),
-                    // child: searchCard(context, (value) {}, width, textEditingController),
+                    child: searchCard(context, (value) {}, width, textEditingController),
                   ),
                 ],
               ),

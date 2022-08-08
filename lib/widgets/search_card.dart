@@ -4,14 +4,17 @@ import 'package:aea_app/screens/entreprises/entreprises_list_view.dart';
 
 searchRoute(BuildContext context, String searchText) {
   return {
-  Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => EntrepriseListView(search: searchText)),
-        )};
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => EntrepriseListView(search: searchText),
+      ),
+    )
+  };
 }
 
-Widget searchCard(context, onValueSaved, double width, TextEditingController textEditingController) {
+Widget searchCard(
+    context, onValueSaved, double width, TextEditingController textEditingController) {
   return Card(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(50.0),
@@ -33,8 +36,6 @@ Widget searchCard(context, onValueSaved, double width, TextEditingController tex
               Icons.search,
               color: Colors.grey,
             ),
-            // onPressed: onSearchPressed,
-            // onPressed: () => print(textEditingController.text),
             onPressed: () => searchRoute(context, textEditingController.text),
           ),
         ],
@@ -59,12 +60,13 @@ Widget icons(onCancelPressed) {
   return Row(
     children: <Widget>[
       Expanded(
-        child: iconButton(Icons.highlight_off, "Skip",
-            const Color.fromRGBO(246, 41, 111, 1), () {}),
+        child: iconButton(
+            Icons.highlight_off, "Skip", const Color.fromRGBO(246, 41, 111, 1), () {}),
       ),
       Expanded(
-          child: iconButton(Icons.check_circle_outline, "Taking",
-              const Color.fromRGBO(0, 230, 118, 1), () {})),
+        child: iconButton(
+            Icons.check_circle_outline, "Taking", const Color.fromRGBO(0, 230, 118, 1), () {}),
+      ),
       Expanded(
         child: GestureDetector(
           onTap: () {},
@@ -75,8 +77,9 @@ Widget icons(onCancelPressed) {
                 width: 34,
                 margin: const EdgeInsets.only(bottom: 3),
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.deepOrange, width: 2.8),
-                    borderRadius: BorderRadius.circular(100)),
+                  border: Border.all(color: Colors.deepOrange, width: 2.8),
+                  borderRadius: BorderRadius.circular(100),
+                ),
                 child: const Center(
                   child: Icon(
                     Icons.access_alarms,
