@@ -1,3 +1,4 @@
+import 'package:aea_app/models/entreprise.dart';
 import 'package:flutter/material.dart';
 
 import 'package:aea_app/global/styles.dart';
@@ -8,6 +9,7 @@ class EntrepriseCardView extends StatelessWidget {
   final String businessName;
   final String streetAddress;
   final String banner;
+  final EntrepriseModel entreprise;
 
   const EntrepriseCardView({
     Key? key,
@@ -15,6 +17,7 @@ class EntrepriseCardView extends StatelessWidget {
     required this.businessName,
     required this.streetAddress,
     required this.banner,
+    required this.entreprise,
   }) : super(key: key);
 
   @override
@@ -22,7 +25,8 @@ class EntrepriseCardView extends StatelessWidget {
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
 
-    bool isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
+    bool isPortrait =
+        MediaQuery.of(context).orientation == Orientation.portrait;
 
     return Card(
       margin: isPortrait
@@ -38,6 +42,7 @@ class EntrepriseCardView extends StatelessWidget {
             context,
             MaterialPageRoute(
               builder: (context) => SingleEntrepriseDetail(
+                entreprise: entreprise,
                 id: id,
               ),
             ),

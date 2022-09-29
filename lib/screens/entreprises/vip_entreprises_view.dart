@@ -18,9 +18,11 @@ class EntrepriseListView extends StatefulWidget {
 class _EntrepriseListViewState extends State<EntrepriseListView> {
   @override
   Widget build(BuildContext context) {
-    final bool isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
+    final bool isPortrait =
+        MediaQuery.of(context).orientation == Orientation.portrait;
 
-    final EntrepriseProvider entrepriseModel = Provider.of<EntrepriseProvider>(context);
+    final EntrepriseProvider entrepriseModel =
+        Provider.of<EntrepriseProvider>(context);
 
     return Scaffold(
       body: Stack(
@@ -55,6 +57,7 @@ class _EntrepriseListViewState extends State<EntrepriseListView> {
                             entrepriseModel.entrepriseList[index].streetAddress,
                         banner:
                             "$bannerRoute${entrepriseModel.entrepriseList[index].banner}",
+                        entreprise: entrepriseModel.entrepriseList[index],
                       );
                     },
                   ),
@@ -72,6 +75,7 @@ class _EntrepriseListViewState extends State<EntrepriseListView> {
                           businessName: item.businessName,
                           streetAddress: item.streetAddress,
                           banner: "$bannerRoute${item.banner}",
+                          entreprise: item,
                         );
                       },
                     ).toList(),

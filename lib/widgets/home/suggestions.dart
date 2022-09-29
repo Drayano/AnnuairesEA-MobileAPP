@@ -1,3 +1,4 @@
+import 'package:aea_app/models/entreprise.dart';
 import 'package:flutter/material.dart';
 
 import 'package:aea_app/global/routes.dart';
@@ -52,6 +53,7 @@ Widget entrepriseCarousel(BuildContext context, data, String title) {
                 index,
                 data[index].businessName,
                 "$logoRoute${data[index].logo}",
+                data[index]
               ),
             );
           },
@@ -61,18 +63,15 @@ Widget entrepriseCarousel(BuildContext context, data, String title) {
   );
 }
 
-Widget secteurCard(
-  BuildContext context,
-  int id,
-  String businessName,
-  String logo,
-) {
+Widget secteurCard(BuildContext context, int id, String businessName,
+    String logo, EntrepriseModel entreprise) {
   navigateEntrepriseList() {
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) {
           return SingleEntrepriseDetail(
+            entreprise: entreprise,
             id: id,
           );
         },

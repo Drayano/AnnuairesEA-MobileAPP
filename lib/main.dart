@@ -12,8 +12,8 @@ import 'package:aea_app/screens/tab_navigation_view.dart';
 
 void main() {
   HttpOverrides.global = MyHttpOverrides();
-  
-   runApp(const AEAApp());
+
+  runApp(const AEAApp());
 }
 
 class MyHttpOverrides extends HttpOverrides {
@@ -54,5 +54,6 @@ class AEAApp extends StatelessWidget {
 
 List<SingleChildWidget> providers = [
   ChangeNotifierProvider<HomeProvider>(create: (_) => HomeProvider()),
-  ChangeNotifierProvider<EntrepriseProvider>(create: (_) => EntrepriseProvider()),
+  ChangeNotifierProvider<EntrepriseProvider>(
+      create: (_) => EntrepriseProvider()),
 ];

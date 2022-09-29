@@ -1,3 +1,4 @@
+import 'package:aea_app/models/entreprise.dart';
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
@@ -9,10 +10,12 @@ import 'package:aea_app/providers/entreprise_provider.dart';
 
 class EntreprisePhotos extends StatefulWidget {
   final String id;
+  final EntrepriseModel entreprise;
 
   const EntreprisePhotos({
     Key? key,
     required this.id,
+    required this.entreprise,
   }) : super(key: key);
 
   @override
@@ -24,18 +27,20 @@ class _EntreprisePhotosState extends State<EntreprisePhotos> {
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
     final double height = MediaQuery.of(context).size.height;
-    final bool isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
+    final bool isPortrait =
+        MediaQuery.of(context).orientation == Orientation.portrait;
 
-    final EntrepriseProvider entrepriseModel = Provider.of<EntrepriseProvider>(context);
+    // final EntrepriseProvider entrepriseModel =
+    //     Provider.of<EntrepriseProvider>(context);
     final int entrepriseId = int.parse(widget.id) - 1;
 
     List serviceCycle = [
-      entrepriseModel.entrepriseList[entrepriseId].servicePhoto1,
-      entrepriseModel.entrepriseList[entrepriseId].servicePhoto2,
-      entrepriseModel.entrepriseList[entrepriseId].servicePhoto3,
-      entrepriseModel.entrepriseList[entrepriseId].servicePhoto4,
-      entrepriseModel.entrepriseList[entrepriseId].servicePhoto5,
-      entrepriseModel.entrepriseList[entrepriseId].servicePhoto6
+      widget.entreprise.servicePhoto1,
+      widget.entreprise.servicePhoto2,
+      widget.entreprise.servicePhoto3,
+      widget.entreprise.servicePhoto4,
+      widget.entreprise.servicePhoto5,
+      widget.entreprise.servicePhoto6
     ];
 
     List entreprisePhotos = [];
@@ -44,9 +49,7 @@ class _EntreprisePhotosState extends State<EntreprisePhotos> {
     while (entreprisePhotos.length < 6) {
       if ((serviceCycle[i] != null) && (serviceCycle[i] != "")) {
         entreprisePhotos.add("$servicePhotoRoute${serviceCycle[i]}");
-      }
-
-      else {
+      } else {
         break;
       }
 

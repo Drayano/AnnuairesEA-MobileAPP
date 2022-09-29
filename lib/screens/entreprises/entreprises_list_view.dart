@@ -112,6 +112,7 @@ class _EntrepriseListViewState extends State<EntrepriseListView> {
                           businessName: entreprise.businessName,
                           streetAddress: entreprise.streetAddress,
                           banner: "$bannerRoute${entreprise.banner}",
+                          entreprise: entreprise,
                         );
                       },
                     ),
@@ -130,6 +131,7 @@ class _EntrepriseListViewState extends State<EntrepriseListView> {
                           businessName: item.businessName,
                           streetAddress: item.streetAddress,
                           banner: "$bannerRoute${item.banner}",
+                          entreprise: item,
                         );
                       },
                     ).toList(),
