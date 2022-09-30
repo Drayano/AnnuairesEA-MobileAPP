@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:aea_app/global/routes.dart';
 import 'package:aea_app/global/styles.dart';
 import 'package:aea_app/screens/annuaire_pdf/pdf_view.dart';
 import 'package:aea_app/screens/secteurs/secteur_home_view.dart';
@@ -29,8 +30,8 @@ Widget secteurSection(data, String title, bool pdfview, [double? availableHeight
               margin: const EdgeInsets.only(right: 4),
               child: secteurCard(
                 context,
-                "assets/secteurs/${data[index].image}",
-                "assets/secteurs/${data[index].imageThumb}",
+                "$assetsSecteursDir${data[index].image}",
+                "$assetsSecteursDir${data[index].imageThumb}",
                 data[index].name,
                 data[index].pdfid,
                 data[index].detail,

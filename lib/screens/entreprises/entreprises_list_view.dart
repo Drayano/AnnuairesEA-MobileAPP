@@ -46,7 +46,7 @@ class _EntrepriseListViewState extends State<EntrepriseListView> {
       }
 
       final Uri uri =
-          Uri.parse("https://aea-backend.000webhostapp.com/search?page=$currentPage");
+          Uri.parse("$search000Route?page=$currentPage");
       final response = await http.post(
         uri,
         headers: <String, String>{'Content-Type': 'application/json; charset=UTF-8'},
