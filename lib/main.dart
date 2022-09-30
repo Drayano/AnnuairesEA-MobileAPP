@@ -35,7 +35,7 @@ class AEAApp extends StatelessWidget {
     return MultiProvider(
       providers: providers,
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'AnnuairesEA App',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           useMaterial3: true,
