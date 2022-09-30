@@ -9,5 +9,6 @@ const String search000Route = "https://aea-backend.000webhostapp.com/search";
 
 // Local Assets Routes
 const String assetsRootDir = "assets/";
+const String assetsDataresDir = "assets/data_resources/";
 const String assetsPdfDir = "assets/pdf/";
 const String assetsSecteursDir = "assets/secteurs/";
