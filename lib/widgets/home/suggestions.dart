@@ -6,40 +6,9 @@ import 'package:aea_app/global/styles.dart';
 import 'package:aea_app/screens/entreprises/single_entreprise_detail.dart';
 import 'package:aea_app/screens/entreprises/vip_entreprises_view.dart';
 
-Widget entrepriseCarousel(BuildContext context, data, String title) {
+Widget entrepriseCarousel(BuildContext context, data) {
   return Column(
-    children: <Widget>[
-      InkWell(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const EntrepriseListView()),
-          );
-        },
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          children: <Widget>[
-            Expanded(
-              flex: 2,
-              child: Container(
-                margin: const EdgeInsets.only(top: 8, bottom: 18, left: 5),
-                child: Text(
-                  title,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
-            const Expanded(
-              flex: 0,
-              child: Icon(Icons.arrow_forward),
-            ),
-          ],
-        ),
-      ),
-      SizedBox(
+    child: SizedBox(
         height: 160,
         child: ListView.builder(
           itemCount: data.length,
@@ -59,7 +28,6 @@ Widget entrepriseCarousel(BuildContext context, data, String title) {
           },
         ),
       )
-    ],
   );
 }
 

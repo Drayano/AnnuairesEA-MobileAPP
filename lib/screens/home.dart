@@ -58,17 +58,6 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 children: <Widget>[
                   Container(
-                    margin: const EdgeInsets.only(top: 80.0),
-                    child: const Text(
-                      "Effectuer une recherche",
-                      style: TextStyle(
-                        fontSize: 26,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  Container(
                     child: searchCard(
                       context,
                         (value) {},
@@ -81,7 +70,7 @@ class _HomePageState extends State<HomePage> {
             Container(
               padding: const EdgeInsets.all(8.0),
               child: entrepriseCarousel(
-                  context, entrepriseProvider.entrepriseList, "VIP"),
+                  context, entrepriseProvider.entrepriseList),
             ),
           ],
         ),
