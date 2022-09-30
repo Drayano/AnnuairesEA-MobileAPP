@@ -21,8 +21,6 @@ class SecteurHomeView extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
-    bool isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
-
     final entrepriseProvider = Provider.of<EntrepriseProvider>(context);
 
     return Scaffold(
@@ -32,7 +30,7 @@ class SecteurHomeView extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(8.0),
               width: width,
-              height: isPortrait ? height / 2 : width / 2,
+              height: height / 2,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(secteurImage),

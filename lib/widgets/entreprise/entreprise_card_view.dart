@@ -25,13 +25,8 @@ class EntrepriseCardView extends StatelessWidget {
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
 
-    bool isPortrait =
-        MediaQuery.of(context).orientation == Orientation.portrait;
-
     return Card(
-      margin: isPortrait
-          ? const EdgeInsets.only(left: 20, right: 20, bottom: 20)
-          : const EdgeInsets.only(left: 15, right: 25, bottom: 80),
+      margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
       elevation: 3,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
@@ -51,7 +46,7 @@ class EntrepriseCardView extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Container(
-              height: isPortrait ? h / 14 : w / 12,
+              height: h / 14,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage(banner),

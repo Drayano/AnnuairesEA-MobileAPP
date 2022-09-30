@@ -75,13 +75,9 @@ class _EntrepriseListViewState extends State<EntrepriseListView> {
       }
     }
 
-    final bool isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
-
     return Scaffold(
       body: Stack(
-        children: [
-          isPortrait
-              ? Container(
+        Container(
                   margin: const EdgeInsets.only(top: 75),
                   child: SmartRefresher(
                     controller: refreshController,
@@ -118,26 +114,6 @@ class _EntrepriseListViewState extends State<EntrepriseListView> {
                     ),
                   ),
                 )
-              : Container(
-                  margin: const EdgeInsets.only(top: 120),
-                  child: GridView.count(
-                    crossAxisCount: 2,
-                    padding: const EdgeInsets.all(4.0),
-                    childAspectRatio: 1.45,
-                    children: businesses.map(
-                      (item) {
-                        return EntrepriseCardView(
-                          id: item.id,
-                          businessName: item.businessName,
-                          streetAddress: item.streetAddress,
-                          banner: "$bannerRoute${item.banner}",
-                          entreprise: item,
-                        );
-                      },
-                    ).toList(),
-                  ),
-                )
-        ],
       ),
     );
   }

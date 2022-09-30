@@ -18,9 +18,6 @@ class EntrepriseListView extends StatefulWidget {
 class _EntrepriseListViewState extends State<EntrepriseListView> {
   @override
   Widget build(BuildContext context) {
-    final bool isPortrait =
-        MediaQuery.of(context).orientation == Orientation.portrait;
-
     final EntrepriseProvider entrepriseModel =
         Provider.of<EntrepriseProvider>(context);
 
@@ -42,8 +39,7 @@ class _EntrepriseListViewState extends State<EntrepriseListView> {
               ),
             ],
           ),
-          isPortrait
-              ? Container(
+          Container(
                   margin: const EdgeInsets.only(top: 75),
                   child: ListView.builder(
                     itemCount: entrepriseModel.entrepriseList.length,
@@ -60,25 +56,6 @@ class _EntrepriseListViewState extends State<EntrepriseListView> {
                         entreprise: entrepriseModel.entrepriseList[index],
                       );
                     },
-                  ),
-                )
-              : Container(
-                  margin: const EdgeInsets.only(top: 120),
-                  child: GridView.count(
-                    crossAxisCount: 2,
-                    padding: const EdgeInsets.all(4.0),
-                    childAspectRatio: 1.45,
-                    children: entrepriseModel.entrepriseList.map(
-                      (item) {
-                        return EntrepriseCardView(
-                          id: item.id,
-                          businessName: item.businessName,
-                          streetAddress: item.streetAddress,
-                          banner: "$bannerRoute${item.banner}",
-                          entreprise: item,
-                        );
-                      },
-                    ).toList(),
                   ),
                 )
         ],

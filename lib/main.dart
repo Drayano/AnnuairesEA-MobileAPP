@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
@@ -11,8 +12,16 @@ import 'package:aea_app/providers/home_provider.dart';
 import 'package:aea_app/screens/tab_navigation_view.dart';
 
 void main() {
+  // Make sure it's initialised before trying to lock the orientation
+  WidgetsFlutterBinding.ensureInitialized();
   HttpOverrides.global = MyHttpOverrides();
 
+  // Lock the orientation to Portrait mode
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]).then(() => runApp(const AEAApp()));
+  
   runApp(const AEAApp());
 }
 
