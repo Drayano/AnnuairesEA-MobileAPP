@@ -20,7 +20,7 @@ void main() {
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
-  ]).then(() => runApp(const AEAApp()));
+  ]).then((_) => runApp(const AEAApp()));
   
   runApp(const AEAApp());
 }

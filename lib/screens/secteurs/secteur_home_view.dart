@@ -62,7 +62,7 @@ class SecteurHomeView extends StatelessWidget {
             ),
             Container(
               padding: const EdgeInsets.all(8.0),
-              child: entrepriseCarousel(context, entrepriseProvider.entrepriseList, "VIP"),
+              child: entrepriseCarousel(context, entrepriseProvider.entrepriseList),
             ),
           ],
         ),

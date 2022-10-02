@@ -7,32 +7,27 @@ import 'package:aea_app/screens/entreprises/single_entreprise_detail.dart';
 import 'package:aea_app/screens/entreprises/vip_entreprises_view.dart';
 
 Widget entrepriseCarousel(BuildContext context, data) {
-  return Column(
-    child: SizedBox(
-        height: 160,
-        child: ListView.builder(
-          itemCount: data.length,
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) {
-            return Container(
-              width: 160,
-              margin: const EdgeInsets.only(right: 4),
-              child: secteurCard(
-                context,
-                index,
-                data[index].businessName,
-                "$logoRoute${data[index].logo}",
-                data[index]
-              ),
-            );
-          },
-        ),
-      )
-  );
+  return Column(children: <Widget>[
+    SizedBox(
+      height: 160,
+      child: ListView.builder(
+        itemCount: data.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          return Container(
+            width: 160,
+            margin: const EdgeInsets.only(right: 4),
+            child: secteurCard(context, index, data[index].businessName,
+                "$logoRoute${data[index].logo}", data[index]),
+          );
+        },
+      ),
+    ),
+  ]);
 }
 
-Widget secteurCard(BuildContext context, int id, String businessName,
-    String logo, EntrepriseModel entreprise) {
+Widget secteurCard(BuildContext context, int id, String businessName, String logo,
+    EntrepriseModel entreprise) {
   navigateEntrepriseList() {
     Navigator.push(
       context,

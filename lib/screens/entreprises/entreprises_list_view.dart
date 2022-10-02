@@ -77,7 +77,7 @@ class _EntrepriseListViewState extends State<EntrepriseListView> {
 
     return Scaffold(
       body: Stack(
-        Container(
+        children : [Container(
                   margin: const EdgeInsets.only(top: 75),
                   child: SmartRefresher(
                     controller: refreshController,
@@ -114,6 +114,7 @@ class _EntrepriseListViewState extends State<EntrepriseListView> {
                     ),
                   ),
                 )
+        ]
       ),
     );
   }
