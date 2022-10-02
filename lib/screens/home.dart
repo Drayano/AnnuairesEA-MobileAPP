@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
             Container(
               padding: const EdgeInsets.all(8.0),
               width: width,
-              height: height / 2,
+              height: height / 2.5,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: const AssetImage("${assetsRootDir}oran_background.jpg"),
@@ -54,6 +54,7 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 children: <Widget>[
                   Container(
+                    margin: const EdgeInsets.only(top: 55),
                     child: searchCard(
                       context,
                       (value) {},

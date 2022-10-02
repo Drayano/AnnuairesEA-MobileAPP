@@ -9,7 +9,7 @@ Widget entrepriseCarousel(BuildContext context, data) {
   return Column(
     children: <Widget>[
       SizedBox(
-        height: 160,
+        height: 100,
         child: ListView.builder(
           itemCount: data.length,
           scrollDirection: Axis.horizontal,
@@ -20,7 +20,6 @@ Widget entrepriseCarousel(BuildContext context, data) {
               child: secteurCard(
                 context,
                 index,
-                data[index].businessName,
                 "$logoRoute${data[index].logo}",
                 data[index],
               ),
@@ -32,8 +31,7 @@ Widget entrepriseCarousel(BuildContext context, data) {
   );
 }
 
-Widget secteurCard(BuildContext context, int id, String businessName, String logo,
-    EntrepriseModel entreprise) {
+Widget secteurCard(BuildContext context, int id, String logo, EntrepriseModel entreprise) {
   navigateEntrepriseList() {
     Navigator.push(
       context,
@@ -76,17 +74,6 @@ Widget secteurCard(BuildContext context, int id, String businessName, String log
                 : const SizedBox(
                     height: 90,
                   ),
-            Container(
-              margin: const EdgeInsets.only(top: 10, left: 5),
-              child: Text(
-                businessName,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                  color: aeaGreen,
-                ),
-              ),
-            ),
           ],
         ),
       ),

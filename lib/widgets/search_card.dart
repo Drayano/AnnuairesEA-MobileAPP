@@ -14,7 +14,11 @@ searchRoute(BuildContext context, String searchText) {
 }
 
 Widget searchCard(
-    context, onValueSaved, double width, TextEditingController textEditingController) {
+  context,
+  onValueSaved,
+  double width,
+  TextEditingController textEditingController,
+) {
   return Card(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(50.0),
@@ -28,8 +32,8 @@ Widget searchCard(
       child: Row(
         children: <Widget>[
           SizedBox(
-            width: width * .6,
-            child: textField(onValueSaved, 'Search...', textEditingController),
+            width: width * 0.6,
+            child: textField(onValueSaved, 'Recherche...', textEditingController),
           ),
           IconButton(
             icon: const Icon(

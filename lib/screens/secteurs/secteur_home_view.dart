@@ -30,7 +30,7 @@ class SecteurHomeView extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(8.0),
               width: width,
-              height: height / 2,
+              height: height / 2.5,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(secteurImage),
@@ -44,17 +44,7 @@ class SecteurHomeView extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   Container(
-                    margin: const EdgeInsets.only(top: 80.0),
-                    child: const Text(
-                      "Effectuer une recherche",
-                      style: TextStyle(
-                        fontSize: 26,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  Container(
+                    margin: const EdgeInsets.only(top: 55),
                     child: searchCard(context, (value) {}, width, textEditingController),
                   ),
                 ],
