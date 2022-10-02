@@ -1,12 +1,9 @@
-import 'package:aea_app/models/entreprise.dart';
 import 'package:flutter/material.dart';
-
-import 'package:provider/provider.dart';
 
 import 'package:carousel_slider/carousel_slider.dart';
 
 import 'package:aea_app/global/routes.dart';
-import 'package:aea_app/providers/entreprise_provider.dart';
+import 'package:aea_app/models/entreprise.dart';
 
 class EntreprisePhotos extends StatefulWidget {
   final String id;
@@ -27,10 +24,6 @@ class _EntreprisePhotosState extends State<EntreprisePhotos> {
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
     final double height = MediaQuery.of(context).size.height;
-
-    // final EntrepriseProvider entrepriseModel =
-    //     Provider.of<EntrepriseProvider>(context);
-    final int entrepriseId = int.parse(widget.id) - 1;
 
     List serviceCycle = [
       widget.entreprise.servicePhoto1,

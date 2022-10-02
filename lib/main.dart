@@ -21,7 +21,7 @@ void main() {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]).then((_) => runApp(const AEAApp()));
-  
+
   runApp(const AEAApp());
 }
 
@@ -29,8 +29,7 @@ class MyHttpOverrides extends HttpOverrides {
   @override
   HttpClient createHttpClient(SecurityContext? context) {
     return super.createHttpClient(context)
-      ..badCertificateCallback =
-          (X509Certificate cert, String host, int port) => true;
+      ..badCertificateCallback = (X509Certificate cert, String host, int port) => true;
   }
 }
 
@@ -63,6 +62,5 @@ class AEAApp extends StatelessWidget {
 
 List<SingleChildWidget> providers = [
   ChangeNotifierProvider<HomeProvider>(create: (_) => HomeProvider()),
-  ChangeNotifierProvider<EntrepriseProvider>(
-      create: (_) => EntrepriseProvider()),
+  ChangeNotifierProvider<EntrepriseProvider>(create: (_) => EntrepriseProvider()),
 ];

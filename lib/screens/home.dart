@@ -43,8 +43,7 @@ class _HomePageState extends State<HomePage> {
               height: height / 2,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image:
-                      const AssetImage("${assetsRootDir}oran_background.jpg"),
+                  image: const AssetImage("${assetsRootDir}oran_background.jpg"),
                   colorFilter: ColorFilter.mode(
                     Colors.black.withOpacity(0.7),
                     BlendMode.dstATop,
@@ -57,17 +56,17 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     child: searchCard(
                       context,
-                        (value) {},
-                        width,
-                        textEditingController),
+                      (value) {},
+                      width,
+                      textEditingController,
+                    ),
                   ),
                 ],
               ),
             ),
             Container(
               padding: const EdgeInsets.all(8.0),
-              child: entrepriseCarousel(
-                  context, entrepriseProvider.entrepriseList),
+              child: entrepriseCarousel(context, entrepriseProvider.entrepriseList),
             ),
           ],
         ),

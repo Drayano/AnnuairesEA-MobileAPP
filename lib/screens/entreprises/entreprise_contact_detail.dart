@@ -1,17 +1,18 @@
-import 'package:aea_app/models/entreprise.dart';
 import 'package:flutter/material.dart';
 
-import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'package:aea_app/providers/entreprise_provider.dart';
+import 'package:aea_app/models/entreprise.dart';
 
 class ContactInfo extends StatefulWidget {
   final int id;
   final EntrepriseModel entreprise;
 
-  const ContactInfo({Key? key, required this.id, required this.entreprise})
-      : super(key: key);
+  const ContactInfo({
+    Key? key,
+    required this.id,
+    required this.entreprise,
+  }) : super(key: key);
 
   @override
   State<ContactInfo> createState() => _ContactInfoState();
@@ -20,32 +21,19 @@ class ContactInfo extends StatefulWidget {
 class _ContactInfoState extends State<ContactInfo> {
   @override
   Widget build(BuildContext context) {
-    // final EntrepriseProvider entrepriseModel =
-    //     Provider.of<EntrepriseProvider>(context);
-    // final int entrepriseId = widget.id;
-
-    final bool fixePhone = (widget.entreprise.fixePhone != null) &&
-        (widget.entreprise.fixePhone != "");
-    final bool faxNumber = (widget.entreprise.faxNumber != null) &&
-        (widget.entreprise.faxNumber != "");
-    final bool mobile =
-        (widget.entreprise.mobile != null) &&
-            (widget.entreprise.mobile != "");
-    final bool email =
-        (widget.entreprise.email != null) &&
-            (widget.entreprise.email != "");
+    final bool fixePhone =
+        (widget.entreprise.fixePhone != null) && (widget.entreprise.fixePhone != "");
+    final bool faxNumber =
+        (widget.entreprise.faxNumber != null) && (widget.entreprise.faxNumber != "");
+    final bool mobile = (widget.entreprise.mobile != null) && (widget.entreprise.mobile != "");
+    final bool email = (widget.entreprise.email != null) && (widget.entreprise.email != "");
     final bool website =
-        (widget.entreprise.website != null) &&
-            (widget.entreprise.website != "");
+        (widget.entreprise.website != null) && (widget.entreprise.website != "");
     final bool facebook =
-        (widget.entreprise.facebook != null) &&
-            (widget.entreprise.facebook != "");
+        (widget.entreprise.facebook != null) && (widget.entreprise.facebook != "");
     final bool youtube =
-        (widget.entreprise.youtube != null) &&
-            (widget.entreprise.youtube != "");
-    final bool maps =
-        (widget.entreprise.maps != null) &&
-            (widget.entreprise.maps != "");
+        (widget.entreprise.youtube != null) && (widget.entreprise.youtube != "");
+    final bool maps = (widget.entreprise.maps != null) && (widget.entreprise.maps != "");
 
     return Column(
       children: <Widget>[
@@ -61,15 +49,13 @@ class _ContactInfoState extends State<ContactInfo> {
                 onTap: () {
                   final Uri url = Uri(
                     scheme: "tel",
-                    path:
-                        widget.entreprise.fixePhone,
+                    path: widget.entreprise.fixePhone,
                   );
 
                   launchUrl(url);
                 },
                 child: fixePhone
-                    ? Text(
-                        widget.entreprise.fixePhone!)
+                    ? Text(widget.entreprise.fixePhone!)
                     : const SizedBox.shrink(), // Empty widget
               ),
             ),
@@ -79,8 +65,7 @@ class _ContactInfoState extends State<ContactInfo> {
                 onTap: () {
                   final Uri url = Uri(
                     scheme: "tel",
-                    path:
-                        widget.entreprise.fixePhone,
+                    path: widget.entreprise.fixePhone,
                   );
 
                   launchUrl(url);
@@ -109,15 +94,13 @@ class _ContactInfoState extends State<ContactInfo> {
                 onTap: () {
                   final Uri url = Uri(
                     scheme: "tel",
-                    path:
-                        widget.entreprise.faxNumber,
+                    path: widget.entreprise.faxNumber,
                   );
 
                   launchUrl(url);
                 },
                 child: faxNumber
-                    ? Text(
-                        widget.entreprise.faxNumber!)
+                    ? Text(widget.entreprise.faxNumber!)
                     : const SizedBox.shrink(), // Empty widget
               ),
             ),
@@ -127,8 +110,7 @@ class _ContactInfoState extends State<ContactInfo> {
                 onTap: () {
                   final Uri url = Uri(
                     scheme: "tel",
-                    path:
-                        widget.entreprise.faxNumber,
+                    path: widget.entreprise.faxNumber,
                   );
 
                   launchUrl(url);
@@ -239,15 +221,13 @@ class _ContactInfoState extends State<ContactInfo> {
           children: <Widget>[
             Expanded(
               flex: 1,
-              child:
-                  website ? const Text("Site Web :") : const SizedBox.shrink(),
+              child: website ? const Text("Site Web :") : const SizedBox.shrink(),
             ),
             Expanded(
               flex: 2,
               child: InkWell(
                 onTap: () {
-                  final Uri url = Uri.parse(
-                      widget.entreprise.website!);
+                  final Uri url = Uri.parse(widget.entreprise.website!);
 
                   launchUrl(
                     url,
@@ -255,8 +235,7 @@ class _ContactInfoState extends State<ContactInfo> {
                   );
                 },
                 child: website
-                    ? Text(
-                        widget.entreprise.website!)
+                    ? Text(widget.entreprise.website!)
                     : const SizedBox.shrink(), // Empty widget
               ),
             ),
@@ -264,8 +243,7 @@ class _ContactInfoState extends State<ContactInfo> {
               flex: 0,
               child: InkWell(
                 onTap: () {
-                  final Uri url = Uri.parse(
-                      widget.entreprise.website!);
+                  final Uri url = Uri.parse(widget.entreprise.website!);
 
                   launchUrl(
                     url,
@@ -288,15 +266,13 @@ class _ContactInfoState extends State<ContactInfo> {
           children: <Widget>[
             Expanded(
               flex: 1,
-              child:
-                  facebook ? const Text("Facebook :") : const SizedBox.shrink(),
+              child: facebook ? const Text("Facebook :") : const SizedBox.shrink(),
             ),
             Expanded(
               flex: 2,
               child: InkWell(
                 onTap: () {
-                  final Uri url = Uri.parse(
-                      widget.entreprise.facebook!);
+                  final Uri url = Uri.parse(widget.entreprise.facebook!);
 
                   launchUrl(
                     url,
@@ -312,8 +288,7 @@ class _ContactInfoState extends State<ContactInfo> {
               flex: 0,
               child: InkWell(
                 onTap: () {
-                  final Uri url = Uri.parse(
-                      widget.entreprise.facebook!);
+                  final Uri url = Uri.parse(widget.entreprise.facebook!);
 
                   launchUrl(
                     url,
@@ -336,15 +311,13 @@ class _ContactInfoState extends State<ContactInfo> {
           children: <Widget>[
             Expanded(
               flex: 1,
-              child:
-                  youtube ? const Text("Youtube :") : const SizedBox.shrink(),
+              child: youtube ? const Text("Youtube :") : const SizedBox.shrink(),
             ),
             Expanded(
               flex: 2,
               child: InkWell(
                 onTap: () {
-                  final Uri url = Uri.parse(
-                      widget.entreprise.youtube!);
+                  final Uri url = Uri.parse(widget.entreprise.youtube!);
 
                   launchUrl(
                     url,
@@ -360,8 +333,7 @@ class _ContactInfoState extends State<ContactInfo> {
               flex: 0,
               child: InkWell(
                 onTap: () {
-                  final Uri url = Uri.parse(
-                      widget.entreprise.youtube!);
+                  final Uri url = Uri.parse(widget.entreprise.youtube!);
 
                   launchUrl(
                     url,
@@ -384,15 +356,13 @@ class _ContactInfoState extends State<ContactInfo> {
           children: <Widget>[
             Expanded(
               flex: 1,
-              child:
-                  maps ? const Text("Google Maps :") : const SizedBox.shrink(),
+              child: maps ? const Text("Google Maps :") : const SizedBox.shrink(),
             ),
             Expanded(
               flex: 2,
               child: InkWell(
                 onTap: () {
-                  final Uri url = Uri.parse(
-                      widget.entreprise.maps!);
+                  final Uri url = Uri.parse(widget.entreprise.maps!);
 
                   launchUrl(
                     url,
@@ -408,8 +378,7 @@ class _ContactInfoState extends State<ContactInfo> {
               flex: 0,
               child: InkWell(
                 onTap: () {
-                  final Uri url = Uri.parse(
-                      widget.entreprise.maps!);
+                  final Uri url = Uri.parse(widget.entreprise.maps!);
 
                   launchUrl(
                     url,

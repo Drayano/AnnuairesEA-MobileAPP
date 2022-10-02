@@ -9,7 +9,7 @@ import 'package:aea_app/models/business.dart';
 import 'package:aea_app/widgets/entreprise/entreprise_card_view.dart';
 
 class EntrepriseListView extends StatefulWidget {
-  String search;
+  final String search;
 
   EntrepriseListView({
     Key? key,
@@ -45,8 +45,7 @@ class _EntrepriseListViewState extends State<EntrepriseListView> {
         }
       }
 
-      final Uri uri =
-          Uri.parse("$search000Route?page=$currentPage");
+      final Uri uri = Uri.parse("$search000Route?page=$currentPage");
       final response = await http.post(
         uri,
         headers: <String, String>{'Content-Type': 'application/json; charset=UTF-8'},
@@ -77,44 +76,45 @@ class _EntrepriseListViewState extends State<EntrepriseListView> {
 
     return Scaffold(
       body: Stack(
-        children : [Container(
-                  margin: const EdgeInsets.only(top: 75),
-                  child: SmartRefresher(
-                    controller: refreshController,
-                    enablePullUp: true,
-                    onRefresh: () async {
-                      final result = await getSearchedEntreprises(isRefreshed: true);
-                      if (result) {
-                        refreshController.refreshCompleted();
-                      } else {
-                        refreshController.refreshCompleted();
-                      }
-                    },
-                    onLoading: () async {
-                      final result = await getSearchedEntreprises();
-                      if (result) {
-                        refreshController.loadComplete();
-                      } else {
-                        refreshController.loadFailed();
-                      }
-                    },
-                    child: ListView.builder(
-                      itemCount: businesses.length,
-                      scrollDirection: Axis.vertical,
-                      itemBuilder: (context, index) {
-                        final entreprise = businesses[index];
-                        return EntrepriseCardView(
-                          id: index,
-                          businessName: entreprise.businessName,
-                          streetAddress: entreprise.streetAddress,
-                          banner: "$bannerRoute${entreprise.banner}",
-                          entreprise: entreprise,
-                        );
-                      },
-                    ),
-                  ),
-                )
-        ]
+        children: [
+          Container(
+            margin: const EdgeInsets.only(top: 75),
+            child: SmartRefresher(
+              controller: refreshController,
+              enablePullUp: true,
+              onRefresh: () async {
+                final result = await getSearchedEntreprises(isRefreshed: true);
+                if (result) {
+                  refreshController.refreshCompleted();
+                } else {
+                  refreshController.refreshCompleted();
+                }
+              },
+              onLoading: () async {
+                final result = await getSearchedEntreprises();
+                if (result) {
+                  refreshController.loadComplete();
+                } else {
+                  refreshController.loadFailed();
+                }
+              },
+              child: ListView.builder(
+                itemCount: businesses.length,
+                scrollDirection: Axis.vertical,
+                itemBuilder: (context, index) {
+                  final entreprise = businesses[index];
+                  return EntrepriseCardView(
+                    id: index,
+                    businessName: entreprise.businessName,
+                    streetAddress: entreprise.streetAddress,
+                    banner: "$bannerRoute${entreprise.banner}",
+                    entreprise: entreprise,
+                  );
+                },
+              ),
+            ),
+          )
+        ],
       ),
     );
   }

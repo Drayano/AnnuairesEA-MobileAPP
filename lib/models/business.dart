@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:aea_app/models/entreprise.dart';
 
 EntrepriseModel entrepriseModelFromJson(String str) =>
-EntrepriseModel.fromJson(json.decode(str));
+    EntrepriseModel.fromJson(json.decode(str));
 
 BusinessModel businessModelFromJson(String str) => BusinessModel.fromJson(json.decode(str));
 

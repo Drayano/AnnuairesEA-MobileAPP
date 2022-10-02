@@ -18,8 +18,7 @@ class EntrepriseListView extends StatefulWidget {
 class _EntrepriseListViewState extends State<EntrepriseListView> {
   @override
   Widget build(BuildContext context) {
-    final EntrepriseProvider entrepriseModel =
-        Provider.of<EntrepriseProvider>(context);
+    final EntrepriseProvider entrepriseModel = Provider.of<EntrepriseProvider>(context);
 
     return Scaffold(
       body: Stack(
@@ -40,24 +39,21 @@ class _EntrepriseListViewState extends State<EntrepriseListView> {
             ],
           ),
           Container(
-                  margin: const EdgeInsets.only(top: 75),
-                  child: ListView.builder(
-                    itemCount: entrepriseModel.entrepriseList.length,
-                    scrollDirection: Axis.vertical,
-                    itemBuilder: (context, index) {
-                      return EntrepriseCardView(
-                        id: index,
-                        businessName:
-                            entrepriseModel.entrepriseList[index].businessName,
-                        streetAddress:
-                            entrepriseModel.entrepriseList[index].streetAddress,
-                        banner:
-                            "$bannerRoute${entrepriseModel.entrepriseList[index].banner}",
-                        entreprise: entrepriseModel.entrepriseList[index],
-                      );
-                    },
-                  ),
-                )
+            margin: const EdgeInsets.only(top: 75),
+            child: ListView.builder(
+              itemCount: entrepriseModel.entrepriseList.length,
+              scrollDirection: Axis.vertical,
+              itemBuilder: (context, index) {
+                return EntrepriseCardView(
+                  id: index,
+                  businessName: entrepriseModel.entrepriseList[index].businessName,
+                  streetAddress: entrepriseModel.entrepriseList[index].streetAddress,
+                  banner: "$bannerRoute${entrepriseModel.entrepriseList[index].banner}",
+                  entreprise: entrepriseModel.entrepriseList[index],
+                );
+              },
+            ),
+          )
         ],
       ),
     );

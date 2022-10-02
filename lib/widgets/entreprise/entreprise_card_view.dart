@@ -1,7 +1,7 @@
-import 'package:aea_app/models/entreprise.dart';
 import 'package:flutter/material.dart';
 
 import 'package:aea_app/global/styles.dart';
+import 'package:aea_app/models/entreprise.dart';
 import 'package:aea_app/screens/entreprises/single_entreprise_detail.dart';
 
 class EntrepriseCardView extends StatelessWidget {
@@ -23,7 +23,6 @@ class EntrepriseCardView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double h = MediaQuery.of(context).size.height;
-    double w = MediaQuery.of(context).size.width;
 
     return Card(
       margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20),

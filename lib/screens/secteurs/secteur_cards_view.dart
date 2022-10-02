@@ -64,9 +64,7 @@ Widget secteurCard(
           ),
         ),
       );
-    }
-
-    else {
+    } else {
       Navigator.push(
         context,
         MaterialPageRoute(

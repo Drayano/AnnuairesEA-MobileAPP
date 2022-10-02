@@ -1,12 +1,10 @@
 import 'package:aea_app/models/entreprise.dart';
 import 'package:flutter/material.dart';
 
-import 'package:provider/provider.dart';
 import 'package:readmore/readmore.dart';
 
 import 'package:aea_app/global/routes.dart';
 import 'package:aea_app/global/styles.dart';
-import 'package:aea_app/providers/entreprise_provider.dart';
 import 'package:aea_app/screens/views/entreprise_picture_slider.dart';
 import 'package:aea_app/screens/entreprises/entreprise_contact_detail.dart';
 import 'package:aea_app/screens/views/entreprise_youtube_player.dart';
@@ -31,65 +29,24 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
     final double width = MediaQuery.of(context).size.width;
     final double height = MediaQuery.of(context).size.height;
 
-    // final EntrepriseProvider entrepriseModel =
-    //     Provider.of<EntrepriseProvider>(context);
-     final int entrepriseId = widget.id;
-
-    // final bool businessNameSize =
-    //     entrepriseModel.entrepriseList[entrepriseId].businessName.length < 18;
-
-    // final bool logo =
-    //     (entrepriseModel.entrepriseList[entrepriseId].logo != null) &&
-    //         (entrepriseModel.entrepriseList[entrepriseId].logo != "");
-    // const bool isVIP =
-    //     true; //entrepriseModel.entrepriseList[entrepriseId].customerType;
-
-    // final bool videoEntreprise = (entrepriseModel
-    //             .entrepriseList[entrepriseId].videoEntreprise !=
-    //         null) &&
-    //     (entrepriseModel.entrepriseList[entrepriseId].videoEntreprise != "");
-
-    // final bool companyPresentation =
-    //     (entrepriseModel.entrepriseList[entrepriseId].companyPresentation !=
-    //             null) &&
-    //         (entrepriseModel.entrepriseList[entrepriseId].companyPresentation !=
-    //             "");
-
-    // final bool servicePhoto1 =
-    //     (entrepriseModel.entrepriseList[entrepriseId].servicePhoto1 != null) &&
-    //         (entrepriseModel.entrepriseList[entrepriseId].servicePhoto1 !=
-    //             servicePhotoRoute) &&
-    //         (entrepriseModel.entrepriseList[entrepriseId].servicePhoto1 != "");
-
-    // final bool state =
-    //     entrepriseModel.entrepriseList[entrepriseId].state != null;
+    final int entrepriseId = widget.id;
 
     final bool businessNameSize = widget.entreprise.businessName.length < 18;
 
-    final bool logo =
-        (widget.entreprise.logo != null) &&
-            (widget.entreprise.logo != "");
-    const bool isVIP =
-        true; //entrepriseModel.entrepriseList[entrepriseId].customerType;
+    final bool logo = (widget.entreprise.logo != null) && (widget.entreprise.logo != "");
+    const bool isVIP = true; //entrepriseModel.entrepriseList[entrepriseId].customerType;
 
-    final bool videoEntreprise = (widget.entreprise.videoEntreprise !=
-            null) &&
+    final bool videoEntreprise = (widget.entreprise.videoEntreprise != null) &&
         (widget.entreprise.videoEntreprise != "");
 
-    final bool companyPresentation =
-        (widget.entreprise.companyPresentation !=
-                null) &&
-            (widget.entreprise.companyPresentation !=
-                "");
+    final bool companyPresentation = (widget.entreprise.companyPresentation != null) &&
+        (widget.entreprise.companyPresentation != "");
 
-    final bool servicePhoto1 =
-        (widget.entreprise.servicePhoto1 != null) &&
-            (widget.entreprise.servicePhoto1 !=
-                servicePhotoRoute) &&
-            (widget.entreprise.servicePhoto1 != "");
+    final bool servicePhoto1 = (widget.entreprise.servicePhoto1 != null) &&
+        (widget.entreprise.servicePhoto1 != servicePhotoRoute) &&
+        (widget.entreprise.servicePhoto1 != "");
 
-    final bool state =
-        widget.entreprise.state != null;
+    final bool state = widget.entreprise.state != null;
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -120,8 +77,7 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
                           ? Expanded(
                               flex: 1,
                               child: Container(
-                                margin:
-                                    const EdgeInsets.only(right: 0, bottom: 10),
+                                margin: const EdgeInsets.only(right: 0, bottom: 10),
                                 child: Image(
                                   image: NetworkImage(
                                     "$logoRoute${widget.entreprise.logo}",
@@ -143,9 +99,7 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
                               ),
                             ),
                             Text(
-                              state
-                                  ? widget.entreprise.state!
-                                  : "",
+                              state ? widget.entreprise.state! : "",
                               style: const TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.bold,
@@ -183,9 +137,7 @@ class _SingleEntrepriseDetailState extends State<SingleEntrepriseDetail> {
                     ),
                   ),
                   ReadMoreText(
-                    companyPresentation
-                        ? widget.entreprise.companyPresentation!
-                        : "",
+                    companyPresentation ? widget.entreprise.companyPresentation! : "",
                     trimLines: 3,
                     trimMode: TrimMode.Line,
                     trimCollapsedText: '\nVoir plus',
